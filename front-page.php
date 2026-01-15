@@ -30,6 +30,8 @@ get_header();
 
 		// Testimonials Section
 		get_template_part('template-parts/Testimonials');
+		
+		get_template_part('template-parts/VisionMissionStack');
 
 		// News & Articles Section
 		get_template_part('template-parts/NewsArticles');

@@ -78,6 +78,43 @@ get_header();
 		);
 		include locate_template('template-parts/VenueAtAGlance.php'); ?>
 		<?php
+		// Timeline Slider Section
+		$timeline_headline = 'Rooted in Saudi Identity';
+		$timeline_description = 'Inspired by the Kingdom\'s heritage and values, AD-DARAH was envisioned as more than just a venue—it is a cultural landmark. Every detail, from the architectural design to the hospitality experience, reflects the richness of Saudi tradition while offering the sophistication of modern luxury.';
+		$timeline_slides = array(
+			array(
+				'year' => '2024',
+				'image' => get_template_directory_uri() . '/assets/images/root_1.jpg',
+				'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			),
+			array(
+				'year' => '2023',
+				'image' => get_template_directory_uri() . '/assets/images/root_2.jpg',
+				'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			),
+			array(
+				'year' => '2022',
+				'image' => get_template_directory_uri() . '/assets/images/root_3.jpg',
+				'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			),
+			array(
+				'year' => '2021',
+				'image' => get_template_directory_uri() . '/assets/images/root_1.jpg',
+				'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			),
+			array(
+				'year' => '2020',
+				'image' => get_template_directory_uri() . '/assets/images/root_2.jpg',
+				'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+			),
+
+		);
+		include locate_template('template-parts/TimelineSlider.php'); ?>
+		<?php
+		// Vision Mission Stack Section
+		get_template_part('template-parts/VisionMissionStack');
+		?>
+		<?php
 		// Contact Us Section
 		get_template_part('template-parts/ContactUs');
 		?>
