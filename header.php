@@ -162,34 +162,37 @@
 			<!-- Left Panel -->
 			<div class="fullscreen-nav-left">
 				<div class="fullscreen-nav-decor">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/open_nav_decor_left.svg'); ?>" alt="Decoration">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/open_nav_decor_left.png'); ?>" alt="Decoration">
 				</div>
 				<div class="fullscreen-nav-left-content">
-					<!-- Logo -->
-					<div class="fullscreen-nav-logo">
-						<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
-					</div>
-					<!-- Contact Grid -->
-					<div class="fullscreen-nav-grid">
-						<div class="fullscreen-nav-grid-item">
-							<h4 class="fullscreen-nav-grid-heading">EMAIL</h4>
-							<p class="fullscreen-nav-grid-sub">info@ad-darah.com</p>
+					<!-- Logo and Grid Container -->
+					<div class="fullscreen-nav-main-content" id="fullscreenNavMainContent">
+						<!-- Logo -->
+						<div class="fullscreen-nav-logo">
+							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
 						</div>
-						<div class="fullscreen-nav-grid-item">
-							<h4 class="fullscreen-nav-grid-heading">PHONE</h4>
-							<p class="fullscreen-nav-grid-sub">+966 11 457 5757</p>
-						</div>
-						<div class="fullscreen-nav-grid-item">
-							<h4 class="fullscreen-nav-grid-heading">SOCIAL</h4>
-							<p class="fullscreen-nav-grid-sub">P.O. Box 4146, Riyadh 12348, Saudi Arabia</p>
-						</div>
-						<div class="fullscreen-nav-grid-item">
-							<h4 class="fullscreen-nav-grid-heading">LEGAL</h4>
-							<div class="fullscreen-nav-grid-social">
-								<a href="#" class="fullscreen-nav-grid-sub">Instagram</a>
-								<a href="#" class="fullscreen-nav-grid-sub">Twitter</a>
-								<a href="#" class="fullscreen-nav-grid-sub">LinkedIn</a>
-								<a href="#" class="fullscreen-nav-grid-sub">Facebook</a>
+						<!-- Contact Grid -->
+						<div class="fullscreen-nav-grid">
+							<div class="fullscreen-nav-grid-item">
+								<h4 class="fullscreen-nav-grid-heading">EMAIL</h4>
+								<p class="fullscreen-nav-grid-sub">info@ad-darah.com</p>
+							</div>
+							<div class="fullscreen-nav-grid-item">
+								<h4 class="fullscreen-nav-grid-heading">PHONE</h4>
+								<p class="fullscreen-nav-grid-sub">+966 11 457 5757</p>
+							</div>
+							<div class="fullscreen-nav-grid-item">
+								<h4 class="fullscreen-nav-grid-heading">SOCIAL</h4>
+								<p class="fullscreen-nav-grid-sub">P.O. Box 4146, Riyadh 12348, Saudi Arabia</p>
+							</div>
+							<div class="fullscreen-nav-grid-item">
+								<h4 class="fullscreen-nav-grid-heading">LEGAL</h4>
+								<div class="fullscreen-nav-grid-social">
+									<a href="#" class="fullscreen-nav-grid-sub">Instagram</a>
+									<a href="#" class="fullscreen-nav-grid-sub">Twitter</a>
+									<a href="#" class="fullscreen-nav-grid-sub">LinkedIn</a>
+									<a href="#" class="fullscreen-nav-grid-sub">Facebook</a>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -176,6 +176,7 @@
 		const resetFullscreenSubmenu = function() {
 			const submenuContent = document.getElementById('fullscreenNavSubmenuContent');
 			const activeItem = document.querySelector('.fullscreen-nav-item-active');
+			const leftContent = document.querySelector('.fullscreen-nav-left-content');
 			
 			if (submenuContent) {
 				submenuContent.classList.remove('fullscreen-nav-submenu-active');
@@ -183,6 +184,11 @@
 			
 			if (activeItem) {
 				activeItem.classList.remove('fullscreen-nav-item-active');
+			}
+
+			// Show main content (logo + grid)
+			if (leftContent) {
+				leftContent.classList.remove('has-submenu-active');
 			}
 		};
 
@@ -242,6 +248,7 @@
 			const submenuHeading = document.getElementById('fullscreenNavSubmenuHeading');
 			const submenuList = document.getElementById('fullscreenNavSubmenuList');
 			const closeBtn = document.getElementById('fullscreenNavClose');
+			const leftContent = document.querySelector('.fullscreen-nav-left-content');
 			
 			if (!submenuItems.length || !submenuContent || !submenuHeading || !submenuList) {
 				return;
@@ -277,6 +284,10 @@
 						if (isActive) {
 							item.classList.remove('fullscreen-nav-item-active');
 							submenuContent.classList.remove('fullscreen-nav-submenu-active');
+							// Show main content (logo + grid)
+							if (leftContent) {
+								leftContent.classList.remove('has-submenu-active');
+							}
 						} else {
 							item.classList.add('fullscreen-nav-item-active');
 							
@@ -325,8 +336,11 @@
 									}
 								});
 								
-								// Show submenu content
+								// Show submenu content and hide main content
 								submenuContent.classList.add('fullscreen-nav-submenu-active');
+								if (leftContent) {
+									leftContent.classList.add('has-submenu-active');
+								}
 							}
 						}
 					});

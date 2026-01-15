@@ -814,7 +814,7 @@ body.overflow_body_hidden {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			opacity: 0.1;
+			opacity: 1;
 			z-index: 1;
 
 			img {
@@ -833,6 +833,25 @@ body.overflow_body_hidden {
 			flex-direction: column;
 			align-items: center;
 			gap: 60px;
+
+			// Main Content (Logo + Grid) - shown by default
+			.fullscreen-nav-main-content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 60px;
+				width: 100%;
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.3s ease, visibility 0.3s ease;
+			}
+
+			// Hide main content when submenu is active
+			&.has-submenu-active {
+				.fullscreen-nav-main-content {
+					display: none;
+				}
+			}
 
 			.fullscreen-nav-logo {
 				img {
@@ -953,6 +972,9 @@ body.overflow_body_hidden {
 		position: relative;
 		padding: 60px 80px;
 		overflow-y: auto;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 
 		.fullscreen-nav-close {
 			position: absolute;
@@ -1018,7 +1040,7 @@ body.overflow_body_hidden {
 					&.fullscreen-nav-item-active {
 						.fullscreen-nav-link {
 							.fullscreen-nav-arrow {
-								transform: rotate(-90deg);
+								transform: rotate(90deg);
 							}
 						}
 					}
