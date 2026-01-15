@@ -3362,7 +3362,6 @@ body.overflow_body_hidden {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-decor {
   position: absolute;
@@ -3383,7 +3382,6 @@ body.overflow_body_hidden {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3393,8 +3391,9 @@ body.overflow_body_hidden {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 120px;
   width: 100%;
+  max-width: 500px;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -3403,8 +3402,8 @@ body.overflow_body_hidden {
   display: none;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-logo img {
-  max-width: 300px;
-  height: auto;
+  width: auto;
+  height: 115px;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid {
   display: grid;
@@ -3428,31 +3427,29 @@ body.overflow_body_hidden {
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 110%;
   letter-spacing: 0%;
   color: #ffffff;
   margin: 0;
-  opacity: 0.9;
+  opacity: 1;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social {
   display: flex;
-  flex-direction: column;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social a {
+  width: 48%;
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
-  line-height: 100%;
+  line-height: 110%;
   letter-spacing: 0%;
   color: #ffffff;
   text-decoration: none;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social a:hover {
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content {
   display: none;
@@ -3495,7 +3492,15 @@ body.overflow_body_hidden {
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-categories {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-heading {
   font-family: "Neue Regrade", sans-serif;
@@ -3505,7 +3510,7 @@ body.overflow_body_hidden {
   line-height: 100%;
   letter-spacing: 0%;
   color: #ffffff;
-  margin: 0 0 15px 0;
+  margin: 0 0 25px 0;
   font-weight: 500;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list {
@@ -3514,7 +3519,7 @@ body.overflow_body_hidden {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 25px;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list li a {
   font-family: "Neue Regrade", sans-serif;
@@ -3523,7 +3528,7 @@ body.overflow_body_hidden {
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
-  color: #ffffff;
+  color: #C5B17F;
   text-decoration: none;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -3532,11 +3537,14 @@ body.overflow_body_hidden {
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list li a:hover {
   opacity: 1;
 }
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-heading,
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list {
+  margin-left: 20%;
+}
 .fullscreen-nav-menu .fullscreen-nav-right {
   width: 50%;
-  background-color: #F5E6D3;
+  background-color: #E5C7A5;
   position: relative;
-  padding: 60px 80px;
   overflow-y: auto;
   display: flex;
   align-items: center;
@@ -3561,15 +3569,23 @@ body.overflow_body_hidden {
   height: 24px;
   display: block;
 }
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items {
+  width: 100%;
+}
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  width: 100%;
   flex-direction: column;
-  gap: 20px;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item {
+  width: 100%;
+  border-bottom: 1px solid #C5B17F;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link {
+  padding: 30px 10px 30px 90px;
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -3582,7 +3598,8 @@ body.overflow_body_hidden {
   align-items: center;
   justify-content: space-between;
   transition: opacity 0.3s ease;
-  padding: 10px 0;
+  width: -moz-max-content;
+  width: max-content;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link:hover {
   opacity: 0.8;
@@ -3591,7 +3608,7 @@ body.overflow_body_hidden {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: 30px;
   transition: transform 0.3s ease;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link .fullscreen-nav-arrow img {

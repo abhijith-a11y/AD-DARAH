@@ -806,7 +806,6 @@ body.overflow_body_hidden {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 60px 40px;
 
 		.fullscreen-nav-decor {
 			position: absolute;
@@ -828,7 +827,6 @@ body.overflow_body_hidden {
 			position: relative;
 			z-index: 2;
 			width: 100%;
-			max-width: 500px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -839,8 +837,9 @@ body.overflow_body_hidden {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 60px;
+				gap: 120px;
 				width: 100%;
+				max-width: 500px;
 				opacity: 1;
 				visibility: visible;
 				transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -855,8 +854,8 @@ body.overflow_body_hidden {
 
 			.fullscreen-nav-logo {
 				img {
-					max-width: 300px;
-					height: auto;
+					width: auto;
+					height: 115px;
 				}
 			}
 
@@ -877,24 +876,21 @@ body.overflow_body_hidden {
 						@include fullscreen-nav-grid-sub;
 						color: #ffffff;
 						margin: 0;
-						opacity: 0.9;
+						opacity: 1;
 					}
 
 					.fullscreen-nav-grid-social {
 						display: flex;
-						flex-direction: column;
 						gap: 8px;
+						flex-wrap: wrap;
 
 						a {
+							width: 48%;
 							@include fullscreen-nav-grid-sub;
 							color: #ffffff;
 							text-decoration: none;
-							opacity: 0.9;
+							opacity: 1;
 							transition: opacity 0.3s ease;
-
-							&:hover {
-								opacity: 1;
-							}
 						}
 					}
 				}
@@ -943,14 +939,22 @@ body.overflow_body_hidden {
 				.fullscreen-nav-submenu-categories {
 					display: flex;
 					flex-direction: column;
-					gap: 30px;
 				}
 
 				.fullscreen-nav-submenu-category {
+					padding-top: 30px;
+					padding-bottom: 30px;
+					border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+					&:last-child {
+						padding-bottom: 0;
+						border-bottom: none;
+					}
+
 					.fullscreen-nav-submenu-category-heading {
 						@include fullscreen-nav-submenu-heading;
 						color: #ffffff;
-						margin: 0 0 15px 0;
+						margin: 0 0 25px 0;
 						font-weight: 500;
 					}
 
@@ -960,12 +964,12 @@ body.overflow_body_hidden {
 						padding: 0;
 						display: flex;
 						flex-direction: column;
-						gap: 12px;
+						gap: 25px;
 
 						li {
 							a {
 								@include fullscreen-nav-submenu-item;
-								color: #ffffff;
+								color: #C5B17F;
 								text-decoration: none;
 								opacity: 0.9;
 								transition: opacity 0.3s ease;
@@ -977,6 +981,11 @@ body.overflow_body_hidden {
 							}
 						}
 					}
+
+					.fullscreen-nav-submenu-category-heading,
+					.fullscreen-nav-submenu-category-list {
+						margin-left: 20%;
+					}
 				}
 			}
 		}
@@ -985,9 +994,8 @@ body.overflow_body_hidden {
 	// Right Panel
 	.fullscreen-nav-right {
 		width: 50%;
-		background-color: #F5E6D3;
+		background-color: #E5C7A5;
 		position: relative;
-		padding: 60px 80px;
 		overflow-y: auto;
 		display: flex;
 		align-items: center;
@@ -1016,16 +1024,22 @@ body.overflow_body_hidden {
 		}
 
 		.fullscreen-nav-menu-items {
+			width: 100%;
+
 			.fullscreen-nav-list {
 				list-style: none;
 				margin: 0;
 				padding: 0;
 				display: flex;
+				width: 100%;
 				flex-direction: column;
-				gap: 20px;
 
 				.fullscreen-nav-item {
+					width: 100%;
+					border-bottom: 1px solid #C5B17F;
+
 					.fullscreen-nav-link {
+						padding: 30px 10px 30px 90px;
 						@include fullscreen-nav-menu-item;
 						color: #B64910;
 						text-decoration: none;
@@ -1033,7 +1047,7 @@ body.overflow_body_hidden {
 						align-items: center;
 						justify-content: space-between;
 						transition: opacity 0.3s ease;
-						padding: 10px 0;
+						width: max-content;
 
 						&:hover {
 							opacity: 0.8;
@@ -1043,7 +1057,7 @@ body.overflow_body_hidden {
 							display: inline-flex;
 							align-items: center;
 							justify-content: center;
-							margin-left: 20px;
+							margin-left: 30px;
 							transition: transform 0.3s ease;
 
 							img {
