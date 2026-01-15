@@ -198,11 +198,39 @@
 					</div>
 					<!-- Submenu Content (shown when submenu is active) -->
 					<div class="fullscreen-nav-submenu-content" id="fullscreenNavSubmenuContent">
-						<h3 class="fullscreen-nav-submenu-heading" id="fullscreenNavSubmenuHeading"></h3>
-						<div class="fullscreen-nav-submenu-arrow">
-							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/opennav_arrow.svg'); ?>" alt="Arrow">
+						<!-- Submenu contents will be displayed here via CSS classes -->
+						<?php
+						// Loop through all submenu data and render them (hidden by default)
+						// This will be populated from backend/JSON later
+						?>
+						<div class="fullscreen-nav-submenu-wrapper" data-submenu-id="services">
+							<div class="fullscreen-nav-submenu-categories">
+								<div class="fullscreen-nav-submenu-category">
+									<h4 class="fullscreen-nav-submenu-category-heading">Corporate Services</h4>
+									<ul class="fullscreen-nav-submenu-category-list">
+										<li><a href="#">Conferences & Exhibitions</a></li>
+										<li><a href="#">Meeting Rooms & Workshops</a></li>
+										<li><a href="#">Government Events (B2G)</a></li>
+										<li><a href="#">VIP Majlis</a></li>
+									</ul>
+								</div>
+								<div class="fullscreen-nav-submenu-category">
+									<h4 class="fullscreen-nav-submenu-category-heading">Weddings & Social Services</h4>
+									<ul class="fullscreen-nav-submenu-category-list">
+										<li><a href="#">Female Packages</a></li>
+										<li><a href="#">Male Packages</a></li>
+									</ul>
+								</div>
+								<div class="fullscreen-nav-submenu-category">
+									<h4 class="fullscreen-nav-submenu-category-heading">Catering Services</h4>
+									<ul class="fullscreen-nav-submenu-category-list">
+										<li><a href="#">On-site Catering</a></li>
+										<li><a href="#">Off-site Catering</a></li>
+										<li><a href="#">Seasonal & Ramadan Packages</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
-						<ul class="fullscreen-nav-submenu-list" id="fullscreenNavSubmenuList"></ul>
 					</div>
 				</div>
 			</div>

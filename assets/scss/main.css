@@ -3462,6 +3462,12 @@ body.overflow_body_hidden {
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content.fullscreen-nav-submenu-active {
   display: block;
 }
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-wrapper {
+  display: none;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-wrapper.fullscreen-nav-submenu-wrapper-active {
+  display: block;
+}
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
@@ -3486,15 +3492,12 @@ body.overflow_body_hidden {
   background-position: center;
   transform: rotate(-90deg);
 }
-.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-categories {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
-.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li.fullscreen-nav-submenu-category-title {
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -3502,10 +3505,18 @@ body.overflow_body_hidden {
   line-height: 100%;
   letter-spacing: 0%;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin: 0 0 15px 0;
   font-weight: 500;
 }
-.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li a {
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list li a {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -3518,7 +3529,7 @@ body.overflow_body_hidden {
   transition: opacity 0.3s ease;
   display: block;
 }
-.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li a:hover {
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-category .fullscreen-nav-submenu-category-list li a:hover {
   opacity: 1;
 }
 .fullscreen-nav-menu .fullscreen-nav-right {
