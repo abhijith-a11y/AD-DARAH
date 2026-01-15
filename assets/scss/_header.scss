@@ -777,3 +777,343 @@ body.overflow_body_hidden {
 		}
 	}
 }
+
+// Full Screen Navigation Menu
+.fullscreen-nav-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 9999;
+	display: flex;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	overflow: hidden;
+
+	&.fullscreen-nav-open {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	// Left Panel
+	.fullscreen-nav-left {
+		width: 50%;
+		background-color: #B64910;
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 60px 40px;
+
+		.fullscreen-nav-decor {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0.1;
+			z-index: 1;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.fullscreen-nav-left-content {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			max-width: 500px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 60px;
+
+			.fullscreen-nav-logo {
+				img {
+					max-width: 300px;
+					height: auto;
+				}
+			}
+
+			.fullscreen-nav-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 40px 30px;
+				width: 100%;
+
+				.fullscreen-nav-grid-item {
+					.fullscreen-nav-grid-heading {
+						@include fullscreen-nav-grid-heading;
+						color: #ffffff;
+						margin: 0 0 12px 0;
+					}
+
+					.fullscreen-nav-grid-sub {
+						@include fullscreen-nav-grid-sub;
+						color: #ffffff;
+						margin: 0;
+						opacity: 0.9;
+					}
+
+					.fullscreen-nav-grid-social {
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+
+						a {
+							@include fullscreen-nav-grid-sub;
+							color: #ffffff;
+							text-decoration: none;
+							opacity: 0.9;
+							transition: opacity 0.3s ease;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+
+			// Submenu Content (hidden by default)
+			.fullscreen-nav-submenu-content {
+				display: none;
+				width: 100%;
+				text-align: left;
+
+				&.fullscreen-nav-submenu-active {
+					display: block;
+				}
+
+				.fullscreen-nav-submenu-heading {
+					@include fullscreen-nav-submenu-heading;
+					color: #ffffff;
+					margin: 0 0 20px 0;
+					display: flex;
+					align-items: center;
+					gap: 15px;
+
+					&::after {
+						content: '';
+						display: inline-block;
+						width: 25px;
+						height: 14px;
+						background-image: url('../images/icons/opennav_arrow.svg');
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position: center;
+						transform: rotate(-90deg);
+					}
+				}
+
+				.fullscreen-nav-submenu-list {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+
+					li {
+						&.fullscreen-nav-submenu-category-title {
+							@include fullscreen-nav-submenu-heading;
+							color: #ffffff;
+							margin-bottom: 10px;
+							font-weight: 500;
+						}
+
+						a {
+							@include fullscreen-nav-submenu-item;
+							color: #ffffff;
+							text-decoration: none;
+							opacity: 0.9;
+							transition: opacity 0.3s ease;
+							display: block;
+
+							&:hover {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Right Panel
+	.fullscreen-nav-right {
+		width: 50%;
+		background-color: #F5E6D3;
+		position: relative;
+		padding: 60px 80px;
+		overflow-y: auto;
+
+		.fullscreen-nav-close {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			z-index: 10;
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.1);
+			}
+
+			img {
+				width: 49px;
+				height: 24px;
+				display: block;
+			}
+		}
+
+		.fullscreen-nav-menu-items {
+			.fullscreen-nav-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				.fullscreen-nav-item {
+					.fullscreen-nav-link {
+						@include fullscreen-nav-menu-item;
+						color: #B64910;
+						text-decoration: none;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						transition: opacity 0.3s ease;
+						padding: 10px 0;
+
+						&:hover {
+							opacity: 0.8;
+						}
+
+						.fullscreen-nav-arrow {
+							display: inline-flex;
+							align-items: center;
+							justify-content: center;
+							margin-left: 20px;
+							transition: transform 0.3s ease;
+
+							img {
+								width: 25px;
+								height: 14px;
+								display: block;
+							}
+						}
+					}
+
+					&.fullscreen-nav-item-active {
+						.fullscreen-nav-link {
+							.fullscreen-nav-arrow {
+								transform: rotate(-90deg);
+							}
+						}
+					}
+
+					.fullscreen-nav-submenu-data {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	// Responsive
+	@media #{$media-1024} {
+		flex-direction: column;
+
+		.fullscreen-nav-left,
+		.fullscreen-nav-right {
+			width: 100%;
+			height: 50vh;
+		}
+
+		.fullscreen-nav-left {
+			.fullscreen-nav-left-content {
+				gap: 40px;
+
+				.fullscreen-nav-logo {
+					img {
+						max-width: 200px;
+					}
+				}
+
+				.fullscreen-nav-grid {
+					gap: 30px 20px;
+				}
+			}
+		}
+
+		.fullscreen-nav-right {
+			padding: 40px 40px;
+
+			.fullscreen-nav-close {
+				top: 20px;
+				right: 20px;
+			}
+
+			.fullscreen-nav-menu-items {
+				.fullscreen-nav-list {
+					.fullscreen-nav-item {
+						.fullscreen-nav-link {
+							font-size: 36px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media #{$media-768} {
+		.fullscreen-nav-left {
+			padding: 40px 20px;
+
+			.fullscreen-nav-left-content {
+				gap: 30px;
+
+				.fullscreen-nav-logo {
+					img {
+						max-width: 150px;
+					}
+				}
+
+				.fullscreen-nav-grid {
+					grid-template-columns: 1fr;
+					gap: 25px;
+				}
+			}
+		}
+
+		.fullscreen-nav-right {
+			padding: 30px 20px;
+
+			.fullscreen-nav-menu-items {
+				.fullscreen-nav-list {
+					.fullscreen-nav-item {
+						.fullscreen-nav-link {
+							font-size: 28px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Body scroll lock when menu is open
+body.fullscreen-nav-open {
+	overflow: hidden;
+}

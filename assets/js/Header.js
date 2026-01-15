@@ -170,13 +170,180 @@
 			window.addEventListener('scroll', handleScroll, { passive: true });
 		}
 
+		/**
+		 * Reset Fullscreen Submenu
+		 */
+		const resetFullscreenSubmenu = function() {
+			const submenuContent = document.getElementById('fullscreenNavSubmenuContent');
+			const activeItem = document.querySelector('.fullscreen-nav-item-active');
+			
+			if (submenuContent) {
+				submenuContent.classList.remove('fullscreen-nav-submenu-active');
+			}
+			
+			if (activeItem) {
+				activeItem.classList.remove('fullscreen-nav-item-active');
+			}
+		};
+
+		/**
+		 * Close Fullscreen Navigation Menu
+		 */
+		const closeFullscreenMenu = function() {
+			const fullscreenNav = document.getElementById('fullscreenNavMenu');
+			if (fullscreenNav) {
+				fullscreenNav.classList.remove('fullscreen-nav-open');
+				document.body.classList.remove('fullscreen-nav-open');
+				// Reset submenu state
+				resetFullscreenSubmenu();
+			}
+		};
+
+		/**
+		 * Open Fullscreen Navigation Menu
+		 */
+		const openFullscreenMenu = function() {
+			const fullscreenNav = document.getElementById('fullscreenNavMenu');
+			if (fullscreenNav) {
+				fullscreenNav.classList.add('fullscreen-nav-open');
+				document.body.classList.add('fullscreen-nav-open');
+			}
+		};
+
+		/**
+		 * Toggle Fullscreen Navigation Menu
+		 */
+		const toggleFullscreenMenu = function(e) {
+			if (e) {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+			
+			const fullscreenNav = document.getElementById('fullscreenNavMenu');
+			if (!fullscreenNav) {
+				return;
+			}
+			
+			const isOpen = fullscreenNav.classList.contains('fullscreen-nav-open');
+			
+			if (isOpen) {
+				closeFullscreenMenu();
+			} else {
+				openFullscreenMenu();
+			}
+		};
+
+		/**
+		 * Initialize Fullscreen Navigation Submenu
+		 */
+		const initFullscreenSubmenu = function() {
+			const submenuItems = document.querySelectorAll('.fullscreen-nav-item-has-submenu');
+			const submenuContent = document.getElementById('fullscreenNavSubmenuContent');
+			const submenuHeading = document.getElementById('fullscreenNavSubmenuHeading');
+			const submenuList = document.getElementById('fullscreenNavSubmenuList');
+			const closeBtn = document.getElementById('fullscreenNavClose');
+			
+			if (!submenuItems.length || !submenuContent || !submenuHeading || !submenuList) {
+				return;
+			}
+
+			// Close button handler
+			if (closeBtn) {
+				closeBtn.addEventListener('click', function(e) {
+					e.preventDefault();
+					closeFullscreenMenu();
+				});
+			}
+
+			// Submenu item click handlers
+			submenuItems.forEach(item => {
+				const link = item.querySelector('.fullscreen-nav-link');
+				const submenuData = item.querySelector('.fullscreen-nav-submenu-data');
+				
+				if (link && submenuData) {
+					link.addEventListener('click', function(e) {
+						e.preventDefault();
+						
+						const isActive = item.classList.contains('fullscreen-nav-item-active');
+						
+						// Close all other submenus
+						submenuItems.forEach(otherItem => {
+							if (otherItem !== item) {
+								otherItem.classList.remove('fullscreen-nav-item-active');
+							}
+						});
+						
+						// Toggle current submenu
+						if (isActive) {
+							item.classList.remove('fullscreen-nav-item-active');
+							submenuContent.classList.remove('fullscreen-nav-submenu-active');
+						} else {
+							item.classList.add('fullscreen-nav-item-active');
+							
+							// Get submenu data
+							const heading = submenuData.querySelector('.fullscreen-nav-submenu-heading');
+							const categories = submenuData.querySelectorAll('.fullscreen-nav-submenu-category');
+							
+							if (heading && categories.length) {
+								// Set heading
+								submenuHeading.textContent = heading.textContent;
+								
+								// Clear and populate submenu list
+								submenuList.innerHTML = '';
+								
+								categories.forEach((category, index) => {
+									const categoryHeading = category.querySelector('.fullscreen-nav-submenu-category-heading');
+									const categoryItems = category.querySelectorAll('.fullscreen-nav-submenu-category-list li');
+									
+									if (categoryHeading) {
+										// Add category heading as a list item
+										const headingLi = document.createElement('li');
+										headingLi.className = 'fullscreen-nav-submenu-category-title';
+										headingLi.textContent = categoryHeading.textContent;
+										submenuList.appendChild(headingLi);
+									}
+									
+									// Add category items
+									categoryItems.forEach(categoryItem => {
+										const link = categoryItem.querySelector('a');
+										if (link) {
+											const li = document.createElement('li');
+											const a = document.createElement('a');
+											a.href = link.href;
+											a.textContent = link.textContent;
+											li.appendChild(a);
+											submenuList.appendChild(li);
+										}
+									});
+									
+									// Add spacing between categories (except last)
+									if (index < categories.length - 1) {
+										const spacer = document.createElement('li');
+										spacer.className = 'fullscreen-nav-submenu-spacer';
+										spacer.style.height = '30px';
+										submenuList.appendChild(spacer);
+									}
+								});
+								
+								// Show submenu content
+								submenuContent.classList.add('fullscreen-nav-submenu-active');
+							}
+						}
+					});
+				}
+			});
+		};
+
 		// Add menu toggle event listener
 		if (menuIcon) {
 			menuIcon.addEventListener('click', toggleMenu);
 		}
 		if (menuIconScroll) {
-			menuIconScroll.addEventListener('click', toggleMenu);
+			menuIconScroll.addEventListener('click', toggleFullscreenMenu);
 		}
+
+		// Initialize fullscreen submenu
+		initFullscreenSubmenu();
 
 		// Close menu when clicking outside or on menu items
 		document.addEventListener('click', function(event) {
@@ -197,8 +364,15 @@
 
 		// Close menu on escape key
 		document.addEventListener('keydown', function(event) {
-			if (event.key === 'Escape' && isMenuOpen) {
-				toggleMenu();
+			if (event.key === 'Escape') {
+				if (isMenuOpen) {
+					toggleMenu();
+				}
+				// Also close fullscreen menu if open
+				const fullscreenNav = document.getElementById('fullscreenNavMenu');
+				if (fullscreenNav && fullscreenNav.classList.contains('fullscreen-nav-open')) {
+					closeFullscreenMenu();
+				}
 			}
 		});
 

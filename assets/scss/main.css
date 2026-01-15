@@ -3337,6 +3337,302 @@ body.overflow_body_hidden {
   }
 }
 
+.fullscreen-nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
+}
+.fullscreen-nav-menu.fullscreen-nav-open {
+  opacity: 1;
+  visibility: visible;
+}
+.fullscreen-nav-menu .fullscreen-nav-left {
+  width: 50%;
+  background-color: #B64910;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: 1;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-decor img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-logo img {
+  max-width: 300px;
+  height: auto;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 30px;
+  width: 100%;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-heading {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-sub {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0.9;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social a {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social a:hover {
+  opacity: 1;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content {
+  display: none;
+  width: 100%;
+  text-align: left;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content.fullscreen-nav-submenu-active {
+  display: block;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-heading {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-heading::after {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 14px;
+  background-image: url("../images/icons/opennav_arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-90deg);
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li.fullscreen-nav-submenu-category-title {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li a {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  display: block;
+}
+.fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content .fullscreen-nav-submenu-list li a:hover {
+  opacity: 1;
+}
+.fullscreen-nav-menu .fullscreen-nav-right {
+  width: 50%;
+  background-color: #F5E6D3;
+  position: relative;
+  padding: 60px 80px;
+  overflow-y: auto;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-close:hover {
+  transform: scale(1.1);
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-close img {
+  width: 49px;
+  height: 24px;
+  display: block;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #B64910;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.3s ease;
+  padding: 10px 0;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link:hover {
+  opacity: 0.8;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link .fullscreen-nav-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link .fullscreen-nav-arrow img {
+  width: 25px;
+  height: 14px;
+  display: block;
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item.fullscreen-nav-item-active .fullscreen-nav-link .fullscreen-nav-arrow {
+  transform: rotate(-90deg);
+}
+.fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-submenu-data {
+  display: none;
+}
+@media only screen and (max-width: 1024px) {
+  .fullscreen-nav-menu {
+    flex-direction: column;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left,
+  .fullscreen-nav-menu .fullscreen-nav-right {
+    width: 100%;
+    height: 50vh;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content {
+    gap: 40px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-logo img {
+    max-width: 200px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid {
+    gap: 30px 20px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-right {
+    padding: 40px 40px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-close {
+    top: 20px;
+    right: 20px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .fullscreen-nav-menu .fullscreen-nav-left {
+    padding: 40px 20px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content {
+    gap: 30px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-logo img {
+    max-width: 150px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-right {
+    padding: 30px 20px;
+  }
+  .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link {
+    font-size: 28px;
+  }
+}
+
+body.fullscreen-nav-open {
+  overflow: hidden;
+}
+
 /**
  * Footer Component Styles
  * Converted from Footer.module.scss for WordPress

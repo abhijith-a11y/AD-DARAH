@@ -141,3 +141,54 @@
 	font-size: 18.06px;
 	line-height: 150%;
 }
+
+// Full Screen Nav Menu Grid Heading Typography
+@mixin fullscreen-nav-grid-heading {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	text-transform: uppercase;
+}
+
+// Full Screen Nav Menu Grid Sub-point Typography
+@mixin fullscreen-nav-grid-sub {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}
+
+// Full Screen Nav Menu Item Typography
+@mixin fullscreen-nav-menu-item {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 50px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}
+
+// Full Screen Nav Submenu Heading Typography
+@mixin fullscreen-nav-submenu-heading {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 36px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}
+
+// Full Screen Nav Submenu Item Typography
+@mixin fullscreen-nav-submenu-item {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}

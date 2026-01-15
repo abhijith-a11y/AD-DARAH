@@ -114,44 +114,6 @@
 			</div>
 		</div>
 
-		<!-- Mobile Menu Overlay -->
-		<div id="mobileMenuOverlay" class="mobile-menu-overlay">
-			<div class="mobile-menu-content">
-				<ul class="mobile-menu">
-					<li class="mobile_menu_item">
-						<a href="<?php echo esc_url(home_url('/about')); ?>">About Us</a>
-					</li>
-					<li class="mobile_menu_item mobile_menu_item_has_submenu">
-						<a href="#" class="mobile_menu_submenu_toggle" data-submenu="services">
-							Services
-							<span class="mobile-submenu-arrow">
-								<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-							</span>
-						</a>
-						<ul id="mobile-submenu-services" class="mobile_menu_submenu">
-							<li><a href="#">Conferences & Exhibitions</a></li>
-							<li><a href="#">Meeting Rooms & Workshops</a></li>
-							<li><a href="#">Government Events (B2G)</a></li>
-							<li><a href="#">VIP Majlis</a></li>
-							<li><a href="#">Female Packages</a></li>
-							<li><a href="#">Male Packages</a></li>
-							<li><a href="#">On-site Catering</a></li>
-							<li><a href="#">Off-site Catering</a></li>
-							<li><a href="#">Seasonal & Ramadan Packages</a></li>
-						</ul>
-					</li>
-					<li class="mobile_menu_item">
-						<a href="<?php echo esc_url(home_url('/media-center')); ?>">Media Center</a>
-					</li>
-					<li class="mobile_menu_item">
-						<a href="<?php echo esc_url(home_url('/contact')); ?>">Contact Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-
 		<!-- Scroll Header (appears after 700px scroll) -->
 		<div class="container header-container header-scroll-container" id="headerScrollContainer">
 			<!-- Logo -->
@@ -190,6 +152,114 @@
 				<span class="header-icon desktop-menu-toggle" id="menuIconScroll" aria-label="Menu">
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>" alt="Menu">
 			    </span>
+			</div>
+		</div>
+
+
+
+		<!-- Full Screen Navigation Menu -->
+		<div id="fullscreenNavMenu" class="fullscreen-nav-menu">
+			<!-- Left Panel -->
+			<div class="fullscreen-nav-left">
+				<div class="fullscreen-nav-decor">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/open_nav_decor_left.svg'); ?>" alt="Decoration">
+				</div>
+				<div class="fullscreen-nav-left-content">
+					<!-- Logo -->
+					<div class="fullscreen-nav-logo">
+						<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
+					</div>
+					<!-- Contact Grid -->
+					<div class="fullscreen-nav-grid">
+						<div class="fullscreen-nav-grid-item">
+							<h4 class="fullscreen-nav-grid-heading">EMAIL</h4>
+							<p class="fullscreen-nav-grid-sub">info@ad-darah.com</p>
+						</div>
+						<div class="fullscreen-nav-grid-item">
+							<h4 class="fullscreen-nav-grid-heading">PHONE</h4>
+							<p class="fullscreen-nav-grid-sub">+966 11 457 5757</p>
+						</div>
+						<div class="fullscreen-nav-grid-item">
+							<h4 class="fullscreen-nav-grid-heading">SOCIAL</h4>
+							<p class="fullscreen-nav-grid-sub">P.O. Box 4146, Riyadh 12348, Saudi Arabia</p>
+						</div>
+						<div class="fullscreen-nav-grid-item">
+							<h4 class="fullscreen-nav-grid-heading">LEGAL</h4>
+							<div class="fullscreen-nav-grid-social">
+								<a href="#" class="fullscreen-nav-grid-sub">Instagram</a>
+								<a href="#" class="fullscreen-nav-grid-sub">Twitter</a>
+								<a href="#" class="fullscreen-nav-grid-sub">LinkedIn</a>
+								<a href="#" class="fullscreen-nav-grid-sub">Facebook</a>
+							</div>
+						</div>
+					</div>
+					<!-- Submenu Content (shown when submenu is active) -->
+					<div class="fullscreen-nav-submenu-content" id="fullscreenNavSubmenuContent">
+						<h3 class="fullscreen-nav-submenu-heading" id="fullscreenNavSubmenuHeading"></h3>
+						<div class="fullscreen-nav-submenu-arrow">
+							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/opennav_arrow.svg'); ?>" alt="Arrow">
+						</div>
+						<ul class="fullscreen-nav-submenu-list" id="fullscreenNavSubmenuList"></ul>
+					</div>
+				</div>
+			</div>
+			<!-- Right Panel -->
+			<div class="fullscreen-nav-right">
+				<!-- Close Icon -->
+				<button class="fullscreen-nav-close" id="fullscreenNavClose" aria-label="Close Menu">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/close icon.svg'); ?>" alt="Close">
+				</button>
+				<!-- Menu Items -->
+				<nav class="fullscreen-nav-menu-items">
+					<ul class="fullscreen-nav-list">
+						<li class="fullscreen-nav-item">
+							<a href="<?php echo esc_url(home_url('/about')); ?>" class="fullscreen-nav-link">About Us</a>
+						</li>
+						<li class="fullscreen-nav-item fullscreen-nav-item-has-submenu" data-submenu="services">
+							<a href="#" class="fullscreen-nav-link fullscreen-nav-link-with-arrow">
+								<span>Services</span>
+								<span class="fullscreen-nav-arrow">
+									<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/opennav_arrow.svg'); ?>" alt="Arrow">
+								</span>
+							</a>
+							<div class="fullscreen-nav-submenu-data" data-submenu-id="services">
+								<h3 class="fullscreen-nav-submenu-heading">Services</h3>
+								<div class="fullscreen-nav-submenu-categories">
+									<div class="fullscreen-nav-submenu-category">
+										<h4 class="fullscreen-nav-submenu-category-heading">Corporate Services</h4>
+										<ul class="fullscreen-nav-submenu-category-list">
+											<li><a href="#">Conferences & Exhibitions</a></li>
+											<li><a href="#">Meeting Rooms & Workshops</a></li>
+											<li><a href="#">Government Events (B2G)</a></li>
+											<li><a href="#">VIP Majlis</a></li>
+										</ul>
+									</div>
+									<div class="fullscreen-nav-submenu-category">
+										<h4 class="fullscreen-nav-submenu-category-heading">Weddings & Social Services</h4>
+										<ul class="fullscreen-nav-submenu-category-list">
+											<li><a href="#">Female Packages</a></li>
+											<li><a href="#">Male Packages</a></li>
+										</ul>
+									</div>
+									<div class="fullscreen-nav-submenu-category">
+										<h4 class="fullscreen-nav-submenu-category-heading">Catering Services</h4>
+										<ul class="fullscreen-nav-submenu-category-list">
+											<li><a href="#">On-site Catering</a></li>
+											<li><a href="#">Off-site Catering</a></li>
+											<li><a href="#">Seasonal & Ramadan Packages</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="fullscreen-nav-item">
+							<a href="<?php echo esc_url(home_url('/media-center')); ?>" class="fullscreen-nav-link">Media Center</a>
+						</li>
+						<li class="fullscreen-nav-item">
+							<a href="<?php echo esc_url(home_url('/contact')); ?>" class="fullscreen-nav-link">Contact Us</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</header>
