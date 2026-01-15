@@ -1,0 +1,143 @@
+// Typography Mixins
+// Reusable typography patterns for consistent styling across the theme
+// Each mixin includes all responsive breakpoints
+
+// Main Banner Title Typography
+@mixin main-banner-title-large {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 150px;
+	line-height: 1;
+}
+
+// Main Banner Subtitle Typography
+@mixin para-text {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+// Banner Title Typography (for regular banner component)
+@mixin banner-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 70px;
+	line-height: 86px;
+	font-weight: 600;
+	letter-spacing: 0px;
+}
+
+// Form Input Label Typography
+@mixin form-label {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: $gold;
+}
+
+// Form Input Placeholder Typography
+@mixin form-placeholder {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: #ABAFB1;
+}
+
+// Book Visit Button Typography
+@mixin book-visit-button {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 30px;
+	letter-spacing: 0%;
+	text-align: center;
+}
+
+// Where Ever Title Typography
+@mixin where-ever-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 60px;
+	line-height: 100%;
+	letter-spacing: 0px;
+}
+
+// Statistics Title Typography
+@mixin stat-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 24px;
+	line-height: 1;
+}
+
+// Statistics Value Typography
+@mixin stat-value {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 80px;
+	line-height: 1;
+}
+
+// Partners Sub Title Typography
+@mixin partners-sub-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 20px;
+	line-height: 100%;
+}
+
+// Services Stack Tag Typography
+@mixin services-stack-tag {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 20px;
+	line-height: 60px;
+}
+
+// Services Stack Title Typography
+@mixin services-stack-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 60px;
+	line-height: 100%;
+}
+
+// Services Stack Description Typography
+@mixin services-stack-description {
+	font-family: "Neue Regrade", sans-serif;
+	font-size: 20px;
+	line-height: 140%;
+}
+
+// Testimonials Tag Typography
+@mixin testimonials-tag {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 100%;
+}
+
+// Testimonials Title Typography
+@mixin testimonials-title {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 86px;
+}
+
+// Testimonial Review Text Typography
+@mixin testimonial-review {
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-size: 18.06px;
+	line-height: 150%;
+}
+
+// Testimonial Name Typography
+@mixin testimonial-name {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 18.06px;
+	line-height: 150%;
+}
