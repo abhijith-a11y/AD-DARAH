@@ -575,6 +575,131 @@
 
 		// Initialize calendar icon
 		initCalendarIcon();
+
+		/**
+		 * Initialize Choices.js for select dropdowns
+		 */
+		const initChoicesSelects = function() {
+			if (typeof Choices === 'undefined') {
+				return;
+			}
+
+			const eventTypeSelect = document.getElementById('headerEventType');
+			const preferredTimeSelect = document.getElementById('headerPreferredTime');
+
+			if (eventTypeSelect) {
+				new Choices(eventTypeSelect, {
+					searchEnabled: false,
+					itemSelectText: '',
+					placeholder: true,
+					placeholderValue: 'Event Type',
+					shouldSort: false,
+					removeItemButton: false,
+					classNames: {
+						containerOuter: 'choices header-choices',
+						containerInner: 'choices__inner header-choices__inner',
+						input: 'choices__input',
+						inputCloned: 'choices__input--cloned',
+						list: 'choices__list',
+						listItems: 'choices__list--multiple',
+						listSingle: 'choices__list--single',
+						listDropdown: 'choices__list--dropdown',
+						item: 'choices__item',
+						itemSelectable: 'choices__item--selectable',
+						itemDisabled: 'choices__item--disabled',
+						itemChoice: 'choices__item--choice',
+						placeholder: 'choices__placeholder',
+						group: 'choices__group',
+						groupHeading: 'choices__heading',
+						button: 'choices__button',
+						activeState: 'is-active',
+						focusState: 'is-focused',
+						openState: 'is-open',
+						disabledState: 'is-disabled',
+						highlightedState: 'is-highlighted',
+						selectedState: 'is-selected',
+						flippedState: 'is-flipped',
+						loadingState: 'is-loading',
+						noResults: 'has-no-results',
+						noChoices: 'has-no-choices'
+					}
+				});
+			}
+
+			if (preferredTimeSelect) {
+				new Choices(preferredTimeSelect, {
+					searchEnabled: false,
+					itemSelectText: '',
+					placeholder: true,
+					placeholderValue: 'Preferred Time',
+					shouldSort: false,
+					removeItemButton: false,
+					classNames: {
+						containerOuter: 'choices header-choices',
+						containerInner: 'choices__inner header-choices__inner',
+						input: 'choices__input',
+						inputCloned: 'choices__input--cloned',
+						list: 'choices__list',
+						listItems: 'choices__list--multiple',
+						listSingle: 'choices__list--single',
+						listDropdown: 'choices__list--dropdown',
+						item: 'choices__item',
+						itemSelectable: 'choices__item--selectable',
+						itemDisabled: 'choices__item--disabled',
+						itemChoice: 'choices__item--choice',
+						placeholder: 'choices__placeholder',
+						group: 'choices__group',
+						groupHeading: 'choices__heading',
+						button: 'choices__button',
+						activeState: 'is-active',
+						focusState: 'is-focused',
+						openState: 'is-open',
+						disabledState: 'is-disabled',
+						highlightedState: 'is-highlighted',
+						selectedState: 'is-selected',
+						flippedState: 'is-flipped',
+						loadingState: 'is-loading',
+						noResults: 'has-no-results',
+						noChoices: 'has-no-choices'
+					}
+				});
+			}
+		};
+
+		/**
+		 * Initialize Flatpickr for date picker
+		 */
+		const initFlatpickrDate = function() {
+			if (typeof flatpickr === 'undefined') {
+				return;
+			}
+
+			const dateInput = document.getElementById('headerEventDate');
+			const calendarIcon = document.querySelector('.header-form-calendar-icon');
+
+			if (dateInput) {
+				const flatpickrInstance = flatpickr(dateInput, {
+					dateFormat: 'Y-m-d',
+					altInput: false,
+					allowInput: true,
+					clickOpens: true,
+					placeholder: 'Event Date',
+					disableMobile: false,
+					onReady: function(selectedDates, dateStr, instance) {
+						// Make calendar icon clickable
+						if (calendarIcon) {
+							calendarIcon.addEventListener('click', function() {
+								instance.open();
+							});
+						}
+					}
+				});
+			}
+		};
+
+		// Initialize Choices and Flatpickr
+		initChoicesSelects();
+		initFlatpickrDate();
 	};
 
 	/**

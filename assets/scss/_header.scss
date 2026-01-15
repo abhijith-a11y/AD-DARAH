@@ -550,12 +550,12 @@ body.overflow_body_hidden {
 	.header-booking-form-inputs {
 		display: flex;
 		gap: 12px;
-		flex : 1;
+		flex: 1;
 		align-items: center;
 		border: 1px solid #C5B17F;
 		padding: 0 20px;
 		border-radius: 200px;
-		justify-content: space-between;
+		justify-content: flex-start;
 		max-width: 800px;
 		height: 48px;
 	}
@@ -587,7 +587,7 @@ body.overflow_body_hidden {
 		transition: border-color 0.3s ease;
 		border: none;
 		outline: none;
-		padding: 0 12px;
+		width: 100%;
 
 		&::placeholder {
 			font-family: "Neue Regrade", sans-serif;
@@ -597,6 +597,7 @@ body.overflow_body_hidden {
 			letter-spacing: 0%;
 			color: #191919;
 			opacity: 0.7;
+			white-space: nowrap;
 		}
 
 		&:focus {
@@ -607,53 +608,42 @@ body.overflow_body_hidden {
 			border-color: #c5b17f;
 		}
 
-		// Date input styling
+		// Date input styling (Flatpickr will handle this)
+		&[type="text"][id="headerEventDate"],
 		&[type="date"] {
 			position: relative;
 			cursor: pointer;
 			padding-right: 40px;
-			color: transparent;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
-			&::-webkit-calendar-picker-indicator {
-				display: none;
-			}
-
-			// Hide the default date format display when empty
-			&:invalid::-webkit-datetime-edit-text,
-			&:invalid::-webkit-datetime-edit-month-field,
-			&:invalid::-webkit-datetime-edit-day-field,
-			&:invalid::-webkit-datetime-edit-year-field {
-				color: transparent;
-			}
-
-			// Show date when valid or focused
-			&:valid,
-			&:focus {
-				color: #191919;
-
-				&::-webkit-datetime-edit-text,
-				&::-webkit-datetime-edit-month-field,
-				&::-webkit-datetime-edit-day-field,
-				&::-webkit-datetime-edit-year-field {
-					color: #191919;
-				}
-			}
-
-			// For Firefox - hide placeholder format
-			&::-moz-placeholder {
-				opacity: 0;
+			&::placeholder {
+				white-space: nowrap;
 			}
 		}
 
-		// Select styling
+		// Select styling - ensure visibility (for native selects, Choices.js will override)
 		&[type="select"],
 		select {
 			cursor: pointer;
 			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
 			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 			background-repeat: no-repeat;
-			background-position: right 16px center;
-			padding-right: 40px;
+			background-position: right 12px center;
+			background-size: 10px 6px;
+			padding-right: 35px;
+			display: block;
+			visibility: visible;
+			opacity: 1;
+			width: 100%;
+			min-width: 0;
+			height: auto;
+			overflow: visible;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 
 			option {
 				font-family: "Neue Regrade", sans-serif;
@@ -661,7 +651,113 @@ body.overflow_body_hidden {
 				font-size: 16px;
 				color: #191919;
 				background: #fff;
+				padding: 5px;
 			}
+		}
+	}
+
+	// Choices.js custom styling for header form
+	.header-choices {
+		width: 100%;
+		min-width: 0;
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+
+		.choices__inner {
+			background: transparent;
+			border: none;
+			padding: 0;
+			min-height: auto;
+			font-family: "Neue Regrade", sans-serif;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 100%;
+			color: #191919;
+			display: flex;
+			align-items: center;
+			padding-bottom: 0 !important;
+		}
+
+		.choices__list--single {
+			padding: 0;
+			display: flex;
+			align-items: center;
+
+			.choices__item {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		.choices__item--selectable {
+			font-family: "Neue Regrade", sans-serif;
+			font-weight: 500;
+			font-size: 16px;
+			color: #191919;
+			white-space: nowrap;
+		}
+
+		.choices__placeholder {
+			opacity: 0.7;
+			color: #191919;
+			white-space: nowrap;
+		}
+
+		.choices__list--dropdown {
+			border: 1px solid #C5B17F;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			margin-top: 4px;
+			min-width: 200px;
+			width: auto;
+			max-width: none;
+		}
+
+		.choices__list--dropdown .choices__item--choice {
+			white-space: nowrap;
+			padding: 10px 15px;
+		}
+
+		.choices[data-type*="select-one"] {
+			position: relative;
+		}
+
+		.choices[data-type*="select-one"] {
+			position: relative;
+		}
+
+		.choices[data-type*="select-one"] .choices__inner {
+			padding-right: 30px;
+		}
+
+		// Hide default Choices.js arrow (it uses ::after)
+		.choices[data-type*="select-one"]::after {
+			display: none !important;
+			content: none !important;
+		}
+
+		// Custom arrow for Choices.js using ::before
+		.choices[data-type*="select-one"]::before {
+			content: '';
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 10px;
+			height: 6px;
+			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-size: contain;
+			border: none;
+			margin: 0;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		.choices[data-type*="select-one"].is-open::before {
+			transform: translateY(-50%) rotate(180deg);
 		}
 	}
 
@@ -670,9 +766,9 @@ body.overflow_body_hidden {
 		position: relative;
 		display: flex;
 		align-items: center;
-		flex: 0 0 200px;
-		min-width: 180px;
-		max-width: 220px;
+		flex: 0 0 160px;
+		min-width: 140px;
+		max-width: 180px;
 
 		@media #{$media-1440} {
 			flex: 0 0 190px;
@@ -695,6 +791,8 @@ body.overflow_body_hidden {
 		.header-form-calendar-icon {
 			position: absolute;
 			right: 12px;
+			top: 50%;
+			transform: translateY(-50%);
 			width: 12px;
 			height: 13px;
 			pointer-events: auto;
@@ -704,14 +802,6 @@ body.overflow_body_hidden {
 
 			&:hover {
 				opacity: 0.8;
-			}
-
-			@media #{$media-1440} {
-				right: 10px;
-			}
-
-			@media #{$media-1200} {
-				right: 8px;
 			}
 		}
 
@@ -752,42 +842,22 @@ body.overflow_body_hidden {
 			}
 		}
 
-		// Small inputs (Full Name, Email, Phone)
+		// Small inputs (Full Name, Email, Phone) - take only space needed
 		&.header-form-input-small {
-			flex: 0 0 140px;
-			min-width: 120px;
-			max-width: 160px;
-
-			@media #{$media-1440} {
-				flex: 0 0 130px;
-				min-width: 110px;
-				max-width: 150px;
-			}
-
-			@media #{$media-1200} {
-				flex: 0 0 120px;
-				min-width: 100px;
-				max-width: 140px;
-			}
+			min-width: 100px;
+			width: auto;
 		}
 
-		// Large inputs (Event Type, Preferred Time)
-		&.header-form-input-large {
-			flex: 0 0 200px;
-			min-width: 180px;
-			max-width: 220px;
+		// Event Type - take space needed
+		&.header-form-input-large[name="event_type"] {
+			min-width: 130px;
+			width: auto;
+		}
 
-			@media #{$media-1440} {
-				flex: 0 0 190px;
-				min-width: 170px;
-				max-width: 210px;
-			}
-
-			@media #{$media-1200} {
-				flex: 0 0 180px;
-				min-width: 160px;
-				max-width: 200px;
-			}
+		// Preferred Time - take space needed, slightly more
+		&.header-form-input-large[name="preferred_time"] {
+			min-width: 150px;
+			width: auto;
 		}
 	}
 

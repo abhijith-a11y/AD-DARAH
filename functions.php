@@ -152,7 +152,13 @@ function addarah_scripts()
 	wp_enqueue_script('smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array('lenis'), _S_VERSION, true);
 
 	// Enqueue Header component script (loaded on all pages)
-	wp_enqueue_script('header-script', get_template_directory_uri() . '/assets/js/Header.js', array(), _S_VERSION, true);
+	// Enqueue Choices.js and Flatpickr globally for header form
+	wp_enqueue_style('choices-css', 'https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css', array(), '10.2.0');
+	wp_enqueue_script('choices-js', 'https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js', array(), '10.2.0', true);
+	wp_enqueue_style('flatpickr-css', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css', array(), '4.6.13');
+	wp_enqueue_script('flatpickr-js', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js', array(), '4.6.13', true);
+	
+	wp_enqueue_script('header-script', get_template_directory_uri() . '/assets/js/Header.js', array('choices-js', 'flatpickr-js'), _S_VERSION, true);
 
 	// Enqueue Footer component script (loaded on all pages)
 	wp_enqueue_script('footer-script', get_template_directory_uri() . '/assets/js/Footer.js', array(), _S_VERSION, true);

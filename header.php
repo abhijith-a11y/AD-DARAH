@@ -129,17 +129,17 @@
 				<input type="text" name="full_name" placeholder="Full Name" class="header-form-input header-form-input-small" required>
 				<input type="email" name="email" placeholder="Email Address" class="header-form-input header-form-input-small" required>
 				<input type="tel" name="phone" placeholder="Phone No." class="header-form-input header-form-input-small" required>
-				<select name="event_type" class="header-form-input header-form-input-large" required>
+				<select name="event_type" id="headerEventType" class="header-form-input header-form-input-large" required>
 					<option value="">Event Type</option>
 					<option value="wedding">Wedding</option>
 					<option value="corporate">Corporate</option>
 					<option value="social">Social</option>
 				</select>
 				<div class="header-form-date-wrapper">
-					<input type="date" name="event_date" class="header-form-input" required>
+					<input type="text" name="event_date" id="headerEventDate" class="header-form-input" placeholder="Event Date" required>
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/header_calendar.svg'); ?>" alt="Calendar" class="header-form-calendar-icon">
 				</div>
-				<select name="preferred_time" class="header-form-input header-form-input-large" required>
+				<select name="preferred_time" id="headerPreferredTime" class="header-form-input header-form-input-large" required>
 					<option value="">Preferred Time</option>
 					<option value="morning">Morning</option>
 					<option value="afternoon">Afternoon</option>
