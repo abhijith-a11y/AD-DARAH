@@ -5145,6 +5145,22 @@ body.fullscreen-nav-open {
   justify-content: center;
   background-color: #C5B17F;
 }
+.testimonials-container .testimonials-background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  z-index: 1;
+}
+.testimonials-container .testimonials-background-image img {
+  width: auto;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
 .testimonials-container .testimonials-header {
   text-align: center;
   margin-bottom: 60px;
@@ -5173,6 +5189,28 @@ body.fullscreen-nav-open {
   text-align: center;
   text-transform: capitalize;
   color: #ffffff;
+  margin: 0;
+}
+.testimonials-container .testimonials-swiper-section {
+  position: relative;
+  width: 100%;
+  opacity: 1;
+}
+.testimonials-container .testimonials-swiper-section .testimonials-overlay {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+.testimonials-container .testimonials-swiper-section .testimonials-overlay-left {
+  left: 0;
+  background: linear-gradient(270deg, rgba(197, 177, 127, 0) 0%, #c5b17f 81.3%);
+}
+.testimonials-container .testimonials-swiper-section .testimonials-overlay-right {
+  right: 0;
+  background: linear-gradient(90deg, rgba(197, 177, 127, 0) 0%, #c5b17f 81.3%);
 }
 .testimonials-container .testimonials-swiper-wrapper {
   position: relative;
@@ -5183,26 +5221,10 @@ body.fullscreen-nav-open {
 .testimonials-container .testimonials-swiper-wrapper:last-child {
   margin-bottom: 0;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-overlay {
-  position: absolute;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
-.testimonials-container .testimonials-swiper-wrapper .testimonials-overlay-left {
-  left: 0;
-  background: linear-gradient(270deg, rgba(197, 177, 127, 0) 0%, #c5b17f 81.3%);
-}
-.testimonials-container .testimonials-swiper-wrapper .testimonials-overlay-right {
-  right: 0;
-  background: linear-gradient(90deg, rgba(197, 177, 127, 0) 0%, #c5b17f 81.3%);
-}
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper-container {
   position: relative;
   width: 100%;
-  padding: 0 200px;
+  padding: 0 250px;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper {
   width: 100%;
@@ -5214,10 +5236,11 @@ body.fullscreen-nav-open {
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card {
   background: #ffffff;
   border-radius: 20px;
-  padding: 40px;
+  padding: 30px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 290px;
   justify-content: space-between;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-review {
@@ -5227,7 +5250,8 @@ body.fullscreen-nav-open {
   line-height: 150%;
   letter-spacing: 0%;
   color: #1d1d1b;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  margin-top: 0;
   flex-grow: 1;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author {
@@ -5245,6 +5269,9 @@ body.fullscreen-nav-open {
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info {
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-name {
   font-family: "Poppins", sans-serif;
@@ -5261,14 +5288,9 @@ body.fullscreen-nav-open {
   gap: 4px;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating .star {
-  font-size: 20px;
-  line-height: 1;
-}
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating .star-filled {
-  color: #c5b17f;
-}
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating .star-outline {
-  color: #abafb1;
+  width: 22px;
+  height: 21px;
+  flex-shrink: 0;
 }
 
 .news-articles-container {
