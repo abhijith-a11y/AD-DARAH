@@ -31,90 +31,48 @@
 			<div class="swiper news-articles-swiper" data-news-articles-swiper>
 				<div class="swiper-wrapper">
 					<!-- Swiper Slides - Static Data -->
+					<?php
+					$news_images = array(
+						get_template_directory_uri() . '/assets/images/news_01.png',
+						get_template_directory_uri() . '/assets/images/news_02.png',
+						get_template_directory_uri() . '/assets/images/news_03.png',
+					);
+					
+					$news_data = array(
+						array('date' => '05 August 2022', 'heading' => 'Inside ADDarah\'s vision for transformative hospitality'),
+						array('date' => '05 August 2022', 'heading' => 'ADDarah and the future of Saudi hospitality'),
+						array('date' => 'August 2022', 'heading' => 'Zouq Al-Harbi: Delivering hospitality projects in line with Vision 2030'),
+					);
+					
+					// Repeat images for multiple slides
+					for ($i = 0; $i < 12; $i++):
+						$image_index = $i % 3;
+						$data_index = $i % 3;
+					?>
 					<div class="swiper-slide">
 						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 1</div>
+							<div class="news-article-image" style="background-image: url('<?php echo esc_url($news_images[$image_index]); ?>');">
+								<div class="news-article-overlay"></div>
+								<div class="news-article-content">
+									<div class="news-article-left">
+										<div class="news-article-date"><?php echo esc_html($news_data[$data_index]['date']); ?></div>
+										<h3 class="news-article-heading"><?php echo esc_html($news_data[$data_index]['heading']); ?></h3>
+									</div>
+									<div class="news-article-right">
+										<a href="#" class="news-article-learn-more">
+											<span class="news-article-learn-text">Learn More</span>
+											<span class="news-article-learn-icon">
+												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+											</span>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 2</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 3</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 4</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 5</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 6</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 7</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 8</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 9</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 10</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 11</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="news-article-card">
-							<div class="news-article-image">
-								<div class="news-article-placeholder">Image 12</div>
-							</div>
-						</div>
-					</div>
+					<?php endfor; ?>
 				</div>
 				
 				<!-- Navigation Buttons -->
