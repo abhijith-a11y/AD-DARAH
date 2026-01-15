@@ -204,7 +204,7 @@ header.main-header,
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 24px;
+			width: auto;
 			height: 24px;
 			cursor: pointer;
 			transition: opacity 0.3s ease;
@@ -215,54 +215,19 @@ header.main-header,
 				object-fit: contain;
 			}
 
-			@media #{$media-768} {
-				width: 20px;
-				height: 20px;
+			&.desktop-menu-toggle {
+				padding-left: 20px;
 			}
+
 		}
 
-		// Mobile Menu Toggle
 		.mobile-menu-toggle {
 			display: none;
-			flex-direction: column;
-			justify-content: space-between;
-			width: 24px;
-			height: 18px;
-			background: transparent;
-			border: none;
-			cursor: pointer;
-			padding: 0;
-			z-index: 1001;
-
 			@media #{$media-1024} {
 				display: flex;
 			}
-
-			span {
-				display: block;
-				width: 100%;
-				height: 2px;
-				background-color: #e5e5e5;
-				transition: all 0.3s ease;
-				border-radius: 2px;
-			}
-
-			&.menu_open {
-				span {
-					&:nth-child(1) {
-						transform: rotate(45deg) translate(6px, 6px);
-					}
-
-					&:nth-child(2) {
-						opacity: 0;
-					}
-
-					&:nth-child(3) {
-						transform: rotate(-45deg) translate(6px, -6px);
-					}
-				}
-			}
 		}
+
 	}
 
 	// Services Dropdown

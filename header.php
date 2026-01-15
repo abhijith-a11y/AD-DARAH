@@ -187,9 +187,9 @@
 				<a href="#" class="header-icon lang-icon" aria-label="Language">
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/lang.svg.svg'); ?>" alt="Language">
 				</a>
-				<button class="mobile-menu-toggle" id="menuIconScroll" aria-label="Menu">
+				<span class="header-icon desktop-menu-toggle" id="menuIconScroll" aria-label="Menu">
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>" alt="Menu">
-				</button>
+			    </span>
 			</div>
 		</div>
 	</header>
