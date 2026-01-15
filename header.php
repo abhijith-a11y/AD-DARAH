@@ -125,6 +125,7 @@
 
 			<!-- Booking Form -->
 			<form class="header-booking-form" action="#" method="post">
+				<span class="header-booking-form-inputs">
 				<input type="text" name="full_name" placeholder="Full Name" class="header-form-input header-form-input-small" required>
 				<input type="email" name="email" placeholder="Email Address" class="header-form-input header-form-input-small" required>
 				<input type="tel" name="phone" placeholder="Phone No." class="header-form-input header-form-input-small" required>
@@ -135,9 +136,16 @@
 					<option value="social">Social</option>
 				</select>
 				<div class="header-form-date-wrapper">
-					<input type="date" name="event_date" placeholder="Preferred Time" class="header-form-input" required>
+					<input type="date" name="event_date" class="header-form-input" required>
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/header_calendar.svg'); ?>" alt="Calendar" class="header-form-calendar-icon">
 				</div>
+				<select name="preferred_time" class="header-form-input header-form-input-large" required>
+					<option value="">Preferred Time</option>
+					<option value="morning">Morning</option>
+					<option value="afternoon">Afternoon</option>
+					<option value="evening">Evening</option>
+				</select>
+				</span>
 				<button type="submit" class="primary-button header-form-button">Book a Visit</button>
 			</form>
 

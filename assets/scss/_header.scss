@@ -546,17 +546,19 @@ body.overflow_body_hidden {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-	flex: 1;
-	max-width: 880px;
-	margin: 0 auto;
-	height: 58px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border: 1px solid #C5B17F;
-	border-radius: 200px;
-	// overflow: hidden;
-	padding: 0px 5px 0px 40px;
+
+	.header-booking-form-inputs {
+		display: flex;
+		gap: 12px;
+		flex : 1;
+		align-items: center;
+		border: 1px solid #C5B17F;
+		padding: 0 20px;
+		border-radius: 200px;
+		justify-content: space-between;
+		max-width: 800px;
+		height: 48px;
+	}
 
 	@media #{$media-1440} {
 		gap: 10px;
@@ -610,9 +612,55 @@ body.overflow_body_hidden {
 			position: relative;
 			cursor: pointer;
 			padding-right: 40px;
+			color: transparent;
 
 			&::-webkit-calendar-picker-indicator {
 				display: none;
+			}
+
+			// Hide the default date format display when empty
+			&:invalid::-webkit-datetime-edit-text,
+			&:invalid::-webkit-datetime-edit-month-field,
+			&:invalid::-webkit-datetime-edit-day-field,
+			&:invalid::-webkit-datetime-edit-year-field {
+				color: transparent;
+			}
+
+			// Show date when valid or focused
+			&:valid,
+			&:focus {
+				color: #191919;
+
+				&::-webkit-datetime-edit-text,
+				&::-webkit-datetime-edit-month-field,
+				&::-webkit-datetime-edit-day-field,
+				&::-webkit-datetime-edit-year-field {
+					color: #191919;
+				}
+			}
+
+			// For Firefox - hide placeholder format
+			&::-moz-placeholder {
+				opacity: 0;
+			}
+		}
+
+		// Select styling
+		&[type="select"],
+		select {
+			cursor: pointer;
+			appearance: none;
+			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			background-repeat: no-repeat;
+			background-position: right 16px center;
+			padding-right: 40px;
+
+			option {
+				font-family: "Neue Regrade", sans-serif;
+				font-weight: 500;
+				font-size: 16px;
+				color: #191919;
+				background: #fff;
 			}
 		}
 	}

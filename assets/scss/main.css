@@ -3099,16 +3099,18 @@ body.overflow_body_hidden {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;
-  max-width: 880px;
-  margin: 0 auto;
-  height: 58px;
+}
+.header-booking-form .header-booking-form-inputs {
   display: flex;
+  gap: 12px;
+  flex: 1;
   align-items: center;
-  justify-content: space-between;
   border: 1px solid #C5B17F;
+  padding: 0 20px;
   border-radius: 200px;
-  padding: 0px 5px 0px 40px;
+  justify-content: space-between;
+  max-width: 800px;
+  height: 48px;
 }
 @media only screen and (max-width: 1440px) {
   .header-booking-form {
@@ -3170,9 +3172,41 @@ body.overflow_body_hidden {
   position: relative;
   cursor: pointer;
   padding-right: 40px;
+  color: transparent;
 }
 .header-booking-form .header-form-input[type=date]::-webkit-calendar-picker-indicator {
   display: none;
+}
+.header-booking-form .header-form-input[type=date]:invalid::-webkit-datetime-edit-text, .header-booking-form .header-form-input[type=date]:invalid::-webkit-datetime-edit-month-field, .header-booking-form .header-form-input[type=date]:invalid::-webkit-datetime-edit-day-field, .header-booking-form .header-form-input[type=date]:invalid::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+.header-booking-form .header-form-input[type=date]:valid, .header-booking-form .header-form-input[type=date]:focus {
+  color: #191919;
+}
+.header-booking-form .header-form-input[type=date]:valid::-webkit-datetime-edit-text, .header-booking-form .header-form-input[type=date]:valid::-webkit-datetime-edit-month-field, .header-booking-form .header-form-input[type=date]:valid::-webkit-datetime-edit-day-field, .header-booking-form .header-form-input[type=date]:valid::-webkit-datetime-edit-year-field, .header-booking-form .header-form-input[type=date]:focus::-webkit-datetime-edit-text, .header-booking-form .header-form-input[type=date]:focus::-webkit-datetime-edit-month-field, .header-booking-form .header-form-input[type=date]:focus::-webkit-datetime-edit-day-field, .header-booking-form .header-form-input[type=date]:focus::-webkit-datetime-edit-year-field {
+  color: #191919;
+}
+.header-booking-form .header-form-input[type=date]::-moz-placeholder {
+  opacity: 0;
+}
+.header-booking-form .header-form-input[type=select],
+.header-booking-form .header-form-input select {
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.header-booking-form .header-form-input[type=select] option,
+.header-booking-form .header-form-input select option {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #191919;
+  background: #fff;
 }
 .header-booking-form .header-form-date-wrapper {
   position: relative;
