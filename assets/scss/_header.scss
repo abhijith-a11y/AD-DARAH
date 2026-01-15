@@ -906,11 +906,13 @@ body.overflow_body_hidden {
 	z-index: 9999;
 	display: flex;
 	opacity: 0;
+	display: none;
 	visibility: hidden;
 	transition: opacity 0.3s ease, visibility 0.3s ease;
 	overflow: hidden;
 
 	&.fullscreen-nav-open {
+		display: flex;
 		opacity: 1;
 		visibility: visible;
 	}

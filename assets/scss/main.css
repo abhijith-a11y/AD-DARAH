@@ -3440,11 +3440,13 @@ body.overflow_body_hidden {
   z-index: 9999;
   display: flex;
   opacity: 0;
+  display: none;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   overflow: hidden;
 }
 .fullscreen-nav-menu.fullscreen-nav-open {
+  display: flex;
   opacity: 1;
   visibility: visible;
 }
@@ -5463,6 +5465,209 @@ body.fullscreen-nav-open {
   }
   .news-articles-container .news-article-image {
     height: 160px;
+  }
+}
+
+.virtual-tour-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+}
+.virtual-tour-container .virtual-tour-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.virtual-tour-container .virtual-tour-image-wrapper .virtual-tour-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  max-width: 100vw;
+}
+.virtual-tour-container .virtual-tour-overlay {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content {
+  position: relative;
+  width: 100vw;
+  padding: 0 20px;
+  text-align: center;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-title {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-size: 70px;
+  line-height: 86px;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-subtitle {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #C5B17F;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow {
+  position: absolute;
+  top: -28px;
+  width: 57px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow-left {
+  left: calc(50% - 200px);
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow-left img {
+  transform: rotate(180deg);
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow-right {
+  right: calc(50% - 200px);
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media only screen and (max-width: 1440px) {
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-title {
+    font-size: 48px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-subtitle {
+    font-size: 16px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow {
+    width: 50px;
+    height: 49px;
+    top: -25px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-left {
+    left: calc(50% - 180px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-right {
+    right: calc(50% - 180px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-icon {
+    width: 110px;
+    height: 110px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-title {
+    font-size: 42px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-subtitle {
+    font-size: 15px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow {
+    width: 45px;
+    height: 44px;
+    top: -22px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-left {
+    left: calc(50% - 160px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-right {
+    right: calc(50% - 160px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-title {
+    font-size: 36px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow {
+    width: 40px;
+    height: 39px;
+    top: -20px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-left {
+    left: calc(50% - 140px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-right {
+    right: calc(50% - 140px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-subtitle {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow {
+    width: 35px;
+    height: 34px;
+    top: -17px;
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-left {
+    left: calc(50% - 120px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-arrow-right {
+    right: calc(50% - 120px);
+  }
+  .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-line .virtual-tour-icon {
+    width: 60px;
+    height: 60px;
   }
 }
 
