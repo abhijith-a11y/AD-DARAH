@@ -5,48 +5,21 @@
  * @package addarah
  * 
  * Usage:
- * get_template_part('template-parts/SingleTestimonial');
+ * $single_testimonial_title = 'Featured Clients';
+ * $single_testimonial_items = array(
+ *     array(
+ *         'review' => 'This venue is perfect for large celebrations!...',
+ *         'name' => 'Sarah Mitchell',
+ *         'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+ *         'rating' => 4,
+ *     ),
+ * );
+ * include locate_template('template-parts/SingleTestimonial.php');
  */
 
-// Sample testimonials data - using same data as Testimonials.php
-$testimonials = array(
-    array(
-        'review' => 'This venue is perfect for large celebrations! The spaciousness is ideal for accommodating a significant number of guests, making it a fantastic choice for big events.',
-        'name' => 'Sarah Mitchell',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-    array(
-        'review' => 'I attended the Ramadan Iftar at Al-Dara Hall and it was an amazing experience the steak was tender and delicious and the shawarma was perfect the Italian corner was fancy and the pizza was so good the desserts were varied and tasted great the Arabic dishes',
-        'name' => 'Ryan Lee',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-    array(
-        'review' => 'The buffet offers an impressive variety of cuisines, from Arabic to Indian, ensuring there\'s something for everyone. The food quality is excellent, with fresh and flavorful dishes, particularly at the live stations.',
-        'name' => 'Emma Algunaibet',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-    array(
-        'review' => 'This venue is perfect for large celebrations! The spaciousness is ideal for accommodating a significant number of guests, making it a fantastic choice for big events.',
-        'name' => 'Sarah Mitchell',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-    array(
-        'review' => 'I attended the Ramadan Iftar at Al-Dara Hall and it was an amazing experience the steak was tender and delicious and the shawarma was perfect the Italian corner was fancy and the pizza was so good the desserts were varied and tasted great the Arabic dishes',
-        'name' => 'Ryan Lee',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-    array(
-        'review' => 'The buffet offers an impressive variety of cuisines, from Arabic to Indian, ensuring there\'s something for everyone. The food quality is excellent, with fresh and flavorful dishes, particularly at the live stations.',
-        'name' => 'Emma Algunaibet',
-        'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
-        'rating' => 4,
-    ),
-);
+// Get variables with defaults
+$single_testimonial_title = isset($single_testimonial_title) ? $single_testimonial_title : 'Featured Clients';
+$single_testimonial_items = isset($single_testimonial_items) && is_array($single_testimonial_items) ? $single_testimonial_items : array();
 ?>
 
 <section class="single-testimonial-container pt_100 pb_100">
@@ -59,14 +32,14 @@ $testimonials = array(
     <div class="single-testimonial-overlay single-testimonial-overlay-left"></div>
 
     <div class="single-testimonial-header">
-        <h2 class="single-testimonial-title">Featured Clients</h2>
+        <h2 class="single-testimonial-title"><?php echo esc_html($single_testimonial_title); ?></h2>
     </div>
 
     <div class="single-testimonial-content">
         <div class="single-testimonial-swiper-container">
             <div class="swiper single-testimonial-swiper" data-single-testimonial-swiper>
                 <div class="swiper-wrapper">
-                    <?php foreach ($testimonials as $testimonial): ?>
+                    <?php foreach ($single_testimonial_items as $testimonial): ?>
                         <div class="swiper-slide">
                             <div class="testimonial-card">
                                 <p class="testimonial-review"><?php echo esc_html($testimonial['review']); ?></p>

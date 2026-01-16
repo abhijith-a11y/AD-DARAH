@@ -201,6 +201,14 @@ function addarah_scripts()
 		$is_weddings_social_services_page = ($template === 'page-weddings-social-services.php' || is_page_template('page-weddings-social-services.php'));
 	}
 
+	// Enqueue Swiper CSS and JS globally (available on all pages)
+	if (!wp_style_is('swiper-css', 'enqueued')) {
+		wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+	}
+	if (!wp_script_is('swiper-js', 'enqueued')) {
+		wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+	}
+
 	// Enqueue component styles
 	if (is_front_page()) {
 		// Enqueue GSAP library (CDN)
@@ -208,12 +216,6 @@ function addarah_scripts()
 
 		// Enqueue GSAP ScrollTrigger plugin (CDN)
 		wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', false);
-
-		// Enqueue Swiper CSS (CDN)
-		wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
-
-		// Enqueue Swiper JS (CDN)
-		wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 
 		// Enqueue Choices.js CSS (CDN) - for styled select dropdowns
 		wp_enqueue_style('choices-css', 'https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/styles/choices.min.css', array(), '10.2.0');
@@ -347,16 +349,10 @@ function addarah_scripts()
 
 	}
 
-	// Load Swiper for Weddings & Social Services page
+	// Load page-specific scripts
 	$is_weddings_page = is_page_template('page-weddings-social-services.php');
 
 	if ($is_weddings_page) {
-		if (!wp_style_is('swiper-css', 'enqueued')) {
-			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
-		}
-		if (!wp_script_is('swiper-js', 'enqueued')) {
-			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
-		}
 		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 		
@@ -368,13 +364,8 @@ function addarah_scripts()
 	$is_corporate_services_page = is_page_template('page-corporate-services.php');
 
 	if ($is_corporate_services_page) {
-		if (!wp_style_is('swiper-css', 'enqueued')) {
-			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
-		}
-		if (!wp_script_is('swiper-js', 'enqueued')) {
-			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
-		}
 		wp_enqueue_script('corporate-services-slider-script', get_template_directory_uri() . '/assets/js/CorporateServicesSlider.js', array('swiper-js'), _S_VERSION, true);
+		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 	}
 
 

@@ -69,6 +69,61 @@ get_header();
         include locate_template('template-parts/CorporateServicesSection.php');
         ?>
 
+        <?php
+        // Single Testimonial Section
+        $single_testimonial_title = 'Featured Clients';
+        $single_testimonial_items = array(
+            array(
+                'review' => 'This venue is perfect for large celebrations! The spaciousness is ideal for accommodating a significant number of guests, making it a fantastic choice for big events.',
+                'name' => 'Sarah Mitchell',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+            array(
+                'review' => 'I attended the Ramadan Iftar at Al-Dara Hall and it was an amazing experience the steak was tender and delicious and the shawarma was perfect the Italian corner was fancy and the pizza was so good the desserts were varied and tasted great the Arabic dishes',
+                'name' => 'Ryan Lee',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+            array(
+                'review' => 'The buffet offers an impressive variety of cuisines, from Arabic to Indian, ensuring there\'s something for everyone. The food quality is excellent, with fresh and flavorful dishes, particularly at the live stations.',
+                'name' => 'Emma Algunaibet',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+            array(
+                'review' => 'This venue is perfect for large celebrations! The spaciousness is ideal for accommodating a significant number of guests, making it a fantastic choice for big events.',
+                'name' => 'Sarah Mitchell',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+            array(
+                'review' => 'I attended the Ramadan Iftar at Al-Dara Hall and it was an amazing experience the steak was tender and delicious and the shawarma was perfect the Italian corner was fancy and the pizza was so good the desserts were varied and tasted great the Arabic dishes',
+                'name' => 'Ryan Lee',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+            array(
+                'review' => 'The buffet offers an impressive variety of cuisines, from Arabic to Indian, ensuring there\'s something for everyone. The food quality is excellent, with fresh and flavorful dishes, particularly at the live stations.',
+                'name' => 'Emma Algunaibet',
+                'image' => get_template_directory_uri() . '/assets/images/testimonial-placeholder.png',
+                'rating' => 4,
+            ),
+        );
+
+        include locate_template('template-parts/SingleTestimonial.php');
+        ?>
+
+<?php
+        // Contact Us Section
+        set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
+        set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+        set_query_var('contact_button_text', 'Explore Corporate Services');
+        set_query_var('contact_button_link', home_url('/corporate-services'));
+        set_query_var('contact_bg_image', get_template_directory_uri() . '/assets/images/contact-bg.jpg');
+        get_template_part('template-parts/ContactUs');
+        ?>
+
     </div>
 </main><!-- #main -->
 
@@ -77,12 +132,6 @@ get_footer();
 ?>
 
 <!-- Direct script load for Corporate Services Slider (fallback) -->
-<?php if (!wp_style_is('swiper-css', 'done') && !wp_style_is('swiper-css', 'enqueued')): ?>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<?php endif; ?>
-<?php if (!wp_script_is('swiper-js', 'done') && !wp_script_is('swiper-js', 'enqueued')): ?>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<?php endif; ?>
 <script>
     // Also load CorporateServicesSlider.js directly
     (function () {
@@ -94,6 +143,20 @@ get_footer();
         };
         script.onerror = function () {
             console.error("Failed to load CorporateServicesSlider.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+
+    // Also load SingleTestimonial.js directly
+    (function () {
+        console.log("Loading SingleTestimonial.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/SingleTestimonial.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("SingleTestimonial.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load SingleTestimonial.js from:", script.src);
         };
         document.head.appendChild(script);
     })();

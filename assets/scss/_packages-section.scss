@@ -80,7 +80,7 @@
 			flex-direction: column;
 			justify-content: flex-end;
 			transition: all 0.8s ease;
-			transform: translateY(100%);
+			transform: translateY(calc(100% - 100px));
 
 			.packages-card-heading {
 				@include perfect-day-card-heading;
@@ -93,6 +93,7 @@
 				@include packages-card-paragraph;
 				color: $white;
 				margin: 0 0 15px 0;
+				opacity: 0;
 				position: relative;
 				transition: opacity 0.4s ease, transform 0.4s ease;
 			}
@@ -105,7 +106,7 @@
 		&:hover {
 			.packages-card-overlay {
 				transform: translateY(0);
-
+				
 				.packages-card-paragraph {
 					opacity: 1;
 				}
