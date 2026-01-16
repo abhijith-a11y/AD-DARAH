@@ -82,6 +82,11 @@ get_header();
         include locate_template('template-parts/PackagesSection.php');
         ?>
 
+        <?php
+        // Single Testimonial Section
+        get_template_part('template-parts/SingleTestimonial');
+        ?>
+
     </div>
 </main><!-- #main -->
 

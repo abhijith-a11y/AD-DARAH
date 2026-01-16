@@ -187,6 +187,7 @@ function addarah_scripts()
 	$is_about_page = false;
 	$is_contact_page = false;
 	$is_press_release_detail_page = false;
+	$is_weddings_social_services_page = false;
 	if (is_page()) {
 		$template = get_page_template_slug();
 		$is_company_detail_page = ($template === 'page-company-detail.php' || $template === 'page-investments-detail.php' || $template === 'page-addarah-modern-support-services.php');
@@ -197,6 +198,7 @@ function addarah_scripts()
 		$is_about_page = ($template === 'page-about.php' || is_page('about') || is_page_template('page-about.php'));
 		$is_contact_page = ($template === 'page-contact.php' || is_page('contact') || is_page_template('page-contact.php'));
 		$is_press_release_detail_page = ($template === 'page-press-release-detail.php' || is_page_template('page-press-release-detail.php'));
+		$is_weddings_social_services_page = ($template === 'page-weddings-social-services.php' || is_page_template('page-weddings-social-services.php'));
 	}
 
 	// Enqueue component styles
@@ -375,6 +377,19 @@ function addarah_scripts()
 			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
 		}
 		wp_enqueue_script('related-press-releases-script', get_template_directory_uri() . '/assets/js/RelatedPressReleases.js', array('swiper-js'), _S_VERSION, true);
+	}
+
+	// Load scripts for Weddings & Social Services page
+	if ($is_weddings_social_services_page) {
+		// Enqueue Swiper if not already loaded
+		if (!wp_script_is('swiper-js', 'enqueued')) {
+			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+		}
+		// Enqueue Swiper CSS if not already loaded
+		if (!wp_style_is('swiper-css', 'enqueued')) {
+			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+		}
+		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 	}
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
