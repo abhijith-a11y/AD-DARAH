@@ -235,6 +235,7 @@ function addarah_scripts()
 		wp_enqueue_script('news-articles-script', get_template_directory_uri() . '/assets/js/NewsArticles.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('statistics-script', get_template_directory_uri() . '/assets/js/Statistics.js', array(), _S_VERSION, true);
 		wp_enqueue_script('services-stack-script', get_template_directory_uri() . '/assets/js/ServicesStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
+		wp_enqueue_script('vision-mission-stack-script', get_template_directory_uri() . '/assets/js/VisionMissionStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
 		wp_enqueue_script('testimonials-script', get_template_directory_uri() . '/assets/js/Testimonials.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('virtual-tour-script', get_template_directory_uri() . '/assets/js/VirtualTour.js', array('marzipano-js'), _S_VERSION, true);
 	}
@@ -336,6 +337,7 @@ function addarah_scripts()
 		// Enqueue VenueAtAGlance script (depends on Swiper)
 
 		wp_enqueue_script('venue-at-a-glance-script', get_template_directory_uri() . '/assets/js/VenueAtAGlance.js', array('swiper-js'), _S_VERSION, true);
+		wp_enqueue_script('timeline-slider-script', get_template_directory_uri() . '/assets/js/TimelineSlider.js', array('swiper-js'), _S_VERSION, true);
 
 	}
 
