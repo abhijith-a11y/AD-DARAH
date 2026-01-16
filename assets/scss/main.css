@@ -3136,23 +3136,26 @@ body.overflow_body_hidden {
   cursor: text;
   pointer-events: none;
 }
+.header-booking-form .header-form-field-wrapper:has(select) .header-form-field-display, .header-booking-form .header-form-field-wrapper:has(.header-choices) .header-form-field-display {
+  display: none;
+}
+.header-booking-form .header-form-field-wrapper:has(select) select, .header-booking-form .header-form-field-wrapper:has(.header-choices) select {
+  display: block;
+}
+.header-booking-form .header-form-field-wrapper:has(select) .header-choices, .header-booking-form .header-form-field-wrapper:has(.header-choices) .header-choices {
+  display: flex;
+}
 .header-booking-form .header-form-field-wrapper.is-focused .header-form-field-display, .header-booking-form .header-form-field-wrapper:focus-within .header-form-field-display {
   display: none;
 }
-.header-booking-form .header-form-field-wrapper.is-focused .header-form-input, .header-booking-form .header-form-field-wrapper:focus-within .header-form-input {
+.header-booking-form .header-form-field-wrapper.is-focused .header-form-input:not(select), .header-booking-form .header-form-field-wrapper:focus-within .header-form-input:not(select) {
   display: block;
-}
-.header-booking-form .header-form-field-wrapper.is-focused .header-choices, .header-booking-form .header-form-field-wrapper:focus-within .header-choices {
-  display: flex;
 }
 .header-booking-form .header-form-field-wrapper.has-value .header-form-field-display {
   display: none;
 }
-.header-booking-form .header-form-field-wrapper.has-value .header-form-input {
+.header-booking-form .header-form-field-wrapper.has-value .header-form-input:not(select) {
   display: block;
-}
-.header-booking-form .header-form-field-wrapper.has-value .header-choices {
-  display: flex;
 }
 .header-booking-form .header-form-field-wrapper .header-choices {
   display: none;
@@ -3178,6 +3181,7 @@ body.overflow_body_hidden {
   display: none;
   min-width: 0;
   width: 100%;
+  max-width: 100%;
   background: transparent;
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
@@ -3192,6 +3196,8 @@ body.overflow_body_hidden {
   padding: 0;
   flex-shrink: 0;
   flex-grow: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .header-booking-form .header-form-input::placeholder {
   font-family: "Neue Regrade", sans-serif;
@@ -3234,7 +3240,7 @@ body.overflow_body_hidden {
   background-position: right 0 center;
   background-size: 13px 7px;
   padding-right: 25px;
-  display: none;
+  display: block;
   visibility: visible;
   opacity: 1;
   width: 100%;
@@ -3334,7 +3340,7 @@ body.overflow_body_hidden {
 .header-booking-form .header-choices .choices[data-type*=select-one]::before {
   content: "";
   position: absolute;
-  right: 12px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 13px;
@@ -3342,6 +3348,7 @@ body.overflow_body_hidden {
   background-image: url("../images/icons/scroll_header_arrow.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   border: none;
   margin: 0;
   pointer-events: none;

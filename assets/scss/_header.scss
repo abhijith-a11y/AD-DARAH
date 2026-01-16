@@ -575,7 +575,7 @@ body.overflow_body_hidden {
 		padding: 0 12px;
 		height: 60%;
 
-		// Display text - shown by default
+		// Display text - shown by default for text inputs only
 		.header-form-field-display {
 			display: block;
 			font-family: "Neue Regrade", sans-serif;
@@ -589,38 +589,46 @@ body.overflow_body_hidden {
 			pointer-events: none;
 		}
 
-		// When input is focused, hide display
+		// For selects, always show the select/choices, hide display
+		&:has(select),
+		&:has(.header-choices) {
+			.header-form-field-display {
+				display: none;
+			}
+
+			select {
+				display: block;
+			}
+
+			.header-choices {
+				display: flex;
+			}
+		}
+
+		// When text input is focused, hide display but keep same width
 		&.is-focused,
 		&:focus-within {
 			.header-form-field-display {
 				display: none;
 			}
 
-			.header-form-input {
+			.header-form-input:not(select) {
 				display: block;
-			}
-
-			.header-choices {
-				display: flex;
 			}
 		}
 
-		// When input has value, hide display
+		// When text input has value, hide display but keep same width
 		&.has-value {
 			.header-form-field-display {
 				display: none;
 			}
 
-			.header-form-input {
+			.header-form-input:not(select) {
 				display: block;
-			}
-
-			.header-choices {
-				display: flex;
 			}
 		}
 
-		// Hide Choices.js container by default
+		// Hide Choices.js container by default (will be shown for selects)
 		.header-choices {
 			display: none;
 		}
@@ -644,6 +652,7 @@ body.overflow_body_hidden {
 		display: none; // Hidden by default, shown when focused or has value
 		min-width: 0;
 		width: 100%;
+		max-width: 100%;
 		background: transparent;
 		font-family: "Neue Regrade", sans-serif;
 		font-weight: 500;
@@ -658,6 +667,8 @@ body.overflow_body_hidden {
 		padding: 0;
 		flex-shrink: 0;
 		flex-grow: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		&::placeholder {
 			font-family: "Neue Regrade", sans-serif;
@@ -696,7 +707,7 @@ body.overflow_body_hidden {
 			}
 		}
 
-		// Select styling - ensure visibility (for native selects, Choices.js will override)
+		// Select styling - always visible (for native selects, Choices.js will override)
 		&[type="select"],
 		select {
 			cursor: pointer;
@@ -708,7 +719,7 @@ body.overflow_body_hidden {
 			background-position: right 0 center;
 			background-size: 13px 7px;
 			padding-right: 25px;
-			display: none; // Hidden by default
+			display: block; // Always visible for selects
 			visibility: visible;
 			opacity: 1;
 			width: 100%;
@@ -734,7 +745,7 @@ body.overflow_body_hidden {
 	.header-choices {
 		width: 100%;
 		min-width: 0;
-		display: flex;
+		display: flex; // Always visible for selects
 		align-items: center;
 		margin-bottom: 0;
 		flex-shrink: 0;
@@ -824,7 +835,7 @@ body.overflow_body_hidden {
 		.choices[data-type*="select-one"]::before {
 			content: "";
 			position: absolute;
-			right: 12px;
+			right: 0;
 			top: 50%;
 			transform: translateY(-50%);
 			width: 13px;
@@ -832,6 +843,7 @@ body.overflow_body_hidden {
 			background-image: url("../images/icons/scroll_header_arrow.svg");
 			background-repeat: no-repeat;
 			background-size: contain;
+			background-position: center;
 			border: none;
 			margin: 0;
 			pointer-events: none;

@@ -711,19 +711,34 @@
 				const display = wrapper.querySelector('.header-form-field-display');
 				const input = wrapper.querySelector('.header-form-input, select');
 				const choicesContainer = wrapper.querySelector('.header-choices');
+				const isSelect = input && input.tagName === 'SELECT';
 				
+				// For selects, always show them and hide display
+				if (isSelect) {
+					if (display) {
+						display.style.display = 'none';
+					}
+					if (input) {
+						input.style.display = 'block';
+					}
+					if (choicesContainer) {
+						choicesContainer.style.display = 'flex';
+					}
+					return; // Skip the rest for selects
+				}
+
+				// Only handle text inputs
 				if (!display || !input) return;
+
+				// Store the original display width to prevent expansion
+				const displayWidth = display.offsetWidth;
+				if (displayWidth > 0) {
+					wrapper.style.width = displayWidth + 'px';
+				}
 
 				// Update display text based on input value
 				const updateDisplay = function() {
-					let value = '';
-					
-					if (input.tagName === 'SELECT') {
-						const selectedOption = input.options[input.selectedIndex];
-						value = selectedOption && selectedOption.value ? selectedOption.text : '';
-					} else {
-						value = input.value;
-					}
+					const value = input.value;
 
 					if (value && value.trim() !== '') {
 						display.textContent = value;
@@ -736,63 +751,28 @@
 
 				// Show input when wrapper is clicked
 				wrapper.addEventListener('click', function(e) {
-					// Don't trigger if clicking on Choices.js dropdown
-					if (e.target.closest('.choices__list--dropdown')) {
-						return;
-					}
-
 					if (!wrapper.classList.contains('is-focused')) {
 						wrapper.classList.add('is-focused');
 						display.style.display = 'none';
+						input.style.display = 'block';
 						
-						// Show Choices.js container if it exists, otherwise show input
-						if (choicesContainer) {
-							choicesContainer.style.display = 'flex';
-						} else {
-							input.style.display = 'block';
-						}
-						
-						// Focus the input (for text inputs)
-						if (input.tagName !== 'SELECT' && !choicesContainer) {
-							setTimeout(function() {
-								input.focus();
-							}, 10);
-						}
+						// Focus the input
+						setTimeout(function() {
+							input.focus();
+						}, 10);
 					}
 				});
 
 				// Handle input events
-				if (input.tagName !== 'SELECT') {
-					input.addEventListener('input', updateDisplay);
-					input.addEventListener('blur', function() {
-						updateDisplay();
-						if (!input.value || input.value.trim() === '') {
-							wrapper.classList.remove('is-focused');
-							input.style.display = 'none';
-							if (choicesContainer) {
-								choicesContainer.style.display = 'none';
-							}
-							display.style.display = 'block';
-						}
-					});
-				} else {
-					// For selects, update on change
-					input.addEventListener('change', function() {
-						updateDisplay();
-						wrapper.classList.add('has-value');
-					});
-
-					// Also listen for Choices.js changes
-					if (choicesContainer) {
-						const choicesInput = choicesContainer.querySelector('select');
-						if (choicesInput) {
-							choicesInput.addEventListener('change', function() {
-								updateDisplay();
-								wrapper.classList.add('has-value');
-							});
-						}
+				input.addEventListener('input', updateDisplay);
+				input.addEventListener('blur', function() {
+					updateDisplay();
+					if (!input.value || input.value.trim() === '') {
+						wrapper.classList.remove('is-focused');
+						input.style.display = 'none';
+						display.style.display = 'block';
 					}
-				}
+				});
 
 				// Initial update
 				updateDisplay();
