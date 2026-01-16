@@ -6740,9 +6740,7 @@ body.fullscreen-nav-open {
 .perfect-day-section {
   position: relative;
   width: 100%;
-  padding: 80px 0;
   overflow: hidden;
-  padding-bottom: 300px;
 }
 .perfect-day-section .perfect-day-bg {
   position: absolute;
@@ -6804,48 +6802,40 @@ body.fullscreen-nav-open {
   max-width: 600px;
 }
 .perfect-day-section .perfect-day-slider {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: calc(100vw + 200px);
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  gap: 20px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  position: relative;
   padding: 20px 0 40px 0;
   z-index: 3;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
-.perfect-day-section .perfect-day-slider::-webkit-scrollbar {
-  display: none;
+.perfect-day-section .perfect-day-slider.swiper {
+  overflow: hidden;
 }
-.perfect-day-section .perfect-day-card {
+.perfect-day-section .perfect-day-slider .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+.perfect-day-section .perfect-day-slider .swiper-slide {
+  height: auto;
+  box-sizing: border-box;
+}
+.perfect-day-section .swiper-slide.perfect-day-card {
   position: relative;
   background-color: #fff;
   border-radius: 20px;
   padding: 40px 30px;
-  width: 466px;
-  min-width: 466px;
-  max-width: 466px;
-  height: 267px;
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   gap: 10px;
   align-items: flex-start;
   flex-direction: column;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  box-sizing: border-box;
 }
-.perfect-day-section .perfect-day-card:hover .perfect-day-card-decor {
+.perfect-day-section .swiper-slide.perfect-day-card:hover .perfect-day-card-decor {
   opacity: 1;
   transform: translate(0, 0);
 }
-.perfect-day-section .perfect-day-card .perfect-day-card-decor {
+.perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-decor {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -6857,12 +6847,12 @@ body.fullscreen-nav-open {
   pointer-events: none;
   z-index: 1;
 }
-.perfect-day-section .perfect-day-card .perfect-day-card-decor img {
+.perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-decor img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.perfect-day-section .perfect-day-card .perfect-day-card-heading {
+.perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -6874,7 +6864,7 @@ body.fullscreen-nav-open {
   position: relative;
   z-index: 2;
 }
-.perfect-day-section .perfect-day-card .perfect-day-card-paragraph {
+.perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-paragraph {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -6906,7 +6896,7 @@ body.fullscreen-nav-open {
     line-height: 1.5;
     font-size: 16px;
   }
-  .perfect-day-section .perfect-day-card .perfect-day-card-heading {
+  .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-heading {
     font-family: "Neue Regrade", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -6915,7 +6905,7 @@ body.fullscreen-nav-open {
     letter-spacing: 0%;
     font-size: 24px;
   }
-  .perfect-day-section .perfect-day-card .perfect-day-card-paragraph {
+  .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-paragraph {
     font-family: "Neue Regrade", sans-serif;
     font-weight: 500;
     font-style: normal;
@@ -6950,9 +6940,7 @@ body.fullscreen-nav-open {
     line-height: 1.5;
     max-width: 100%;
   }
-  .perfect-day-section .perfect-day-card {
-    max-width: 466px;
-    min-width: 466px;
+  .perfect-day-section .swiper-slide.perfect-day-card {
     padding: 30px 25px;
   }
 }
@@ -6977,12 +6965,10 @@ body.fullscreen-nav-open {
     line-height: 1.5;
     font-size: 14px;
   }
-  .perfect-day-section .perfect-day-card {
-    max-width: 466px;
-    min-width: 466px;
+  .perfect-day-section .swiper-slide.perfect-day-card {
     padding: 25px 20px;
   }
-  .perfect-day-section .perfect-day-card .perfect-day-card-heading {
+  .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-heading {
     font-family: "Neue Regrade", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -6991,7 +6977,7 @@ body.fullscreen-nav-open {
     letter-spacing: 0%;
     font-size: 22px;
   }
-  .perfect-day-section .perfect-day-card .perfect-day-card-paragraph {
+  .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-paragraph {
     font-family: "Neue Regrade", sans-serif;
     font-weight: 500;
     font-style: normal;

@@ -341,11 +341,17 @@ function addarah_scripts()
 
 	}
 
-	// Load Perfect Day Slider script for Weddings & Social Services page
+	// Load Swiper for Weddings & Social Services page
 	$is_weddings_page = is_page_template('page-weddings-social-services.php');
 
 	if ($is_weddings_page) {
-		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array(), _S_VERSION, true);
+		if (!wp_style_is('swiper-css', 'enqueued')) {
+			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+		}
+		if (!wp_script_is('swiper-js', 'enqueued')) {
+			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+		}
+		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array('swiper-js'), _S_VERSION, true);
 	}
 
 

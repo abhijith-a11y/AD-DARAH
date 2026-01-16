@@ -27,7 +27,7 @@ if (empty($perfect_day_bg_image)) {
 }
 ?>
 
-<section class="perfect-day-section">
+<section class="perfect-day-section pb_100 pt_100">
 	<div class="perfect-day-bg" style="background-image: url('<?php echo esc_url($perfect_day_bg_image); ?>');">
 		<div class="perfect-day-overlay"></div>
 	</div>
@@ -44,21 +44,25 @@ if (empty($perfect_day_bg_image)) {
 		</div>
 	</div>
 	<?php if (!empty($perfect_day_slider_items)): ?>
-		<div class="perfect-day-slider">
-			<?php foreach ($perfect_day_slider_items as $item): ?>
-				<div class="perfect-day-card">
-					<div class="perfect-day-card-decor">
-						<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/perfect day_decor.svg'); ?>"
-							alt="" aria-hidden="true">
-					</div>
-					<?php if (!empty($item['heading'])): ?>
-						<h3 class="perfect-day-card-heading"><?php echo esc_html($item['heading']); ?></h3>
-					<?php endif; ?>
-					<?php if (!empty($item['paragraph'])): ?>
-						<p class="perfect-day-card-paragraph"><?php echo esc_html($item['paragraph']); ?></p>
-					<?php endif; ?>
+		<div class="container">
+			<div class="perfect-day-slider swiper" data-perfect-day-swiper>
+				<div class="swiper-wrapper">
+					<?php foreach ($perfect_day_slider_items as $item): ?>
+						<div class="swiper-slide perfect-day-card">
+							<div class="perfect-day-card-decor">
+								<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/perfect day_decor.svg'); ?>"
+									alt="" aria-hidden="true">
+							</div>
+							<?php if (!empty($item['heading'])): ?>
+								<h3 class="perfect-day-card-heading"><?php echo esc_html($item['heading']); ?></h3>
+							<?php endif; ?>
+							<?php if (!empty($item['paragraph'])): ?>
+								<p class="perfect-day-card-paragraph"><?php echo esc_html($item['paragraph']); ?></p>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
 				</div>
-			<?php endforeach; ?>
+			</div>
 		</div>
 	<?php endif; ?>
 </section>

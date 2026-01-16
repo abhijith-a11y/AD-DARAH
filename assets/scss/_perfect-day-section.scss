@@ -3,9 +3,7 @@
 .perfect-day-section {
 	position: relative;
 	width: 100%;
-	padding: 80px 0;
 	overflow: hidden;
-	padding-bottom: 300px;
 
 	.perfect-day-bg {
 		position: absolute;
@@ -65,45 +63,38 @@
 	}
 
 	.perfect-day-slider {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: calc(100vw + 200px);
-		display: flex;
-		justify-content: flex-end;
-		align-items: flex-end;
-		gap: 20px;
-		overflow-x: scroll;
-		overflow-y: hidden;
+		position: relative;
 		padding: 20px 0 40px 0;
 		z-index: 3;
-		scrollbar-width: none; // Hide scrollbar initially (Firefox)
-		-ms-overflow-style: none; // Hide scrollbar initially (IE/Edge)
-		-webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+		width: 100%;
 
-		// Hide scrollbar initially
-		&::-webkit-scrollbar {
-			display: none;
+		&.swiper {
+			overflow: hidden;
+		}
+
+		.swiper-wrapper {
+			display: flex;
+			align-items: stretch;
+		}
+
+		.swiper-slide {
+			height: auto;
+			box-sizing: border-box;
 		}
 	}
 
-	.perfect-day-card {
+	.swiper-slide.perfect-day-card {
 		position: relative;
 		background-color: $white;
 		border-radius: 20px;
 		padding: 40px 30px;
-		width: 466px;
-		min-width: 466px;
-		max-width: 466px;
-		height: 267px;
-		display: flex;
+		display: flex !important;
 		justify-content: space-between;
 		gap: 10px;
 		align-items: flex-start;
 		flex-direction: column;
-		flex-shrink: 0;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		overflow: hidden;
+		box-sizing: border-box;
 
 		&:hover {
 			.perfect-day-card-decor {
@@ -163,7 +154,7 @@
 			}
 		}
 
-		.perfect-day-card {
+		.swiper-slide.perfect-day-card {
 			.perfect-day-card-heading {
 				@include perfect-day-card-heading;
 				font-size: 24px;
@@ -195,9 +186,7 @@
 			}
 		}
 
-		.perfect-day-card {
-			max-width: 466px;
-			min-width: 466px;
+		.swiper-slide.perfect-day-card {
 			padding: 30px 25px;
 		}
 	}
@@ -217,9 +206,7 @@
 			}
 		}
 
-		.perfect-day-card {
-			max-width: 466px;
-			min-width: 466px;
+		.swiper-slide.perfect-day-card {
 			padding: 25px 20px;
 
 			.perfect-day-card-heading {
