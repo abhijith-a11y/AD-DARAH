@@ -18,7 +18,40 @@ body {
 	font-weight: 500;
 	/* overflow-x: hidden; */
 	scrollbar-width: none;
+	font-size: 100%;
 }
+
+
+
+
+@media screen and (max-width: 1024px) {
+	html,
+body {
+	font-size: 100%;
+}}
+
+
+
+
+@media screen and (max-width: 768px) {
+	html,
+body {
+	font-size: 75%;
+}}
+
+
+
+
+@media screen and (max-width: 700px) {
+	html,
+body {
+	font-size: 50%;
+}}
+
+
+
+
+
 
 p {
 	font-size: 16px;

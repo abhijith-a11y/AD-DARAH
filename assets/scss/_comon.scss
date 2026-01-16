@@ -18,3 +18,11 @@
 		margin-bottom: 25px;
 	}
 }
+
+
+.title_style_1 {
+	@include px-rem(60);
+	margin: 0 0 10px 0;
+
+	&.yello{ color: #C5B17F; }
+}
