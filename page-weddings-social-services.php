@@ -58,6 +58,30 @@ get_header();
         include locate_template('template-parts/PerfectDaySection.php');
         ?>
 
+        <?php
+        // Packages Section
+        $packages_heading = 'Weddings & Social Services';
+        $packages_paragraph = 'From intimate engagements to royal weddings. AD-DARAH creates timeless celebrations that honor heritage and style.';
+        $packages_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/wedding_01.png',
+                'heading' => 'Female Packages',
+                'paragraph' => 'Experience an atmosphere of elegance and grace designed exclusively for brides and their guests. From exquisite décor and lighting to luxurious bridal suites, every element is crafted to make the celebration truly unforgettable.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/wedding_02.png',
+                'heading' => 'Male Packages',
+                'paragraph' => 'Host your celebration in a grand setting that reflects Saudi tradition and modern sophistication. Our male halls offer spacious layouts, premium service, and refined details that ensure every moment feels exceptional.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/PackagesSection.php');
+        ?>
+
     </div>
 </main><!-- #main -->
 

@@ -1,0 +1,166 @@
+// Packages Section Styles
+
+.packages-section {
+	background-color: rgba(197, 177, 127, 0.19);
+	position: relative;
+	width: 100%;
+
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+
+	.packages-section-heading {
+		@include packages-section-heading;
+		color: #c5b17f;
+		margin: 0 0 20px 0;
+	}
+
+	.packages-section-paragraph {
+		@include packages-section-paragraph;
+		color: #282828;
+		margin: 0 auto 60px auto;
+		max-width: 850px;
+	}
+
+	.packages-cards-wrapper {
+		display: flex;
+		gap: 30px;
+		width: 100%;
+	}
+
+	.packages-card {
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+		width: 50%;
+		height: 523px;
+		background-color: $black;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				199.86deg,
+				rgba(0, 0, 0, 0) 13.27%,
+				rgba(0, 0, 0, 0.6) 65.89%
+			);
+			z-index: 2;
+		}
+
+		.packages-card-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		.packages-card-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			// height: 250px;
+			padding: 40px 30px;
+			z-index: 5;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			transition: all 0.8s ease;
+			transform: translateY(100%);
+
+			.packages-card-heading {
+				@include perfect-day-card-heading;
+				color: $white;
+				margin: 0 0 15px 0;
+				position: relative;
+			}
+
+			.packages-card-paragraph {
+				@include packages-card-paragraph;
+				color: $white;
+				margin: 0 0 15px 0;
+				position: relative;
+				transition: opacity 0.4s ease, transform 0.4s ease;
+			}
+
+			.packages-card-button {
+				margin-top: 10px;
+			}
+		}
+
+		&:hover {
+			.packages-card-overlay {
+				transform: translateY(0);
+
+				.packages-card-paragraph {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	@media #{$media-1200} {
+		.packages-cards-wrapper {
+			gap: 25px;
+		}
+
+		.packages-card {
+			.packages-card-overlay {
+				padding: 35px 25px;
+
+				.packages-card-heading {
+					font-size: 24px;
+				}
+
+				.packages-card-paragraph {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	@media #{$media-768} {
+		.packages-section-heading {
+			font-size: 40px;
+		}
+
+		.packages-section-paragraph {
+			font-size: 16px;
+			margin-bottom: 40px;
+		}
+
+		.packages-cards-wrapper {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.packages-card {
+			.packages-card-overlay {
+				padding: 30px 20px;
+
+				.packages-card-heading {
+					font-size: 22px;
+				}
+
+				.packages-card-paragraph {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
