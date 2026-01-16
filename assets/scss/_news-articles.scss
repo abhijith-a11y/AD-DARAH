@@ -26,12 +26,12 @@
 	// Scale center/active slide
 	.swiper-slide {
 		transition: transform 0.3s ease;
-		
+
 		&:not(.swiper-slide-active) {
 			transform: scale(0.85); // Scale down non-active slides
 			opacity: 0.7; // Slightly fade non-active slides
 		}
-		
+
 		&.swiper-slide-active {
 			transform: scale(1.1); // Scale up center/active slide
 			opacity: 1;
@@ -39,14 +39,16 @@
 		}
 	}
 
-    // .test--{}
+	// .test--{}
 
 	.news-article-card {
 		background-color: $white;
 		border-radius: 20px;
 		overflow: hidden;
-		height: 100%;
-		width: 100%;
+		width: 594px;
+		height: 432px;
+		aspect-ratio: 594/432;
+		max-width: 100%;
 	}
 
 	.news-article-image {
@@ -121,7 +123,7 @@
 
 				&:hover {
 					.news-article-learn-icon {
-						background: #C5B17F;
+						background: #c5b17f;
 						transform: translateX(3px);
 					}
 				}
@@ -407,7 +409,3 @@
 		}
 	}
 }
-
-
-
-

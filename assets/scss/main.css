@@ -3111,8 +3111,7 @@ body.overflow_body_hidden {
   overflow: visible;
   min-width: 0;
   background-color: rgba(244, 244, 244, 0.79);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) inset, 0px -1px 4px 0px rgba(0, 0, 0, 0.05) inset;
 }
 .header-booking-form .header-booking-form-inputs > *:not(:last-child) {
   border-right: 0.5px solid rgba(197, 177, 127, 0.44);
@@ -3339,7 +3338,18 @@ body.overflow_body_hidden {
 }
 .header-booking-form .header-choices .choices[data-type*=select-one]::after {
   display: none !important;
-  content: none !important;
+  content: "" !important;
+  height: 0 !important;
+  width: 0 !important;
+  border: none !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  position: static !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 .header-booking-form .header-choices .choices[data-type*=select-one]::before {
   content: "";
@@ -5311,8 +5321,10 @@ body.fullscreen-nav-open {
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+  width: 594px;
+  height: 432px;
+  aspect-ratio: 594/432;
+  max-width: 100%;
 }
 .news-articles-container .news-article-image {
   width: 100%;
@@ -5380,7 +5392,7 @@ body.fullscreen-nav-open {
   transition: all 0.3s ease;
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more:hover .news-article-learn-icon {
-  background: #C5B17F;
+  background: #c5b17f;
   transform: translateX(3px);
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more .news-article-learn-text {
