@@ -28,12 +28,36 @@ get_header();
         $image_text_button_link = '#';
 
         include locate_template('template-parts/ImageTextSection.php'); ?>
-
-
-        // Page content can be added here
-        // You can add more sections similar to page-about.php
-        // For example: ImageTextSection, testimonials, etc.
         ?>
+
+
+        <?php
+        // Perfect Day Section
+        $perfect_day_bg_image = get_template_directory_uri() . '/assets/images/perfect_day_bg.png';
+        $perfect_day_heading = 'Everything for Your Perfect Day';
+        $perfect_day_paragraph = 'From intimate engagements to royal weddings, AD-DARAH creates timeless celebrations that honor heritage and style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut tempus libero. Donec ornare mauris ac dictum sodales. Aenean eu consequat tortor.';
+        $perfect_day_slider_items = array(
+            array(
+                'heading' => 'Weddings & Engagements',
+                'paragraph' => 'Celebrate in a setting that reflects elegance and Saudi tradition.'
+            ),
+            array(
+                'heading' => 'Facilities',
+                'paragraph' => 'Fully segregated male & female halls with premium amenities.'
+            ),
+            array(
+                'heading' => 'Wedding Packages',
+                'paragraph' => 'Pearl - Elegant and intimate setting | Diamond - Luxury with added services | Royal - The ultimate wedding experience'
+            ),
+            array(
+                'heading' => 'Bridal Services',
+                'paragraph' => 'Luxury consultation and more'
+            ),
+        );
+
+        include locate_template('template-parts/PerfectDaySection.php');
+        ?>
+
     </div>
 </main><!-- #main -->
 

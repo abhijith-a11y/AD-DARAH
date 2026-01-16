@@ -341,6 +341,14 @@ function addarah_scripts()
 
 	}
 
+	// Load Perfect Day Slider script for Weddings & Social Services page
+	$is_weddings_page = is_page_template('page-weddings-social-services.php');
+
+	if ($is_weddings_page) {
+		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array(), _S_VERSION, true);
+	}
+
+
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
