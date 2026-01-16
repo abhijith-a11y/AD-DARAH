@@ -87,6 +87,16 @@ get_header();
         get_template_part('template-parts/SingleTestimonial');
         ?>
 
+        <?php
+        // Contact Us Section
+        set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
+        set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+        set_query_var('contact_button_text', 'Contact Us');
+        set_query_var('contact_button_link', '#');
+        set_query_var('contact_bg_image', get_template_directory_uri() . '/assets/images/contact-bg.jpg');
+        get_template_part('template-parts/ContactUs');
+        ?>
+
     </div>
 </main><!-- #main -->
 
@@ -114,6 +124,20 @@ get_footer();
         };
         script.onerror = function () {
             console.error("Failed to load SingleTestimonial.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+
+    // Also load PerfectDaySlider.js directly
+    (function () {
+        console.log("Loading PerfectDaySlider.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/PerfectDaySlider.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("PerfectDaySlider.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load PerfectDaySlider.js from:", script.src);
         };
         document.head.appendChild(script);
     })();

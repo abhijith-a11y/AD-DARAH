@@ -44,7 +44,6 @@ if (empty($perfect_day_bg_image)) {
 		</div>
 	</div>
 	<?php if (!empty($perfect_day_slider_items)): ?>
-		<div class="container">
 			<div class="perfect-day-slider swiper" data-perfect-day-swiper>
 				<div class="swiper-wrapper">
 					<?php foreach ($perfect_day_slider_items as $item): ?>
@@ -63,6 +62,6 @@ if (empty($perfect_day_bg_image)) {
 					<?php endforeach; ?>
 				</div>
 			</div>
-		</div>
+	
 	<?php endif; ?>
 </section>

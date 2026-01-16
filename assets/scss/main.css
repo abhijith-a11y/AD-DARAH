@@ -7806,30 +7806,29 @@ body.fullscreen-nav-open {
   padding: 20px 0 40px 0;
   z-index: 3;
   width: 100%;
-}
-.perfect-day-section .perfect-day-slider.swiper {
-  overflow: hidden;
-}
-.perfect-day-section .perfect-day-slider .swiper-wrapper {
-  display: flex;
-  align-items: stretch;
+  overflow: visible;
 }
 .perfect-day-section .perfect-day-slider .swiper-slide {
   height: auto;
-  box-sizing: border-box;
+  max-width: 466px;
+  width: auto;
+  flex-shrink: 0;
 }
 .perfect-day-section .swiper-slide.perfect-day-card {
   position: relative;
   background-color: #fff;
   border-radius: 20px;
   padding: 40px 30px;
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
   gap: 10px;
   align-items: flex-start;
   flex-direction: column;
   overflow: hidden;
-  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: 466px;
+  height: 292px;
 }
 .perfect-day-section .swiper-slide.perfect-day-card:hover .perfect-day-card-decor {
   opacity: 1;

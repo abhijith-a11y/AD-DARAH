@@ -67,19 +67,13 @@
 		padding: 20px 0 40px 0;
 		z-index: 3;
 		width: 100%;
-
-		&.swiper {
-			overflow: hidden;
-		}
-
-		.swiper-wrapper {
-			display: flex;
-			align-items: stretch;
-		}
+		overflow: visible;
 
 		.swiper-slide {
 			height: auto;
-			box-sizing: border-box;
+			max-width: 466px;
+			width: auto;
+			flex-shrink: 0;
 		}
 	}
 
@@ -88,13 +82,16 @@
 		background-color: $white;
 		border-radius: 20px;
 		padding: 40px 30px;
-		display: flex !important;
+		display: flex;
 		justify-content: space-between;
 		gap: 10px;
 		align-items: flex-start;
 		flex-direction: column;
 		overflow: hidden;
-		box-sizing: border-box;
+		height: 100%;
+		width: 100%;
+		max-width: 466px;
+		height: 292px;
 
 		&:hover {
 			.perfect-day-card-decor {
