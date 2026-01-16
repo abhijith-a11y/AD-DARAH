@@ -6174,6 +6174,7 @@ body.fullscreen-nav-open {
   justify-content: flex-start;
 }
 .image-text-section .image-text-right p {
+  margin-top: 0;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 1px;
@@ -6181,6 +6182,9 @@ body.fullscreen-nav-open {
 }
 .image-text-section .image-text-right p:last-child {
   margin-bottom: 0;
+}
+.image-text-section .image-text-right .image-text-button {
+  margin-top: 20px;
 }
 .image-text-section .image-text-headline {
   margin: 0 0 30px 0;

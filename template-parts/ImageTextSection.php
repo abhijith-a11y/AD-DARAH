@@ -17,6 +17,8 @@
 $image_text_image = isset($image_text_image) ? $image_text_image : '';
 $image_text_headline_1 = isset($image_text_headline_1) ? $image_text_headline_1 : '';
 $image_text_headline_2 = isset($image_text_headline_2) ? $image_text_headline_2 : '';
+$image_text_button_text = isset($image_text_button_text) ? $image_text_button_text : '';
+$image_text_button_link = isset($image_text_button_link) ? $image_text_button_link : '';
 
 // Handle paragraphs - accept array or individual variables
 if (isset($image_text_paragraphs) && is_array($image_text_paragraphs)) {
@@ -46,7 +48,8 @@ if (empty($image_text_image)) {
 		<div class="image-text-wrapper">
 			<div class="image-text-left">
 				<?php if ($image_text_image): ?>
-					<img src="<?php echo esc_url($image_text_image); ?>" alt="<?php echo esc_attr($image_text_headline_2 ?: 'Image'); ?>">
+					<img src="<?php echo esc_url($image_text_image); ?>"
+						alt="<?php echo esc_attr($image_text_headline_2 ?: 'Image'); ?>">
 				<?php endif; ?>
 			</div>
 			<div class="image-text-right">
@@ -64,6 +67,11 @@ if (empty($image_text_image)) {
 					<?php foreach ($image_text_paragraphs as $paragraph): ?>
 						<p><?php echo esc_html($paragraph); ?></p>
 					<?php endforeach; ?>
+				<?php endif; ?>
+				<?php if (!empty($image_text_button_text) && !empty($image_text_button_link)): ?>
+					<a href="<?php echo esc_url($image_text_button_link); ?>" class="primary-button image-text-button">
+						<?php echo esc_html($image_text_button_text); ?>
+					</a>
 				<?php endif; ?>
 			</div>
 		</div>
