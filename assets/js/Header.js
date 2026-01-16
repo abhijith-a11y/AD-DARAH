@@ -692,14 +692,149 @@
 								instance.open();
 							});
 						}
+					},
+					onChange: function(selectedDates, dateStr, instance) {
+						// Update display when date is selected
+						updateFieldDisplay(dateInput);
 					}
 				});
+			}
+		};
+
+		/**
+		 * Initialize div-based form field interactions
+		 */
+		const initFormFieldWrappers = function() {
+			const fieldWrappers = document.querySelectorAll('.header-form-field-wrapper');
+
+			fieldWrappers.forEach(function(wrapper) {
+				const display = wrapper.querySelector('.header-form-field-display');
+				const input = wrapper.querySelector('.header-form-input, select');
+				const choicesContainer = wrapper.querySelector('.header-choices');
+				
+				if (!display || !input) return;
+
+				// Update display text based on input value
+				const updateDisplay = function() {
+					let value = '';
+					
+					if (input.tagName === 'SELECT') {
+						const selectedOption = input.options[input.selectedIndex];
+						value = selectedOption && selectedOption.value ? selectedOption.text : '';
+					} else {
+						value = input.value;
+					}
+
+					if (value && value.trim() !== '') {
+						display.textContent = value;
+						wrapper.classList.add('has-value');
+					} else {
+						display.textContent = input.getAttribute('placeholder') || display.textContent;
+						wrapper.classList.remove('has-value');
+					}
+				};
+
+				// Show input when wrapper is clicked
+				wrapper.addEventListener('click', function(e) {
+					// Don't trigger if clicking on Choices.js dropdown
+					if (e.target.closest('.choices__list--dropdown')) {
+						return;
+					}
+
+					if (!wrapper.classList.contains('is-focused')) {
+						wrapper.classList.add('is-focused');
+						display.style.display = 'none';
+						
+						// Show Choices.js container if it exists, otherwise show input
+						if (choicesContainer) {
+							choicesContainer.style.display = 'flex';
+						} else {
+							input.style.display = 'block';
+						}
+						
+						// Focus the input (for text inputs)
+						if (input.tagName !== 'SELECT' && !choicesContainer) {
+							setTimeout(function() {
+								input.focus();
+							}, 10);
+						}
+					}
+				});
+
+				// Handle input events
+				if (input.tagName !== 'SELECT') {
+					input.addEventListener('input', updateDisplay);
+					input.addEventListener('blur', function() {
+						updateDisplay();
+						if (!input.value || input.value.trim() === '') {
+							wrapper.classList.remove('is-focused');
+							input.style.display = 'none';
+							if (choicesContainer) {
+								choicesContainer.style.display = 'none';
+							}
+							display.style.display = 'block';
+						}
+					});
+				} else {
+					// For selects, update on change
+					input.addEventListener('change', function() {
+						updateDisplay();
+						wrapper.classList.add('has-value');
+					});
+
+					// Also listen for Choices.js changes
+					if (choicesContainer) {
+						const choicesInput = choicesContainer.querySelector('select');
+						if (choicesInput) {
+							choicesInput.addEventListener('change', function() {
+								updateDisplay();
+								wrapper.classList.add('has-value');
+							});
+						}
+					}
+				}
+
+				// Initial update
+				updateDisplay();
+			});
+		};
+
+		/**
+		 * Update field display text
+		 */
+		const updateFieldDisplay = function(input) {
+			const wrapper = input.closest('.header-form-field-wrapper');
+			if (!wrapper) return;
+
+			const display = wrapper.querySelector('.header-form-field-display');
+			if (!display) return;
+
+			let value = '';
+			
+			if (input.tagName === 'SELECT') {
+				const selectedOption = input.options[input.selectedIndex];
+				value = selectedOption && selectedOption.value ? selectedOption.text : '';
+			} else {
+				value = input.value;
+			}
+
+			if (value && value.trim() !== '') {
+				display.textContent = value;
+				wrapper.classList.add('has-value');
+			} else {
+				display.textContent = input.getAttribute('placeholder') || display.textContent;
+				wrapper.classList.remove('has-value');
 			}
 		};
 
 		// Initialize Choices and Flatpickr
 		initChoicesSelects();
 		initFlatpickrDate();
+		
+		// Initialize form field wrappers after a short delay to ensure Choices.js is initialized
+		setTimeout(function() {
+			initFormFieldWrappers();
+		}, 100);
 	};
 
 	/**

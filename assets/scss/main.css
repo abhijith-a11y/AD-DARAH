@@ -3105,13 +3105,57 @@ body.overflow_body_hidden {
   padding: 0 20px;
   border-radius: 200px;
   justify-content: flex-start;
-  max-width: 800px;
+  max-width: 820px;
+  width: 100%;
   height: 48px;
-  overflow: hidden;
+  overflow: visible;
   min-width: 0;
 }
 .header-booking-form .header-booking-form-inputs > *:not(:last-child) {
   border-right: 0.5px solid rgba(197, 177, 127, 0.44);
+}
+.header-booking-form .header-form-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+  flex-shrink: 0;
+  padding: 0 12px;
+  height: 60%;
+}
+.header-booking-form .header-form-field-wrapper .header-form-field-display {
+  display: block;
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #191919;
+  opacity: 0.7;
+  white-space: nowrap;
+  cursor: text;
+  pointer-events: none;
+}
+.header-booking-form .header-form-field-wrapper.is-focused .header-form-field-display, .header-booking-form .header-form-field-wrapper:focus-within .header-form-field-display {
+  display: none;
+}
+.header-booking-form .header-form-field-wrapper.is-focused .header-form-input, .header-booking-form .header-form-field-wrapper:focus-within .header-form-input {
+  display: block;
+}
+.header-booking-form .header-form-field-wrapper.is-focused .header-choices, .header-booking-form .header-form-field-wrapper:focus-within .header-choices {
+  display: flex;
+}
+.header-booking-form .header-form-field-wrapper.has-value .header-form-field-display {
+  display: none;
+}
+.header-booking-form .header-form-field-wrapper.has-value .header-form-input {
+  display: block;
+}
+.header-booking-form .header-form-field-wrapper.has-value .header-choices {
+  display: flex;
+}
+.header-booking-form .header-form-field-wrapper .header-choices {
+  display: none;
 }
 @media only screen and (max-width: 1440px) {
   .header-booking-form {
@@ -3131,8 +3175,9 @@ body.overflow_body_hidden {
   }
 }
 .header-booking-form .header-form-input {
+  display: none;
   min-width: 0;
-  width: auto;
+  width: 100%;
   background: transparent;
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
@@ -3144,8 +3189,8 @@ body.overflow_body_hidden {
   transition: border-color 0.3s ease;
   border: none;
   outline: none;
-  padding: 0 12px;
-  flex-shrink: 1;
+  padding: 0;
+  flex-shrink: 0;
   flex-grow: 0;
 }
 .header-booking-form .header-form-input::placeholder {
@@ -3171,9 +3216,9 @@ body.overflow_body_hidden {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 100px;
-  width: auto;
-  flex-shrink: 1;
+  min-width: 0;
+  width: 100%;
+  flex-shrink: 0;
 }
 .header-booking-form .header-form-input[type=text][id=headerEventDate]::placeholder, .header-booking-form .header-form-input[type=date]::placeholder {
   white-space: nowrap;
@@ -3186,19 +3231,19 @@ body.overflow_body_hidden {
   -moz-appearance: none;
   background-image: url("../images/icons/scroll_header_arrow.svg");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 0 center;
   background-size: 13px 7px;
-  padding-right: 35px;
-  display: block;
+  padding-right: 25px;
+  display: none;
   visibility: visible;
   opacity: 1;
-  width: auto;
+  width: 100%;
   min-width: 0;
   height: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex-shrink: 1;
+  flex-shrink: 0;
 }
 .header-booking-form .header-form-input[type=select] option,
 .header-booking-form .header-form-input select option {
@@ -3209,25 +3254,13 @@ body.overflow_body_hidden {
   background: #fff;
   padding: 5px;
 }
-.header-booking-form .header-form-input select[name=event_type],
-.header-booking-form .header-form-input select#headerEventType {
-  min-width: 100px;
-  width: auto;
-  flex-shrink: 1;
-}
-.header-booking-form .header-form-input select[name=preferred_time],
-.header-booking-form .header-form-input select#headerPreferredTime {
-  min-width: 130px;
-  width: auto;
-  flex-shrink: 1;
-}
 .header-booking-form .header-choices {
-  width: auto;
+  width: 100%;
   min-width: 0;
   display: flex;
   align-items: center;
   margin-bottom: 0;
-  flex-shrink: 1;
+  flex-shrink: 0;
   flex-grow: 0;
 }
 .header-booking-form .header-choices .choices__inner {
@@ -3251,7 +3284,7 @@ body.overflow_body_hidden {
   padding: 0;
   display: flex;
   align-items: center;
-  width: auto;
+  width: 100%;
   min-width: 0;
 }
 .header-booking-form .header-choices .choices__list--single .choices__item {
@@ -3317,23 +3350,8 @@ body.overflow_body_hidden {
 .header-booking-form .header-choices .choices[data-type*=select-one].is-open::before {
   transform: translateY(-50%) rotate(180deg);
 }
-.header-booking-form .header-form-date-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: auto;
-  min-width: 100px;
-  padding: 0 12px;
-  flex-shrink: 1;
-  flex-grow: 0;
-}
 .header-booking-form .header-form-date-wrapper .header-form-input {
-  width: 100%;
-  min-width: 0;
-  position: relative;
-  z-index: 2;
   padding-right: 40px;
-  padding-left: 0;
 }
 .header-booking-form .header-form-date-wrapper .header-form-calendar-icon {
   position: absolute;
@@ -3342,13 +3360,17 @@ body.overflow_body_hidden {
   transform: translateY(-50%);
   width: 12px;
   height: 13px;
-  pointer-events: auto;
+  pointer-events: none;
   cursor: pointer;
   z-index: 3;
   transition: opacity 0.2s ease;
+  opacity: 0.7;
 }
 .header-booking-form .header-form-date-wrapper .header-form-calendar-icon:hover {
-  opacity: 0.8;
+  opacity: 1;
+}
+.header-booking-form .header-form-date-wrapper.is-focused .header-form-calendar-icon, .header-booking-form .header-form-date-wrapper:focus-within .header-form-calendar-icon, .header-booking-form .header-form-date-wrapper.has-value .header-form-calendar-icon {
+  opacity: 1;
 }
 .header-booking-form .header-form-date-wrapper[type=select], .header-booking-form .header-form-date-wrapper:is(select) {
   cursor: pointer;

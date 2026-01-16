@@ -23,13 +23,14 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	
+
 	<header id="headerMainSection" class="main-header">
 		<div class="container header-container header-initial-container" id="headerInitialContainer">
 			<!-- Logo -->
 			<div class="header-logo">
 				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>"
+						alt="<?php bloginfo('name'); ?>">
 				</a>
 			</div>
 
@@ -39,10 +40,10 @@
 				if (has_nav_menu('menu-1')) {
 					wp_nav_menu(array(
 						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-						'container'      => false,
-						'menu_class'     => 'nav-menu',
-						'fallback_cb'    => false,
+						'menu_id' => 'primary-menu',
+						'container' => false,
+						'menu_class' => 'nav-menu',
+						'fallback_cb' => false,
 					));
 				} else {
 					// Custom Navigation if menu not set
@@ -68,14 +69,17 @@
 			<!-- Utility Icons -->
 			<div class="header-utilities">
 				<a href="#" class="header-icon search-icon" aria-label="Search">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/search.svg.svg'); ?>" alt="Search">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/search.svg.svg'); ?>"
+						alt="Search">
 				</a>
 				<a href="#" class="header-icon lang-icon" aria-label="Language">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/lang.svg.svg'); ?>" alt="Language">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/lang.svg.svg'); ?>"
+						alt="Language">
 				</a>
-			<button class="mobile-menu-toggle" id="menuIcon" aria-label="Menu">
-				<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>" alt="Menu">
-			</button>
+				<button class="mobile-menu-toggle" id="menuIcon" aria-label="Menu">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>"
+						alt="Menu">
+				</button>
 			</div>
 		</div>
 
@@ -119,32 +123,56 @@
 			<!-- Logo -->
 			<div class="header-logo">
 				<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>"
+						alt="<?php bloginfo('name'); ?>">
 				</a>
 			</div>
 
 			<!-- Booking Form -->
 			<form class="header-booking-form" action="#" method="post">
 				<span class="header-booking-form-inputs">
-				<input type="text" name="full_name" placeholder="Full Name" class="header-form-input header-form-input-small" required>
-				<input type="email" name="email" placeholder="Email Address" class="header-form-input header-form-input-small" required>
-				<input type="tel" name="phone" placeholder="Phone No." class="header-form-input header-form-input-small" required>
-				<select name="event_type" id="headerEventType" class="header-form-input header-form-input-large" required>
-					<option value="">Event Type</option>
-					<option value="wedding">Wedding</option>
-					<option value="corporate">Corporate</option>
-					<option value="social">Social</option>
-				</select>d
-				<div class="header-form-date-wrapper">
-					<input type="text" name="event_date" id="headerEventDate" class="header-form-input" placeholder="Event Date" required>
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/header_calendar.svg'); ?>" alt="Calendar" class="header-form-calendar-icon">
-				</div>
-				<select name="preferred_time" id="headerPreferredTime" class="header-form-input header-form-input-large" required>
-					<option value="">Preferred Time</option>
-					<option value="morning">Morning</option>
-					<option value="afternoon">Afternoon</option>
-					<option value="evening">Evening</option>
-				</select>
+					<div class="header-form-field-wrapper">
+						<span class="header-form-field-display">Full Name</span>
+						<input type="text" name="full_name" placeholder="Full Name"
+							class="header-form-input header-form-input-small" required>
+					</div>
+					<div class="header-form-field-wrapper">
+						<span class="header-form-field-display">Email Address</span>
+						<input type="email" name="email" placeholder="Email Address"
+							class="header-form-input header-form-input-small" required>
+					</div>
+					<div class="header-form-field-wrapper">
+						<span class="header-form-field-display">Phone No.</span>
+						<input type="tel" name="phone" placeholder="Phone No."
+							class="header-form-input header-form-input-small" required>
+					</div>
+					<div class="header-form-field-wrapper">
+						<span class="header-form-field-display">Event Type</span>
+						<select name="event_type" id="headerEventType" class="header-form-input header-form-input-large"
+							required>
+							<option value="">Event Type</option>
+							<option value="wedding">Wedding</option>
+							<option value="corporate">Corporate</option>
+							<option value="social">Social</option>
+						</select>
+					</div>
+					<div class="header-form-field-wrapper header-form-date-wrapper">
+						<span class="header-form-field-display">Event Date</span>
+						<input type="text" name="event_date" id="headerEventDate" class="header-form-input"
+							placeholder="Event Date" required>
+						<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/header_calendar.svg'); ?>"
+							alt="Calendar" class="header-form-calendar-icon">
+					</div>
+					<div class="header-form-field-wrapper">
+						<span class="header-form-field-display">Preferred Time</span>
+						<select name="preferred_time" id="headerPreferredTime"
+							class="header-form-input header-form-input-large" required>
+							<option value="">Preferred Time</option>
+							<option value="morning">Morning</option>
+							<option value="afternoon">Afternoon</option>
+							<option value="evening">Evening</option>
+						</select>
+					</div>
 				</span>
 				<button type="submit" class="primary-button header-form-button">Book a Visit</button>
 			</form>
@@ -152,14 +180,17 @@
 			<!-- Utility Icons -->
 			<div class="header-utilities">
 				<a href="#" class="header-icon search-icon" aria-label="Search">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/search.svg.svg'); ?>" alt="Search">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/search.svg.svg'); ?>"
+						alt="Search">
 				</a>
 				<a href="#" class="header-icon lang-icon" aria-label="Language">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/lang.svg.svg'); ?>" alt="Language">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/lang.svg.svg'); ?>"
+						alt="Language">
 				</a>
 				<span class="header-icon desktop-menu-toggle" id="menuIconScroll" aria-label="Menu">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>" alt="Menu">
-			    </span>
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/hamburger.svg'); ?>"
+						alt="Menu">
+				</span>
 			</div>
 		</div>
 
@@ -170,14 +201,16 @@
 			<!-- Left Panel -->
 			<div class="fullscreen-nav-left">
 				<div class="fullscreen-nav-decor">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/open_nav_decor_left.png'); ?>" alt="Decoration">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/open_nav_decor_left.png'); ?>"
+						alt="Decoration">
 				</div>
 				<div class="fullscreen-nav-left-content">
 					<!-- Logo and Grid Container -->
 					<div class="fullscreen-nav-main-content" id="fullscreenNavMainContent">
 						<!-- Logo -->
 						<div class="fullscreen-nav-logo">
-							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
+							<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/main-logo.svg'); ?>"
+								alt="<?php bloginfo('name'); ?>">
 						</div>
 						<!-- Contact Grid -->
 						<div class="fullscreen-nav-grid">
@@ -246,19 +279,22 @@
 			<div class="fullscreen-nav-right">
 				<!-- Close Icon -->
 				<button class="fullscreen-nav-close" id="fullscreenNavClose" aria-label="Close Menu">
-					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/close icon.svg'); ?>" alt="Close">
+					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/close icon.svg'); ?>"
+						alt="Close">
 				</button>
 				<!-- Menu Items -->
 				<nav class="fullscreen-nav-menu-items">
 					<ul class="fullscreen-nav-list">
 						<li class="fullscreen-nav-item">
-							<a href="<?php echo esc_url(home_url('/about')); ?>" class="fullscreen-nav-link">About Us</a>
+							<a href="<?php echo esc_url(home_url('/about')); ?>" class="fullscreen-nav-link">About
+								Us</a>
 						</li>
 						<li class="fullscreen-nav-item fullscreen-nav-item-has-submenu" data-submenu="services">
 							<a href="#" class="fullscreen-nav-link fullscreen-nav-link-with-arrow">
 								<span>Services</span>
 								<span class="fullscreen-nav-arrow">
-									<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/opennav_arrow.svg'); ?>" alt="Arrow">
+									<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/opennav_arrow.svg'); ?>"
+										alt="Arrow">
 								</span>
 							</a>
 							<div class="fullscreen-nav-submenu-data" data-submenu-id="services">
@@ -274,7 +310,8 @@
 										</ul>
 									</div>
 									<div class="fullscreen-nav-submenu-category">
-										<h4 class="fullscreen-nav-submenu-category-heading">Weddings & Social Services</h4>
+										<h4 class="fullscreen-nav-submenu-category-heading">Weddings & Social Services
+										</h4>
 										<ul class="fullscreen-nav-submenu-category-list">
 											<li><a href="#">Female Packages</a></li>
 											<li><a href="#">Male Packages</a></li>
@@ -292,10 +329,12 @@
 							</div>
 						</li>
 						<li class="fullscreen-nav-item">
-							<a href="<?php echo esc_url(home_url('/media-center')); ?>" class="fullscreen-nav-link">Media Center</a>
+							<a href="<?php echo esc_url(home_url('/media-center')); ?>"
+								class="fullscreen-nav-link">Media Center</a>
 						</li>
 						<li class="fullscreen-nav-item">
-							<a href="<?php echo esc_url(home_url('/contact')); ?>" class="fullscreen-nav-link">Contact Us</a>
+							<a href="<?php echo esc_url(home_url('/contact')); ?>" class="fullscreen-nav-link">Contact
+								Us</a>
 						</li>
 					</ul>
 				</nav>
