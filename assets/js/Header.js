@@ -730,12 +730,6 @@
 				// Only handle text inputs
 				if (!display || !input) return;
 
-				// Store the original display width to prevent expansion
-				const displayWidth = display.offsetWidth;
-				if (displayWidth > 0) {
-					wrapper.style.width = displayWidth + 'px';
-				}
-
 				// Update display text based on input value
 				const updateDisplay = function() {
 					const value = input.value;

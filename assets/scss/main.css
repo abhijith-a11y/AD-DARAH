@@ -3110,19 +3110,23 @@ body.overflow_body_hidden {
   height: 48px;
   overflow: visible;
   min-width: 0;
+  background-color: rgba(244, 244, 244, 0.79);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px -1px 4px 0px rgba(0, 0, 0, 0.05) inset;
 }
 .header-booking-form .header-booking-form-inputs > *:not(:last-child) {
   border-right: 0.5px solid rgba(197, 177, 127, 0.44);
 }
 .header-booking-form .header-form-field-wrapper {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   width: auto;
   min-width: 0;
   flex-shrink: 0;
   padding: 0 12px;
   height: 60%;
+  max-width: 100%;
 }
 .header-booking-form .header-form-field-wrapper .header-form-field-display {
   display: block;
@@ -3181,7 +3185,6 @@ body.overflow_body_hidden {
   display: none;
   min-width: 0;
   width: 100%;
-  max-width: 100%;
   background: transparent;
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
@@ -3194,10 +3197,11 @@ body.overflow_body_hidden {
   border: none;
   outline: none;
   padding: 0;
-  flex-shrink: 0;
+  flex-shrink: 1;
   flex-grow: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 .header-booking-form .header-form-input::placeholder {
   font-family: "Neue Regrade", sans-serif;
@@ -3347,7 +3351,7 @@ body.overflow_body_hidden {
   height: 7px;
   background-image: url("../images/icons/scroll_header_arrow.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 13px 7px;
   background-position: center;
   border: none;
   margin: 0;
@@ -3367,51 +3371,20 @@ body.overflow_body_hidden {
   transform: translateY(-50%);
   width: 12px;
   height: 13px;
-  pointer-events: none;
+  pointer-events: auto;
   cursor: pointer;
-  z-index: 3;
+  z-index: 10;
   transition: opacity 0.2s ease;
   opacity: 0.7;
 }
 .header-booking-form .header-form-date-wrapper .header-form-calendar-icon:hover {
   opacity: 1;
 }
+.header-booking-form .header-form-date-wrapper .header-form-field-display {
+  padding-right: 20px;
+}
 .header-booking-form .header-form-date-wrapper.is-focused .header-form-calendar-icon, .header-booking-form .header-form-date-wrapper:focus-within .header-form-calendar-icon, .header-booking-form .header-form-date-wrapper.has-value .header-form-calendar-icon {
   opacity: 1;
-}
-.header-booking-form .header-form-date-wrapper[type=select], .header-booking-form .header-form-date-wrapper:is(select) {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("../images/icons/scroll_header_arrow.svg");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 13px 7px;
-  padding-right: 40px;
-}
-.header-booking-form .header-form-date-wrapper[type=select] option, .header-booking-form .header-form-date-wrapper:is(select) option {
-  font-family: "Neue Regrade", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  color: #191919;
-  background: #fff;
-}
-@media only screen and (max-width: 1440px) {
-  .header-booking-form .header-form-date-wrapper {
-    padding: 0 10px;
-    font-size: 15px;
-  }
-  .header-booking-form .header-form-date-wrapper::placeholder {
-    font-size: 15px;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .header-booking-form .header-form-date-wrapper {
-    padding: 0 8px;
-    font-size: 14px;
-  }
-  .header-booking-form .header-form-date-wrapper::placeholder {
-    font-size: 14px;
-  }
 }
 .header-booking-form .header-form-input-small {
   width: auto;
