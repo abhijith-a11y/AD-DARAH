@@ -358,6 +358,10 @@ function addarah_scripts()
 			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 		}
 		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array('swiper-js'), _S_VERSION, true);
+		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
+		
+		// Debug: Add inline script to verify page detection
+		wp_add_inline_script('single-testimonial-script', 'console.log("Weddings page detected - SingleTestimonial script should be loaded");', 'before');
 	}
 
 

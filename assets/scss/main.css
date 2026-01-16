@@ -5313,7 +5313,6 @@ body.fullscreen-nav-open {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
 }
 .single-testimonial-container .single-testimonial-background-image {
   position: absolute;
@@ -5322,17 +5321,18 @@ body.fullscreen-nav-open {
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
+  height: 100%;
 }
 .single-testimonial-container .single-testimonial-background-image img {
   width: auto;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 }
 .single-testimonial-container .single-testimonial-overlay {
   position: absolute;
   top: 0;
-  width: 170px;
+  width: 200px;
   height: 100%;
   z-index: 10;
   pointer-events: none;
@@ -5367,16 +5367,13 @@ body.fullscreen-nav-open {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1400px;
-  padding: 0 170px;
 }
 .single-testimonial-container .single-testimonial-content .single-testimonial-swiper-container {
   position: relative;
-  width: 100%;
 }
 .single-testimonial-container .single-testimonial-content .single-testimonial-swiper-container .single-testimonial-swiper {
   width: 100%;
-  overflow: visible;
+  height: 100%;
 }
 .single-testimonial-container .single-testimonial-content .single-testimonial-swiper-container .single-testimonial-swiper .swiper-slide {
   height: auto;

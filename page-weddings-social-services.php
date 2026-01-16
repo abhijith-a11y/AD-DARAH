@@ -92,4 +92,29 @@ get_header();
 
 <?php
 get_footer();
+?>
 
+<!-- Direct script load for SingleTestimonial (fallback) -->
+<script>
+    console.log("Template loaded: page-weddings-social-services.php");
+</script>
+<?php if (!wp_style_is('swiper-css', 'done') && !wp_style_is('swiper-css', 'enqueued')): ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<?php endif; ?>
+<?php if (!wp_script_is('swiper-js', 'done') && !wp_script_is('swiper-js', 'enqueued')): ?>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<?php endif; ?>
+<script>
+    (function () {
+        console.log("Loading SingleTestimonial.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/SingleTestimonial.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("SingleTestimonial.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load SingleTestimonial.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+</script>

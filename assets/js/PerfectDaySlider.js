@@ -5,36 +5,22 @@
 (function () {
 	"use strict";
 
+	/**
+	 * Initialize Perfect Day Swiper
+	 */
 	const initPerfectDaySwiper = function () {
+		// Check if Swiper is loaded
 		if (typeof Swiper === "undefined") {
-			console.warn(
-				"PerfectDaySlider: Swiper library is not loaded, retrying..."
-			);
-			setTimeout(initPerfectDaySwiper, 200);
+			console.warn("PerfectDaySlider: Swiper library is not loaded");
 			return;
 		}
 
 		const swiperElement = document.querySelector("[data-perfect-day-swiper]");
-		if (!swiperElement) {
-			console.warn("PerfectDaySlider: Swiper element not found");
-			return;
-		}
-
-		if (swiperElement.swiper) {
-			console.log("PerfectDaySlider: Swiper already initialized");
-			return;
-		}
-
-		const slides = swiperElement.querySelectorAll(".swiper-slide");
-		if (slides.length === 0) {
-			console.warn("PerfectDaySlider: No slides found");
-			return;
-		}
-
-		try {
+		if (swiperElement && !swiperElement.swiper && !swiperElement._swiperInstance) {
+			const slides = swiperElement.querySelectorAll(".swiper-slide");
 			const swiperInstance = new Swiper(swiperElement, {
 				spaceBetween: 20,
-				slidesPerView: 1,
+				slidesPerView: 3.2,
 				loop: slides.length > 2,
 				speed: 800,
 				autoplay: {
@@ -49,38 +35,23 @@
 					},
 				},
 			});
-
-			console.log(
-				"PerfectDaySlider: Swiper initialized successfully",
-				swiperInstance
-			);
-		} catch (error) {
-			console.error("PerfectDaySlider: Error initializing Swiper", error);
+			swiperElement._swiperInstance = swiperInstance;
 		}
 	};
 
-	const init = function () {
+	/**
+	 * Wait for DOM and Swiper to be ready
+	 */
+	const waitForReady = function () {
 		if (document.readyState === "loading") {
 			document.addEventListener("DOMContentLoaded", function () {
-				// Wait a bit longer to ensure Swiper CSS is loaded
-				setTimeout(initPerfectDaySwiper, 500);
+				setTimeout(initPerfectDaySwiper, 100);
 			});
 		} else {
-			// Wait a bit longer to ensure Swiper CSS is loaded
-			setTimeout(initPerfectDaySwiper, 500);
+			setTimeout(initPerfectDaySwiper, 100);
 		}
 	};
 
-	// Initialize on page load
-	init();
-
-	// Also try initializing when window loads (ensures all resources are loaded)
-	window.addEventListener("load", function () {
-		setTimeout(initPerfectDaySwiper, 100);
-	});
-
-	// Re-initialize if content is loaded dynamically (for AJAX/SPA scenarios)
-	if (typeof window !== "undefined") {
-		window.initPerfectDaySwiper = initPerfectDaySwiper;
-	}
+	// Initialize when ready
+	waitForReady();
 })();
