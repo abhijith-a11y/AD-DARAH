@@ -185,6 +185,8 @@ function addarah_scripts()
 	$is_news_and_media_page = false;
 	$is_gallery_page = false;
 	$is_about_page = false;
+	$is_contact_page = false;
+	$is_press_release_detail_page = false;
 	if (is_page()) {
 		$template = get_page_template_slug();
 		$is_company_detail_page = ($template === 'page-company-detail.php' || $template === 'page-investments-detail.php' || $template === 'page-addarah-modern-support-services.php');
@@ -193,6 +195,8 @@ function addarah_scripts()
 		$is_news_and_media_page = ($template === 'page-news-and-media.php');
 		$is_gallery_page = ($template === 'page-gallery.php');
 		$is_about_page = ($template === 'page-about.php' || is_page('about') || is_page_template('page-about.php'));
+		$is_contact_page = ($template === 'page-contact.php' || is_page('contact') || is_page_template('page-contact.php'));
+		$is_press_release_detail_page = ($template === 'page-press-release-detail.php' || is_page_template('page-press-release-detail.php'));
 	}
 
 	// Enqueue component styles
@@ -354,6 +358,24 @@ function addarah_scripts()
 		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array('swiper-js'), _S_VERSION, true);
 	}
 
+
+	// Load Contact Map script for Contact page
+	if ($is_contact_page) {
+		wp_enqueue_script('contact-map-script', get_template_directory_uri() . '/assets/js/ContactMap.js', array(), _S_VERSION, true);
+	}
+
+	// Load scripts for Press Release Detail page
+	if ($is_press_release_detail_page) {
+		// Enqueue Swiper if not already loaded
+		if (!wp_script_is('swiper-js', 'enqueued')) {
+			wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+		}
+		// Enqueue Swiper CSS if not already loaded
+		if (!wp_style_is('swiper-css', 'enqueued')) {
+			wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+		}
+		wp_enqueue_script('related-press-releases-script', get_template_directory_uri() . '/assets/js/RelatedPressReleases.js', array('swiper-js'), _S_VERSION, true);
+	}
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
