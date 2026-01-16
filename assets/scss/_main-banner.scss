@@ -71,14 +71,28 @@
 			-webkit-backface-visibility: hidden;
 			backface-visibility: hidden;
 			transform-origin: center center;
-			will-change: transform; // Optimize for animation
+			will-change: transform, opacity; // Optimize for animation
 			transform: translate3d(0, 0, 0); // Force hardware acceleration
 			-webkit-transform: translate3d(0, 0, 0); // WebKit hardware acceleration
+			opacity: 1;
+			animation: svgScaleFade 3s ease-in-out forwards;
 		}
 
 		// SVG specific styles
 		svg.main-banner-mask-img {
 			display: block;
+		}
+	}
+
+	// SVG scaling and fade animation
+	@keyframes svgScaleFade {
+		0% {
+			transform: translate3d(0, 0, 0) scale(1);
+			opacity: 1;
+		}
+		100% {
+			transform: translate3d(0, 0, 0) scale(1.5);
+			opacity: 0;
 		}
 	}
 

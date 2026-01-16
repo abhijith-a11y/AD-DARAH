@@ -134,7 +134,7 @@
 					<option value="wedding">Wedding</option>
 					<option value="corporate">Corporate</option>
 					<option value="social">Social</option>
-				</select>
+				</select>d
 				<div class="header-form-date-wrapper">
 					<input type="text" name="event_date" id="headerEventDate" class="header-form-input" placeholder="Event Date" required>
 					<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/header_calendar.svg'); ?>" alt="Calendar" class="header-form-calendar-icon">

@@ -20,7 +20,6 @@ header.main-header,
 		background-color: transparent !important;
 	}
 
-
 	// White background when dropdown is open
 	&.dropdown_open {
 		background-color: #fff !important;
@@ -218,7 +217,6 @@ header.main-header,
 			&.desktop-menu-toggle {
 				padding-left: 20px;
 			}
-
 		}
 
 		.mobile-menu-toggle {
@@ -227,7 +225,6 @@ header.main-header,
 				display: flex;
 			}
 		}
-
 	}
 
 	// Services Dropdown
@@ -549,15 +546,21 @@ body.overflow_body_hidden {
 
 	.header-booking-form-inputs {
 		display: flex;
-		gap: 12px;
+		gap: 0;
 		flex: 1;
 		align-items: center;
-		border: 1px solid #C5B17F;
+		border: 1px solid #c5b17f;
 		padding: 0 20px;
 		border-radius: 200px;
 		justify-content: flex-start;
 		max-width: 800px;
 		height: 48px;
+		overflow: hidden;
+		min-width: 0;
+
+		> *:not(:last-child) {
+			border-right: 0.5px solid rgba(197, 177, 127, 0.44);
+		}
 	}
 
 	@media #{$media-1440} {
@@ -576,6 +579,7 @@ body.overflow_body_hidden {
 
 	.header-form-input {
 		min-width: 0;
+		width: auto;
 		background: transparent;
 		font-family: "Neue Regrade", sans-serif;
 		font-weight: 500;
@@ -587,7 +591,9 @@ body.overflow_body_hidden {
 		transition: border-color 0.3s ease;
 		border: none;
 		outline: none;
-		width: 100%;
+		padding: 0 12px;
+		flex-shrink: 1;
+		flex-grow: 0;
 
 		&::placeholder {
 			font-family: "Neue Regrade", sans-serif;
@@ -617,6 +623,9 @@ body.overflow_body_hidden {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			min-width: 100px;
+			width: auto;
+			flex-shrink: 1;
 
 			&::placeholder {
 				white-space: nowrap;
@@ -630,20 +639,21 @@ body.overflow_body_hidden {
 			appearance: none;
 			-webkit-appearance: none;
 			-moz-appearance: none;
-			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			background-image: url("../images/icons/scroll_header_arrow.svg");
 			background-repeat: no-repeat;
 			background-position: right 12px center;
-			background-size: 10px 6px;
+			background-size: 13px 7px;
 			padding-right: 35px;
 			display: block;
 			visibility: visible;
 			opacity: 1;
-			width: 100%;
+			width: auto;
 			min-width: 0;
 			height: auto;
-			overflow: visible;
+			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+			flex-shrink: 1;
 
 			option {
 				font-family: "Neue Regrade", sans-serif;
@@ -654,20 +664,39 @@ body.overflow_body_hidden {
 				padding: 5px;
 			}
 		}
+
+		// Event Type select - size based on longest option (Corporate)
+		select[name="event_type"],
+		select#headerEventType {
+			min-width: 100px;
+			width: auto;
+			flex-shrink: 1;
+		}
+
+		// Preferred Time select - size based on longest option (Afternoon)
+		select[name="preferred_time"],
+		select#headerPreferredTime {
+			min-width: 130px;
+			width: auto;
+			flex-shrink: 1;
+		}
 	}
 
 	// Choices.js custom styling for header form
 	.header-choices {
-		width: 100%;
+		width: auto;
 		min-width: 0;
 		display: flex;
 		align-items: center;
 		margin-bottom: 0;
+		flex-shrink: 1;
+		flex-grow: 0;
 
 		.choices__inner {
 			background: transparent;
 			border: none;
 			padding: 0;
+			padding-right: 30px;
 			min-height: auto;
 			font-family: "Neue Regrade", sans-serif;
 			font-weight: 500;
@@ -677,17 +706,22 @@ body.overflow_body_hidden {
 			display: flex;
 			align-items: center;
 			padding-bottom: 0 !important;
+			width: auto;
+			min-width: 0;
 		}
 
 		.choices__list--single {
 			padding: 0;
 			display: flex;
 			align-items: center;
+			width: auto;
+			min-width: 0;
 
 			.choices__item {
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
+				width: 100%;
 			}
 		}
 
@@ -706,11 +740,11 @@ body.overflow_body_hidden {
 		}
 
 		.choices__list--dropdown {
-			border: 1px solid #C5B17F;
+			border: 1px solid #c5b17f;
 			border-radius: 8px;
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 			margin-top: 4px;
-			min-width: 200px;
+			min-width: auto;
 			width: auto;
 			max-width: none;
 		}
@@ -740,14 +774,14 @@ body.overflow_body_hidden {
 
 		// Custom arrow for Choices.js using ::before
 		.choices[data-type*="select-one"]::before {
-			content: '';
+			content: "";
 			position: absolute;
 			right: 12px;
 			top: 50%;
 			transform: translateY(-50%);
-			width: 10px;
-			height: 6px;
-			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			width: 13px;
+			height: 7px;
+			background-image: url("../images/icons/scroll_header_arrow.svg");
 			background-repeat: no-repeat;
 			background-size: contain;
 			border: none;
@@ -766,26 +800,19 @@ body.overflow_body_hidden {
 		position: relative;
 		display: flex;
 		align-items: center;
-		flex: 0 0 160px;
-		min-width: 140px;
-		max-width: 180px;
-
-		@media #{$media-1440} {
-			flex: 0 0 190px;
-			min-width: 170px;
-			max-width: 210px;
-		}
-
-		@media #{$media-1200} {
-			flex: 0 0 180px;
-			min-width: 160px;
-			max-width: 200px;
-		}
+		width: auto;
+		min-width: 100px;
+		padding: 0 12px;
+		flex-shrink: 1;
+		flex-grow: 0;
 
 		.header-form-input {
 			width: 100%;
+			min-width: 0;
 			position: relative;
 			z-index: 2;
+			padding-right: 40px;
+			padding-left: 0;
 		}
 
 		.header-form-calendar-icon {
@@ -810,9 +837,10 @@ body.overflow_body_hidden {
 		&:is(select) {
 			cursor: pointer;
 			appearance: none;
-			background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23191919' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			background-image: url("../images/icons/scroll_header_arrow.svg");
 			background-repeat: no-repeat;
 			background-position: right 16px center;
+			background-size: 13px 7px;
 			padding-right: 40px;
 
 			option {
@@ -841,24 +869,20 @@ body.overflow_body_hidden {
 				font-size: 14px;
 			}
 		}
+	}
 
-		// Small inputs (Full Name, Email, Phone) - take only space needed
-		&.header-form-input-small {
-			min-width: 100px;
-			width: auto;
-		}
+	// Small inputs (Full Name, Email, Phone) - take only space needed
+	.header-form-input-small {
+		width: auto;
+		min-width: 0;
+		flex-shrink: 1;
+	}
 
-		// Event Type - take space needed
-		&.header-form-input-large[name="event_type"] {
-			min-width: 130px;
-			width: auto;
-		}
-
-		// Preferred Time - take space needed, slightly more
-		&.header-form-input-large[name="preferred_time"] {
-			min-width: 150px;
-			width: auto;
-		}
+	// Large inputs (Event Type, Preferred Time) - take space needed for options
+	.header-form-input-large {
+		width: auto;
+		min-width: 0;
+		flex-shrink: 1;
 	}
 
 	.header-form-button {
@@ -920,7 +944,7 @@ body.overflow_body_hidden {
 	// Left Panel
 	.fullscreen-nav-left {
 		width: 50%;
-		background-color: #B64910;
+		background-color: #b64910;
 		position: relative;
 		overflow: hidden;
 		display: flex;
@@ -1044,11 +1068,11 @@ body.overflow_body_hidden {
 					gap: 15px;
 
 					&::after {
-						content: '';
+						content: "";
 						display: inline-block;
 						width: 25px;
 						height: 14px;
-						background-image: url('../images/icons/opennav_arrow.svg');
+						background-image: url("../images/icons/opennav_arrow.svg");
 						background-size: contain;
 						background-repeat: no-repeat;
 						background-position: center;
@@ -1089,7 +1113,7 @@ body.overflow_body_hidden {
 						li {
 							a {
 								@include fullscreen-nav-submenu-item;
-								color: #C5B17F;
+								color: #c5b17f;
 								text-decoration: none;
 								opacity: 0.9;
 								transition: opacity 0.3s ease;
@@ -1114,7 +1138,7 @@ body.overflow_body_hidden {
 	// Right Panel
 	.fullscreen-nav-right {
 		width: 50%;
-		background-color: #E5C7A5;
+		background-color: #e5c7a5;
 		position: relative;
 		overflow-y: auto;
 		display: flex;
@@ -1156,12 +1180,12 @@ body.overflow_body_hidden {
 
 				.fullscreen-nav-item {
 					width: 100%;
-					border-bottom: 1px solid #C5B17F;
+					border-bottom: 1px solid #c5b17f;
 
 					.fullscreen-nav-link {
 						padding: 30px 10px 30px 90px;
 						@include fullscreen-nav-menu-item;
-						color: #B64910;
+						color: #b64910;
 						text-decoration: none;
 						display: flex;
 						align-items: center;
