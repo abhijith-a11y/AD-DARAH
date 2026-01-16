@@ -12,6 +12,22 @@
 	justify-content: center;
 	background-color: #C5B17F;
 
+	.testimonials-background-image {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100%;
+		z-index: 1;
+
+		img {
+			width: auto;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
 	.testimonials-header {
 		text-align: center;
 		margin-bottom: 60px;
@@ -35,23 +51,19 @@
 			text-align: center;
 			text-transform: capitalize;
 			color: #ffffff;
+			margin: 0;
 		}
 	}
 
-	.testimonials-swiper-wrapper {
+	.testimonials-swiper-section {
 		position: relative;
 		width: 100%;
-		overflow: hidden;
-		margin-bottom: 40px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+		opacity: 1;
 
 		.testimonials-overlay {
 			position: absolute;
 			top: 0;
-			width: 200px;
+			width: 250px;
 			height: 100%;
 			z-index: 10;
 			pointer-events: none;
@@ -74,11 +86,22 @@
 				);
 			}
 		}
+	}
+
+	.testimonials-swiper-wrapper {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 40px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		.testimonials-swiper-container {
 			position: relative;
 			width: 100%;
-			padding: 0 200px; // Space for overlays
+			padding: 0 250px; // Space for overlays
 		}
 
 		.testimonials-swiper {
@@ -92,17 +115,19 @@
 			.testimonial-card {
 				background: #ffffff;
 				border-radius: 20px;
-				padding: 40px;
+				padding: 30px;
 				height: 100%;
 				display: flex;
 				flex-direction: column;
+				min-height: 290px;
 				justify-content: space-between;
 
 				.testimonial-review {
 					@include testimonial-review;
 					letter-spacing: 0%;
 					color: #1d1d1b;
-					margin-bottom: 30px;
+					margin-bottom: 15px;
+					margin-top: 0;
 					flex-grow: 1;
 				}
 
@@ -121,6 +146,9 @@
 
 					.testimonial-info {
 						flex-grow: 1;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
 
 						.testimonial-name {
 							@include testimonial-name;
@@ -135,16 +163,9 @@
 							gap: 4px;
 
 							.star {
-								font-size: 20px;
-								line-height: 1;
-
-								&-filled {
-									color: #c5b17f;
-								}
-
-								&-outline {
-									color: #abafb1;
-								}
+								width: 22px;
+								height: 21px;
+								flex-shrink: 0;
 							}
 						}
 					}

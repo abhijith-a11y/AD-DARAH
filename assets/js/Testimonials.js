@@ -25,10 +25,11 @@
 				loop: true,
 				speed: 600,
 				direction: "horizontal",
+				centeredSlides: true,
 				autoplay: {
 					delay: 5000,
 					disableOnInteraction: false,
-					reverseDirection: true, // Right to left
+					reverseDirection: true,
 				},
 				breakpoints: {
 					320: {
@@ -44,7 +45,7 @@
 						spaceBetween: 20,
 					},
 					1200: {
-						slidesPerView: 2.5,
+						slidesPerView: 2.2,
 						spaceBetween: 20,
 					},
 				},
@@ -61,10 +62,11 @@
 				loop: true,
 				speed: 600,
 				direction: "horizontal",
+				centeredSlides: true,
 				autoplay: {
 					delay: 5000,
 					disableOnInteraction: false,
-					reverseDirection: false, // Left to right
+					reverseDirection: false,
 				},
 				breakpoints: {
 					320: {
@@ -80,7 +82,7 @@
 						spaceBetween: 20,
 					},
 					1200: {
-						slidesPerView: 2.5,
+						slidesPerView: 2.2,
 						spaceBetween: 20,
 					},
 				},

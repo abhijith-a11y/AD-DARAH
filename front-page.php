@@ -34,6 +34,9 @@ get_header();
 		// News & Articles Section
 		get_template_part('template-parts/NewsArticles');
 
+		// Virtual Tour Section
+		get_template_part('template-parts/VirtualTour');
+
 		// Contact Us Section
 		get_template_part('template-parts/ContactUs');
 		?>

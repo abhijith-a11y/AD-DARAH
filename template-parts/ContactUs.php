@@ -25,7 +25,7 @@ $contact_bg_image = get_theme_mod( 'contact_bg_image', get_template_directory_ur
 			<?php endif; ?>
 			
 			<?php if ( $contact_button_text ) : ?>
-				<a href="<?php echo esc_url( $contact_button_link ); ?>" class="contact-us-button">
+				<a href="<?php echo esc_url( $contact_button_link ); ?>" class="primary-button">
 					<?php echo esc_html( $contact_button_text ); ?>
 				</a>
 			<?php endif; ?>
