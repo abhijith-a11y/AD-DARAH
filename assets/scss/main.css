@@ -6742,6 +6742,7 @@ body.fullscreen-nav-open {
   width: 100%;
   padding: 80px 0;
   overflow: hidden;
+  padding-bottom: 300px;
 }
 .perfect-day-section .perfect-day-bg {
   position: absolute;
@@ -6803,18 +6804,21 @@ body.fullscreen-nav-open {
   max-width: 600px;
 }
 .perfect-day-section .perfect-day-slider {
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   width: calc(100vw + 200px);
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   gap: 20px;
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding: 20px 0 40px 0;
   z-index: 3;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
 .perfect-day-section .perfect-day-slider::-webkit-scrollbar {
   display: none;
@@ -6824,9 +6828,9 @@ body.fullscreen-nav-open {
   background-color: #fff;
   border-radius: 20px;
   padding: 40px 30px;
-  width: 100%;
-  max-width: 466px;
+  width: 466px;
   min-width: 466px;
+  max-width: 466px;
   height: 267px;
   display: flex;
   justify-content: space-between;
