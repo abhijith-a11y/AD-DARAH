@@ -32,10 +32,58 @@ get_header();
         include locate_template('template-parts/ImageTextSection.php');
         ?>
 
+        <?php
+        // Container Slider Section
+        $container_slider_heading = 'Catering Services';
+        $container_slider_paragraph = 'Our culinary team delivers memorable dining experiences with menus tailored to your event.';
+        $container_slider_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cater_01.png',
+                'heading' => 'On-site Catering',
+                'paragraph' => 'Professional catering services delivered directly to your venue with full service support.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cater_02.png',
+                'heading' => 'Off-site Catering',
+                'paragraph' => 'Expert culinary services for events at external locations with customized menu options.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cater_03.png',
+                'heading' => 'Seasonal & Ramadan Packages',
+                'paragraph' => 'Specially curated menus for seasonal celebrations and Ramadan with authentic flavors.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/ContainerSlider.php');
+        ?>
+
     </div>
 </main><!-- #main -->
 
 <?php
 get_footer();
 ?>
+
+<!-- Direct script load for Container Slider (fallback) -->
+<script>
+    // Also load ContainerSlider.js directly
+    (function () {
+        console.log("Loading ContainerSlider.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/ContainerSlider.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("ContainerSlider.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load ContainerSlider.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+</script>
 

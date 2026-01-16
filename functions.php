@@ -368,6 +368,13 @@ function addarah_scripts()
 		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 	}
 
+	// Load Swiper for Catering Services page
+	$is_catering_services_page = is_page_template('page-catering-services.php');
+
+	if ($is_catering_services_page) {
+		wp_enqueue_script('container-slider-script', get_template_directory_uri() . '/assets/js/ContainerSlider.js', array('swiper-js'), _S_VERSION, true);
+	}
+
 
 	// Load Contact Map script for Contact page
 	if ($is_contact_page) {
