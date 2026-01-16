@@ -1,22 +1,22 @@
 /**
- * Corporate Services Slider Component JavaScript
+ * Overflow Slider Component JavaScript
  */
 
 (function () {
 	"use strict";
 
-	console.log("CorporateServicesSlider: Script loaded");
+	console.log("OverflowSlider: Script loaded");
 
 	/**
-	 * Initialize Corporate Services Swiper
+	 * Initialize Overflow Slider Swiper
 	 */
-	const initCorporateServicesSwiper = function () {
+	const initOverflowSliderSwiper = function () {
 		// Check if Swiper is loaded
 		if (typeof Swiper === "undefined") {
 			return;
 		}
 
-		const swiperElement = document.querySelector("[data-corporate-services-swiper]");
+		const swiperElement = document.querySelector("[data-overflow-slider-swiper]");
 
 		if (!swiperElement) {
 			return;
@@ -29,7 +29,7 @@
 		const slides = swiperElement.querySelectorAll(".swiper-slide");
 
 		if (slides.length === 0) {
-			console.warn("CorporateServicesSlider: No slides found");
+			console.warn("OverflowSlider: No slides found");
 			return;
 		}
 
@@ -54,7 +54,7 @@
 				},
 			};
 
-			console.log("CorporateServicesSlider: Config:", swiperConfig);
+			console.log("OverflowSlider: Config:", swiperConfig);
 			const swiperInstance = new Swiper(swiperElement, swiperConfig);
 			swiperElement._swiperInstance = swiperInstance;
 
@@ -63,7 +63,7 @@
 				swiperInstance.autoplay.stop();
 			}
 		} catch (error) {
-			console.error("CorporateServicesSlider: Error initializing Swiper:", error);
+			console.error("OverflowSlider: Error initializing Swiper:", error);
 		}
 	};
 
@@ -73,10 +73,10 @@
 	const waitForReady = function () {
 		if (document.readyState === "loading") {
 			document.addEventListener("DOMContentLoaded", function () {
-				setTimeout(initCorporateServicesSwiper, 100);
+				setTimeout(initOverflowSliderSwiper, 100);
 			});
 		} else {
-			setTimeout(initCorporateServicesSwiper, 100);
+			setTimeout(initOverflowSliderSwiper, 100);
 		}
 	};
 

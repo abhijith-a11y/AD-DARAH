@@ -32,10 +32,10 @@ get_header();
         ?>
 
         <?php
-        // Corporate Services Section
-        $corporate_services_heading = 'Corporate Services';
-        $corporate_services_paragraph = 'Our culinary team delivers memorable dining experiences with menus tailored to your event.';
-        $corporate_services_items = array(
+        // Overflow Slider Section
+        $overflow_slider_heading = 'Corporate Services';
+        $overflow_slider_paragraph = 'Our culinary team delivers memorable dining experiences with menus tailored to your event.';
+        $overflow_slider_items = array(
             array(
                 'image' => get_template_directory_uri() . '/assets/images/corp_ser_01.png',
                 'heading' => 'Conferences & Exhibitions',
@@ -66,7 +66,7 @@ get_header();
             ),
         );
 
-        include locate_template('template-parts/CorporateServicesSection.php');
+        include locate_template('template-parts/OverflowSlider.php');
         ?>
 
         <?php
@@ -114,7 +114,7 @@ get_header();
         include locate_template('template-parts/SingleTestimonial.php');
         ?>
 
-<?php
+        <?php
         // Contact Us Section
         set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
         set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
@@ -133,16 +133,16 @@ get_footer();
 
 <!-- Direct script load for Corporate Services Slider (fallback) -->
 <script>
-    // Also load CorporateServicesSlider.js directly
+    // Also load OverflowSlider.js directly
     (function () {
-        console.log("Loading CorporateServicesSlider.js directly from template...");
+        console.log("Loading OverflowSlider.js directly from template...");
         var script = document.createElement('script');
-        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/CorporateServicesSlider.js?v=<?php echo _S_VERSION; ?>';
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/OverflowSlider.js?v=<?php echo _S_VERSION; ?>';
         script.onload = function () {
-            console.log("CorporateServicesSlider.js loaded successfully!");
+            console.log("OverflowSlider.js loaded successfully!");
         };
         script.onerror = function () {
-            console.error("Failed to load CorporateServicesSlider.js from:", script.src);
+            console.error("Failed to load OverflowSlider.js from:", script.src);
         };
         document.head.appendChild(script);
     })();

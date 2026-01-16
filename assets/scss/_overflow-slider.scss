@@ -1,6 +1,6 @@
-// Corporate Services Section Styles
+// Overflow Slider Section Styles
 
-.corporate-services-section {
+.overflow-slider-section {
 	background-color: rgba(197, 177, 127, 0.19);
 	position: relative;
 	width: 100%;
@@ -10,25 +10,25 @@
 		z-index: 1;
 	}
 
-	.corporate-services-section-heading {
+	.overflow-slider-section-heading {
 		@include packages-section-heading;
 		color: #c5b17f;
 		margin: 0 0 20px 0;
 	}
 
-	.corporate-services-section-paragraph {
+	.overflow-slider-section-paragraph {
 		@include packages-section-paragraph;
 		color: #282828;
 		margin: 0 auto 60px auto;
 		max-width: 850px;
 	}
 
-	.corporate-services-swiper-container {
+	.overflow-slider-swiper-container {
 		width: 100%;
 		overflow: visible;
 	}
 
-	.corporate-services-swiper {
+	.overflow-slider-swiper {
 		overflow: visible;
 		padding-bottom: 20px;
 	}
@@ -37,7 +37,7 @@
 		height: auto;
 	}
 
-	.corporate-services-card {
+	.overflow-slider-card {
 		position: relative;
 		border-radius: 20px;
 		overflow: hidden;
@@ -60,7 +60,7 @@
 			z-index: 2;
 		}
 
-		.corporate-services-card-image {
+		.overflow-slider-card-image {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -76,7 +76,7 @@
 			}
 		}
 
-		.corporate-services-card-overlay {
+		.overflow-slider-card-overlay {
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -89,14 +89,14 @@
 			transition: all 0.8s ease;
 			transform: translateY(calc(100% - 100px));
 
-			.corporate-services-card-heading {
+			.overflow-slider-card-heading {
 				@include perfect-day-card-heading;
 				color: $white;
 				margin: 0 0 15px 0;
 				position: relative;
 			}
 
-			.corporate-services-card-paragraph {
+			.overflow-slider-card-paragraph {
 				@include packages-card-paragraph;
 				color: $white;
 				margin: 0 0 15px 0;
@@ -105,16 +105,16 @@
 				transition: all 0.2s ease;
 			}
 
-			.corporate-services-card-button {
+			.overflow-slider-card-button {
 				margin-top: 10px;
 			}
 		}
 
 		&:hover {
-			.corporate-services-card-overlay {
+			.overflow-slider-card-overlay {
 				transform: translateY(0);
 
-				.corporate-services-card-paragraph {
+				.overflow-slider-card-paragraph {
 					opacity: 1;
 				}
 			}
@@ -122,20 +122,20 @@
 	}
 
 	@media #{$media-1200} {
-		.corporate-services-section-heading {
+		.overflow-slider-section-heading {
 			font-size: 50px;
 		}
 
-		.corporate-services-card {
-			.corporate-services-card-overlay {
+		.overflow-slider-card {
+			.overflow-slider-card-overlay {
 				padding: 35px 25px;
 				transform: translateY(calc(100% - 70px));
 
-				.corporate-services-card-heading {
+				.overflow-slider-card-heading {
 					font-size: 24px;
 				}
 
-				.corporate-services-card-paragraph {
+				.overflow-slider-card-paragraph {
 					font-size: 16px;
 				}
 			}
@@ -143,25 +143,25 @@
 	}
 
 	@media #{$media-768} {
-		.corporate-services-section-heading {
+		.overflow-slider-section-heading {
 			font-size: 40px;
 		}
 
-		.corporate-services-section-paragraph {
+		.overflow-slider-section-paragraph {
 			font-size: 16px;
 			margin-bottom: 40px;
 		}
 
-		.corporate-services-card {
-			.corporate-services-card-overlay {
+		.overflow-slider-card {
+			.overflow-slider-card-overlay {
 				padding: 30px 20px;
 				transform: translateY(calc(100% - 60px));
 
-				.corporate-services-card-heading {
+				.overflow-slider-card-heading {
 					font-size: 22px;
 				}
 
-				.corporate-services-card-paragraph {
+				.overflow-slider-card-paragraph {
 					font-size: 14px;
 				}
 			}

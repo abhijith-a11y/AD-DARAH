@@ -157,7 +157,7 @@ function addarah_scripts()
 	wp_enqueue_script('choices-js', 'https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js', array(), '10.2.0', true);
 	wp_enqueue_style('flatpickr-css', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css', array(), '4.6.13');
 	wp_enqueue_script('flatpickr-js', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js', array(), '4.6.13', true);
-	
+
 	wp_enqueue_script('header-script', get_template_directory_uri() . '/assets/js/Header.js', array('choices-js', 'flatpickr-js'), _S_VERSION, true);
 
 	// Enqueue Footer component script (loaded on all pages)
@@ -282,25 +282,25 @@ function addarah_scripts()
 
 	// Check if current page is news detail page
 	$is_news_detail_page = false;
-	
+
 	// Check for page template
 	if (is_page()) {
 		$template = get_page_template_slug();
 		// Check for exact match, basename match, or template name match
 		if ($template) {
 			$is_news_detail_page = (
-				$template === 'single-news.php' || 
+				$template === 'single-news.php' ||
 				basename($template) === 'single-news.php' ||
 				strpos($template, 'single-news') !== false
 			);
 		}
 	}
-	
+
 	// Also check for single posts (regular posts)
 	if (!$is_news_detail_page && is_single() && get_post_type() === 'post') {
 		$is_news_detail_page = true;
 	}
-	
+
 	// Also check if we're on any singular page that might use the RelatedPressReleases component
 	// This is a fallback to ensure the script loads
 	if (!$is_news_detail_page && is_singular()) {
@@ -355,7 +355,7 @@ function addarah_scripts()
 	if ($is_weddings_page) {
 		wp_enqueue_script('perfect-day-slider-script', get_template_directory_uri() . '/assets/js/PerfectDaySlider.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
-		
+
 		// Debug: Add inline script to verify page detection
 		wp_add_inline_script('single-testimonial-script', 'console.log("Weddings page detected - SingleTestimonial script should be loaded");', 'before');
 	}
@@ -364,7 +364,7 @@ function addarah_scripts()
 	$is_corporate_services_page = is_page_template('page-corporate-services.php');
 
 	if ($is_corporate_services_page) {
-		wp_enqueue_script('corporate-services-slider-script', get_template_directory_uri() . '/assets/js/CorporateServicesSlider.js', array('swiper-js'), _S_VERSION, true);
+		wp_enqueue_script('overflow-slider-script', get_template_directory_uri() . '/assets/js/OverflowSlider.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 	}
 

@@ -8139,16 +8139,16 @@ body.fullscreen-nav-open {
   }
 }
 
-.corporate-services-section {
+.overflow-slider-section {
   background-color: rgba(197, 177, 127, 0.19);
   position: relative;
   width: 100%;
 }
-.corporate-services-section .container {
+.overflow-slider-section .container {
   position: relative;
   z-index: 1;
 }
-.corporate-services-section .corporate-services-section-heading {
+.overflow-slider-section .overflow-slider-section-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -8159,7 +8159,7 @@ body.fullscreen-nav-open {
   color: #c5b17f;
   margin: 0 0 20px 0;
 }
-.corporate-services-section .corporate-services-section-paragraph {
+.overflow-slider-section .overflow-slider-section-paragraph {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -8171,18 +8171,18 @@ body.fullscreen-nav-open {
   margin: 0 auto 60px auto;
   max-width: 850px;
 }
-.corporate-services-section .corporate-services-swiper-container {
+.overflow-slider-section .overflow-slider-swiper-container {
   width: 100%;
   overflow: visible;
 }
-.corporate-services-section .corporate-services-swiper {
+.overflow-slider-section .overflow-slider-swiper {
   overflow: visible;
   padding-bottom: 20px;
 }
-.corporate-services-section .swiper-slide {
+.overflow-slider-section .swiper-slide {
   height: auto;
 }
-.corporate-services-section .corporate-services-card {
+.overflow-slider-section .overflow-slider-card {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -8190,7 +8190,7 @@ body.fullscreen-nav-open {
   background-color: #000;
   cursor: pointer;
 }
-.corporate-services-section .corporate-services-card::before {
+.overflow-slider-section .overflow-slider-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -8200,7 +8200,7 @@ body.fullscreen-nav-open {
   background: linear-gradient(199.86deg, rgba(0, 0, 0, 0) 13.27%, rgba(0, 0, 0, 0.5) 65.89%);
   z-index: 2;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-image {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -8208,13 +8208,13 @@ body.fullscreen-nav-open {
   height: 100%;
   z-index: 1;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-image img {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-overlay {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -8227,7 +8227,7 @@ body.fullscreen-nav-open {
   transition: all 0.8s ease;
   transform: translateY(calc(100% - 100px));
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -8238,7 +8238,7 @@ body.fullscreen-nav-open {
   margin: 0 0 15px 0;
   position: relative;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-paragraph {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -8251,46 +8251,46 @@ body.fullscreen-nav-open {
   position: relative;
   transition: all 0.2s ease;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-button {
+.overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-button {
   margin-top: 10px;
 }
-.corporate-services-section .corporate-services-card:hover .corporate-services-card-overlay {
+.overflow-slider-section .overflow-slider-card:hover .overflow-slider-card-overlay {
   transform: translateY(0);
 }
-.corporate-services-section .corporate-services-card:hover .corporate-services-card-overlay .corporate-services-card-paragraph {
+.overflow-slider-section .overflow-slider-card:hover .overflow-slider-card-overlay .overflow-slider-card-paragraph {
   opacity: 1;
 }
 @media only screen and (max-width: 1200px) {
-  .corporate-services-section .corporate-services-section-heading {
+  .overflow-slider-section .overflow-slider-section-heading {
     font-size: 50px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay {
     padding: 35px 25px;
     transform: translateY(calc(100% - 70px));
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-heading {
     font-size: 24px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-paragraph {
     font-size: 16px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .corporate-services-section .corporate-services-section-heading {
+  .overflow-slider-section .overflow-slider-section-heading {
     font-size: 40px;
   }
-  .corporate-services-section .corporate-services-section-paragraph {
+  .overflow-slider-section .overflow-slider-section-paragraph {
     font-size: 16px;
     margin-bottom: 40px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay {
     padding: 30px 20px;
     transform: translateY(calc(100% - 60px));
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-heading {
     font-size: 22px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
+  .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay .overflow-slider-card-paragraph {
     font-size: 14px;
   }
 }/*# sourceMappingURL=main.css.map */
