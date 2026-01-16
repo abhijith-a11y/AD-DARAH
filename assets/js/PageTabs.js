@@ -16,16 +16,25 @@
 			return;
 		}
 
-		const tabItems = tabsNav.querySelectorAll('.page-tabs-item');
+		// Support both old and new class names
+		let tabItems = tabsNav.querySelectorAll('.news-tabs-item');
+		if (tabItems.length === 0) {
+			tabItems = tabsNav.querySelectorAll('.page-tabs-item');
+		}
 		
 		// Handle tab click
 		tabItems.forEach(item => {
-			const link = item.querySelector('.page-tabs-link');
+			let link = item.querySelector('.news-tabs-link');
+			if (!link) {
+				link = item.querySelector('.page-tabs-link');
+			}
+			
 			if (link) {
 				link.addEventListener('click', function(e) {
-					// Don't prevent default - allow navigation to work
-					// Only update active state if it's not a hash link
-					if (this.getAttribute('href') !== '#' && !this.getAttribute('href').startsWith('#')) {
+					// If it's a hash link, prevent default and handle tab switching
+					if (this.getAttribute('href') === '#' || this.getAttribute('href').startsWith('#')) {
+						e.preventDefault();
+						
 						// Remove active class from all tab items
 						tabItems.forEach(tab => {
 							tab.classList.remove('active');
@@ -33,6 +42,15 @@
 						
 						// Add active class to clicked tab item
 						item.classList.add('active');
+						
+						// Trigger custom event for tab change
+						const tabId = this.getAttribute('data-tab');
+						if (tabId) {
+							const event = new CustomEvent('tabChanged', {
+								detail: { tabId: tabId }
+							});
+							document.dispatchEvent(event);
+						}
 					}
 				});
 			}
