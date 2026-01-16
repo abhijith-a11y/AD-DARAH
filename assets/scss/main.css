@@ -8213,13 +8213,20 @@ body.fullscreen-nav-open {
   object-fit: cover;
   display: block;
 }
-.corporate-services-section .corporate-services-card .corporate-services-card-heading {
+.corporate-services-section .corporate-services-card .corporate-services-card-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 40px 30px;
-  z-index: 3;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.8s ease;
+  transform: translateY(calc(100% - 80px));
+}
+.corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -8227,21 +8234,8 @@ body.fullscreen-nav-open {
   line-height: 120%;
   letter-spacing: 0%;
   color: #fff;
-  margin: 0;
-  pointer-events: none;
-}
-.corporate-services-section .corporate-services-card .corporate-services-card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 30px;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  transition: transform 0.8s ease;
-  transform: translateY(100%);
+  margin: 0 0 15px 0;
+  position: relative;
 }
 .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
   font-family: "Neue Regrade", sans-serif;
@@ -8253,6 +8247,7 @@ body.fullscreen-nav-open {
   color: #fff;
   margin: 0 0 15px 0;
   position: relative;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-button {
   margin-top: 10px;
@@ -8260,16 +8255,19 @@ body.fullscreen-nav-open {
 .corporate-services-section .corporate-services-card:hover .corporate-services-card-overlay {
   transform: translateY(0);
 }
+.corporate-services-section .corporate-services-card:hover .corporate-services-card-overlay .corporate-services-card-paragraph {
+  opacity: 1;
+}
 @media only screen and (max-width: 1200px) {
   .corporate-services-section .corporate-services-section-heading {
     font-size: 50px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-heading {
-    font-size: 24px;
-    padding: 35px 25px;
-  }
   .corporate-services-section .corporate-services-card .corporate-services-card-overlay {
     padding: 35px 25px;
+    transform: translateY(calc(100% - 70px));
+  }
+  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
+    font-size: 24px;
   }
   .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
     font-size: 16px;
@@ -8283,12 +8281,12 @@ body.fullscreen-nav-open {
     font-size: 16px;
     margin-bottom: 40px;
   }
-  .corporate-services-section .corporate-services-card .corporate-services-card-heading {
-    font-size: 22px;
-    padding: 30px 20px;
-  }
   .corporate-services-section .corporate-services-card .corporate-services-card-overlay {
     padding: 30px 20px;
+    transform: translateY(calc(100% - 60px));
+  }
+  .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-heading {
+    font-size: 22px;
   }
   .corporate-services-section .corporate-services-card .corporate-services-card-overlay .corporate-services-card-paragraph {
     font-size: 14px;

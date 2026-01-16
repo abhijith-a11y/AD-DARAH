@@ -88,36 +88,32 @@
 			}
 		}
 
-		.corporate-services-card-heading {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: 40px 30px;
-			z-index: 3;
-			font-family: "Neue Regrade", sans-serif;
-			font-weight: 600;
-			font-style: normal;
-			font-size: 28px;
-			line-height: 120%;
-			letter-spacing: 0%;
-			color: $white;
-			margin: 0;
-			pointer-events: none;
-		}
-
 		.corporate-services-card-overlay {
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			width: 100%;
 			padding: 40px 30px;
-			z-index: 4;
+			z-index: 5;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
-			transition: transform 0.8s ease;
-			transform: translateY(100%);
+			transition: all 0.8s ease;
+			transform: translateY(
+				calc(100% - 80px)
+			); // Show heading initially, hide paragraph and button
+
+			.corporate-services-card-heading {
+				font-family: "Neue Regrade", sans-serif;
+				font-weight: 600;
+				font-style: normal;
+				font-size: 28px;
+				line-height: 120%;
+				letter-spacing: 0%;
+				color: $white;
+				margin: 0 0 15px 0;
+				position: relative;
+			}
 
 			.corporate-services-card-paragraph {
 				font-family: "Neue Regrade", sans-serif;
@@ -129,6 +125,7 @@
 				color: $white;
 				margin: 0 0 15px 0;
 				position: relative;
+				transition: opacity 0.4s ease, transform 0.4s ease;
 			}
 
 			.corporate-services-card-button {
@@ -139,6 +136,10 @@
 		&:hover {
 			.corporate-services-card-overlay {
 				transform: translateY(0);
+
+				.corporate-services-card-paragraph {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -149,13 +150,13 @@
 		}
 
 		.corporate-services-card {
-			.corporate-services-card-heading {
-				font-size: 24px;
-				padding: 35px 25px;
-			}
-
 			.corporate-services-card-overlay {
 				padding: 35px 25px;
+				transform: translateY(calc(100% - 70px));
+
+				.corporate-services-card-heading {
+					font-size: 24px;
+				}
 
 				.corporate-services-card-paragraph {
 					font-size: 16px;
@@ -175,13 +176,13 @@
 		}
 
 		.corporate-services-card {
-			.corporate-services-card-heading {
-				font-size: 22px;
-				padding: 30px 20px;
-			}
-
 			.corporate-services-card-overlay {
 				padding: 30px 20px;
+				transform: translateY(calc(100% - 60px));
+
+				.corporate-services-card-heading {
+					font-size: 22px;
+				}
 
 				.corporate-services-card-paragraph {
 					font-size: 14px;
