@@ -5343,7 +5343,7 @@ body.fullscreen-nav-open {
 }
 .single-testimonial-container .single-testimonial-overlay-right {
   right: 0;
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #ffffff 81.3%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 81.3%);
 }
 .single-testimonial-container .single-testimonial-header {
   position: relative;
