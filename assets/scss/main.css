@@ -5520,11 +5520,14 @@ body.banner-animating {
   position: relative;
 }
 .news-articles-container .title-block {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .news-articles-container .news-articles-slider-wrapper {
   position: relative;
-  margin-top: 50px;
   padding: 0 50px;
 }
 .news-articles-container .news-articles-swiper {
@@ -5535,7 +5538,7 @@ body.banner-animating {
 }
 .news-articles-container .swiper-slide:not(.swiper-slide-active) {
   transform: scale(0.85);
-  opacity: 0.7;
+  opacity: 1;
 }
 .news-articles-container .swiper-slide.swiper-slide-active {
   transform: scale(1.1);
