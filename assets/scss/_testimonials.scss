@@ -121,8 +121,8 @@
 		}
 
 		// Pause animation on hover
-		&:hover .testimonials-track {
-			animation-play-state: paused;
+		&:hover {
+			animation : none;
 		}
 
 		.testimonial-slide {

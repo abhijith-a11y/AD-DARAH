@@ -3516,6 +3516,7 @@ body.overflow_body_hidden {
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-decor {
   position: absolute;
@@ -3585,12 +3586,15 @@ body.overflow_body_hidden {
   letter-spacing: 0%;
   color: #ffffff;
   margin: 0;
-  opacity: 1;
+  will-change: opacity, transform;
+  transform-origin: bottom;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  will-change: opacity, transform;
+  transform-origin: bottom;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-grid .fullscreen-nav-grid-item .fullscreen-nav-grid-social a {
   width: 48%;
@@ -3602,7 +3606,6 @@ body.overflow_body_hidden {
   letter-spacing: 0%;
   color: #ffffff;
   text-decoration: none;
-  opacity: 1;
   transition: opacity 0.3s ease;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content .fullscreen-nav-submenu-content {
@@ -3703,6 +3706,7 @@ body.overflow_body_hidden {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  will-change: transform;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-close {
   position: absolute;
@@ -3725,6 +3729,7 @@ body.overflow_body_hidden {
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items {
   width: 100%;
+  will-change: opacity, transform;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list {
   list-style: none;
@@ -5358,8 +5363,8 @@ body.banner-animating {
 .testimonials-container .testimonials-swiper-wrapper .testimonials-track.testimonials-track-bottom {
   animation: scrollRight 30s linear infinite;
 }
-.testimonials-container .testimonials-swiper-wrapper:hover .testimonials-track {
-  animation-play-state: paused;
+.testimonials-container .testimonials-swiper-wrapper:hover {
+  animation: none;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
   flex-shrink: 0;

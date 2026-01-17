@@ -987,6 +987,8 @@ body.overflow_body_hidden {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		// Initial state - will be animated with GSAP
+		will-change: transform;
 
 		.fullscreen-nav-decor {
 			position: absolute;
@@ -1051,26 +1053,31 @@ body.overflow_body_hidden {
 						@include fullscreen-nav-grid-heading;
 						color: #ffffff;
 						margin: 0 0 12px 0;
+						// Visible from start, no animation
 					}
 
 					.fullscreen-nav-grid-sub {
 						@include fullscreen-nav-grid-sub;
 						color: #ffffff;
 						margin: 0;
-						opacity: 1;
+						// Initial state - will be animated with GSAP
+						will-change: opacity, transform;
+						transform-origin: bottom;
 					}
 
 					.fullscreen-nav-grid-social {
 						display: flex;
 						gap: 8px;
 						flex-wrap: wrap;
+						// Initial state - will be animated with GSAP
+						will-change: opacity, transform;
+						transform-origin: bottom;
 
 						a {
 							width: 48%;
 							@include fullscreen-nav-grid-sub;
 							color: #ffffff;
 							text-decoration: none;
-							opacity: 1;
 							transition: opacity 0.3s ease;
 						}
 					}
@@ -1181,6 +1188,8 @@ body.overflow_body_hidden {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
+		// Initial state - will be animated with GSAP
+		will-change: transform;
 
 		.fullscreen-nav-close {
 			position: absolute;
@@ -1206,6 +1215,8 @@ body.overflow_body_hidden {
 
 		.fullscreen-nav-menu-items {
 			width: 100%;
+			// Initial state - will be animated with GSAP
+			will-change: opacity, transform;
 
 			.fullscreen-nav-list {
 				list-style: none;
