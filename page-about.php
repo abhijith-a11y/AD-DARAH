@@ -110,23 +110,25 @@ get_header();
 
 		);
 		include locate_template('template-parts/TimelineSlider.php'); ?>
-		<?php
-		// Vision Mission Stack Section
-		$services_stack_services = array(
-			array(
-				'title' => 'Our Vision',
-				'description' => 'To be the Kingdom\'s leading venue for prestigious events, setting new benchmarks in hospitality and excellence.',
-				'image' => get_template_directory_uri() . '/assets/images/vision.jpg',
-			),
-			array(
-				'title' => 'Our Mission',
-				'description' => 'To deliver exceptional experiences that honor Saudi heritage while embracing innovation, creating unforgettable moments for every event we host.',
-				'image' => get_template_directory_uri() . '/assets/images/mision.jpg',
-			),
-		);
-		set_query_var('services_stack_services', $services_stack_services);
-		get_template_part('template-parts/ServicesStack');
-		?>
+		<div class="about-page-services-stack-wrapper">
+			<?php
+			// Vision Mission Stack Section
+			$services_stack_services = array(
+				array(
+					'title' => 'Our Vision',
+					'description' => 'To be the Kingdom\'s leading venue for prestigious events, setting new benchmarks in hospitality and excellence.',
+					'image' => get_template_directory_uri() . '/assets/images/vision.jpg',
+				),
+				array(
+					'title' => 'Our Mission',
+					'description' => 'To deliver exceptional experiences that honor Saudi heritage while embracing innovation, creating unforgettable moments for every event we host.',
+					'image' => get_template_directory_uri() . '/assets/images/mision.jpg',
+				),
+			);
+			set_query_var('services_stack_services', $services_stack_services);
+			get_template_part('template-parts/ServicesStack');
+			?>
+		</div>
 		<?php
 		// Contact Us Section
 		get_template_part('template-parts/ContactUs');

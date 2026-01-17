@@ -5059,6 +5059,25 @@ body.fullscreen-nav-open {
   }
 }
 
+.about-page-services-stack-wrapper .services-stack-card {
+  justify-content: center;
+}
+.about-page-services-stack-wrapper .services-stack-card .services-stack-card-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(262.3deg, rgba(0, 0, 0, 0) 20.88%, rgba(0, 0, 0, 0.62) 90.48%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+.about-page-services-stack-wrapper .services-stack-card .services-stack-card-content {
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 3;
+}
+
 .partners-container {
   background-color: #fff;
   width: 100%;
