@@ -3138,11 +3138,10 @@ body.overflow_body_hidden {
   flex: 1;
   align-items: center;
   border: 1px solid #c5b17f;
-  padding: 0 20px;
+  padding: 0 30px;
   border-radius: 200px;
   justify-content: flex-start;
-  max-width: 820px;
-  width: 100%;
+  width: 820px;
   height: 48px;
   overflow: visible;
   min-width: 0;
@@ -3159,9 +3158,32 @@ body.overflow_body_hidden {
   width: auto;
   min-width: 0;
   flex-shrink: 0;
-  padding: 0 12px;
   height: 60%;
   max-width: 100%;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-fullname {
+  width: 93px;
+  padding-right: 20px;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-email {
+  width: 132px;
+  padding-inline: 18px;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-phone {
+  width: 107px;
+  padding-inline: 18px;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-event-type {
+  width: 151px;
+  padding-inline: 18px;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-event-date {
+  width: 139px;
+  padding-inline: 18px;
+}
+.header-booking-form .header-form-field-wrapper.header-form-field-preferred-time {
+  width: 155px;
+  padding-left: 18px;
 }
 .header-booking-form .header-form-field-wrapper .header-form-field-display {
   display: block;
