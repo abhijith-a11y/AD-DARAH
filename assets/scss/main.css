@@ -264,7 +264,8 @@ a,
 .img_fit {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 
@@ -2279,6 +2280,7 @@ a,
   overflow: hidden;
   transition: color 0.4s ease;
   z-index: 1;
+  width: -moz-max-content;
   width: max-content;
 }
 .primary-button .su_button_circle {
@@ -2562,7 +2564,8 @@ header.main-header .header-logo img,
 .main-header .header-logo img {
   height: 55px;
   width: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media only screen and (max-width: 1024px) {
   header.main-header .header-logo img,
@@ -2744,7 +2747,8 @@ header.main-header .header-utilities .header-icon img,
 .main-header .header-utilities .header-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 header.main-header .header-utilities .header-icon.desktop-menu-toggle,
 #headerMainSection.main-header .header-utilities .header-icon.desktop-menu-toggle,
@@ -3234,6 +3238,16 @@ body.overflow_body_hidden {
   text-overflow: ellipsis;
   box-sizing: border-box;
 }
+.header-booking-form .header-form-input::-moz-placeholder {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #191919;
+  opacity: 0.7;
+  white-space: nowrap;
+}
 .header-booking-form .header-form-input::placeholder {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
@@ -3260,6 +3274,9 @@ body.overflow_body_hidden {
   min-width: 0;
   width: 100%;
   flex-shrink: 0;
+}
+.header-booking-form .header-form-input[type=text][id=headerEventDate]::-moz-placeholder, .header-booking-form .header-form-input[type=date]::-moz-placeholder {
+  white-space: nowrap;
 }
 .header-booking-form .header-form-input[type=text][id=headerEventDate]::placeholder, .header-booking-form .header-form-input[type=date]::placeholder {
   white-space: nowrap;
@@ -3512,7 +3529,8 @@ body.overflow_body_hidden {
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-decor img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .fullscreen-nav-menu .fullscreen-nav-left .fullscreen-nav-left-content {
   position: relative;
@@ -3734,6 +3752,7 @@ body.overflow_body_hidden {
   align-items: center;
   justify-content: space-between;
   transition: opacity 0.3s ease;
+  width: -moz-max-content;
   width: max-content;
 }
 .fullscreen-nav-menu .fullscreen-nav-right .fullscreen-nav-menu-items .fullscreen-nav-list .fullscreen-nav-item .fullscreen-nav-link:hover {
@@ -3845,7 +3864,8 @@ body.fullscreen-nav-open {
 .footer .footer-container .footer-main-content .footer-logo {
   width: 242px;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .footer .footer-container .footer-bottom-section {
   display: flex;
@@ -3917,6 +3937,9 @@ body.fullscreen-nav-open {
   font-size: 14px;
   outline: none;
   border: 1px solid transparent;
+}
+.footer .footer-newsletter-section .footer-newsletter-form .footer-newsletter-input::-moz-placeholder {
+  color: #6b6b6b;
 }
 .footer .footer-newsletter-section .footer-newsletter-form .footer-newsletter-input::placeholder {
   color: #6b6b6b;
@@ -4199,7 +4222,8 @@ body.fullscreen-nav-open {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .banner-container::before {
   content: "";
@@ -4272,7 +4296,7 @@ body.banner-animating {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0) 55%), linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0) 55%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(0, 0, 0, 0) 37.44%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 27.83%, rgba(0, 0, 0, 0.67) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 57.11%);
   z-index: 4;
 }
 .main-banner-container .main-banner-mask {
@@ -4297,12 +4321,13 @@ body.banner-animating {
 .main-banner-container .main-banner-mask .main-banner-mask-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   shape-rendering: crispEdges;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform-origin: center center;
   will-change: transform, opacity;
@@ -4414,6 +4439,15 @@ body.banner-animating {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+.main-banner-container .main-banner-form input::-moz-placeholder, .main-banner-container .main-banner-form select::-moz-placeholder {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ABAFB1;
+}
 .main-banner-container .main-banner-form input::placeholder,
 .main-banner-container .main-banner-form select::placeholder {
   font-family: "Neue Regrade", sans-serif;
@@ -4477,6 +4511,7 @@ body.banner-animating {
 .main-banner-container .main-banner-form select[type=date]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   opacity: 0.6;
+  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 .main-banner-container .main-banner-form input[type=date]:hover::-webkit-calendar-picker-indicator,
@@ -4586,6 +4621,9 @@ body.banner-animating {
 .main-banner-container .main-banner-form input[type=date]:not(:invalid), .main-banner-container .main-banner-form input[type=date].has-value {
   color: #000;
 }
+.main-banner-container .main-banner-form input[type=date]:-moz-placeholder-shown {
+  color: #ABAFB1;
+}
 .main-banner-container .main-banner-form input[type=date]:placeholder-shown {
   color: #ABAFB1;
 }
@@ -4653,8 +4691,10 @@ body.banner-animating {
 .main-banner-container .main-banner-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   display: block;
 }
 
@@ -4748,7 +4788,8 @@ body.banner-animating {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .where-ever-video {
@@ -4758,7 +4799,8 @@ body.banner-animating {
   width: 100%;
   height: 100%;
   display: none;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: 1;
 }
 
@@ -5111,6 +5153,7 @@ body.banner-animating {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: -moz-fit-content;
   width: fit-content;
   animation: marquee 30s linear infinite;
 }
@@ -5139,7 +5182,8 @@ body.banner-animating {
   max-height: 90%;
   width: auto;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 @keyframes marquee {
@@ -5231,8 +5275,10 @@ body.banner-animating {
 .testimonials-container .testimonials-background-image img {
   width: auto;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .testimonials-container .testimonials-header {
   text-align: center;
@@ -5336,7 +5382,8 @@ body.banner-animating {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   flex-shrink: 0;
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info {
@@ -5386,8 +5433,10 @@ body.banner-animating {
 .single-testimonial-container .single-testimonial-background-image img {
   width: auto;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .single-testimonial-container .single-testimonial-overlay {
   position: absolute;
@@ -5469,7 +5518,8 @@ body.banner-animating {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   flex-shrink: 0;
 }
 .single-testimonial-container .single-testimonial-content .single-testimonial-swiper-container .single-testimonial-swiper .swiper-slide .testimonial-card .testimonial-author .testimonial-info {
@@ -5847,8 +5897,10 @@ body.banner-animating {
 .virtual-tour-container .virtual-tour-image-wrapper .virtual-tour-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   max-width: 100vw;
 }
 .virtual-tour-container .virtual-tour-overlay {
@@ -5907,7 +5959,8 @@ body.banner-animating {
 .virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-arrow-left {
   left: calc(50% - 200px);
@@ -5932,7 +5985,8 @@ body.banner-animating {
 .virtual-tour-container .virtual-tour-overlay .virtual-tour-line .virtual-tour-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media only screen and (max-width: 1440px) {
   .virtual-tour-container .virtual-tour-overlay .virtual-tour-overlay-content .virtual-tour-title {
@@ -6101,7 +6155,8 @@ body.banner-animating {
 .venue-at-a-glance .venue-main-swiper .swiper-slide .venue-slide-content img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .venue-at-a-glance .venue-main-swiper .swiper-slide .venue-slide-content .venue-overlay {
@@ -6225,7 +6280,8 @@ body.banner-animating {
 .venue-at-a-glance .venue-thumbnail-swiper .swiper-slide .venue-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .venue-at-a-glance .venue-thumbnail-swiper .swiper-slide.swiper-slide-thumb-active .venue-thumbnail {
@@ -6395,7 +6451,8 @@ body.banner-animating {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .image-text-section .image-text-right {
   width: 48%;
@@ -6648,7 +6705,8 @@ body.banner-animating {
 .timeline-slider .timeline-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .timeline-slider .timeline-image::after {
@@ -6996,7 +7054,8 @@ body.banner-animating {
 .contact-form-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 @media only screen and (max-width: 768px) {
@@ -7134,6 +7193,10 @@ body.banner-animating {
 .contact-form-textarea:focus {
   border-color: #C5B17F;
   box-shadow: 0 0 0 2px rgba(197, 177, 127, 0.1);
+}
+.contact-form-input::-moz-placeholder, .contact-form-textarea::-moz-placeholder {
+  color: #ABAFB1;
+  opacity: 0.7;
 }
 .contact-form-input::placeholder,
 .contact-form-textarea::placeholder {
@@ -7744,7 +7807,8 @@ body.banner-animating {
 .related-press-release-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.3s ease;
   display: block;
 }
@@ -7989,7 +8053,8 @@ body.banner-animating {
 .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-decor img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .perfect-day-section .swiper-slide.perfect-day-card .perfect-day-card-heading {
   font-family: "Neue Regrade", sans-serif;
@@ -8193,7 +8258,8 @@ body.banner-animating {
 .two-image-text-section .two-image-text-card .two-image-text-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .two-image-text-section .two-image-text-card .two-image-text-card-overlay {
@@ -8351,7 +8417,8 @@ body.banner-animating {
 .overflow-slider-section .overflow-slider-card .overflow-slider-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .overflow-slider-section .overflow-slider-card .overflow-slider-card-overlay {
@@ -8507,7 +8574,8 @@ body.banner-animating {
 .container-slider-section .container-slider-card .container-slider-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .container-slider-section .container-slider-card .container-slider-card-overlay {
@@ -8645,7 +8713,8 @@ body.banner-animating {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.5s ease;
 }
 .three-image-text-section .three-image-text-image:hover img {
@@ -8762,7 +8831,8 @@ body.banner-animating {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   z-index: 1;
 }
@@ -8814,7 +8884,8 @@ body.banner-animating {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: 1;
 }
 
@@ -8881,7 +8952,8 @@ body.banner-animating {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -9015,7 +9087,8 @@ body.banner-animating {
 .related-services-section .related-services-card .related-services-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .related-services-section .related-services-card .related-services-card-image .related-services-card-overlay {
@@ -9180,7 +9253,8 @@ body.banner-animating {
 .related-news-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.3s ease;
   display: block;
 }
@@ -9671,7 +9745,8 @@ body.banner-animating {
 .gallery-grid-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -9876,7 +9951,8 @@ body.banner-animating {
 .dual-slider-container .dual-slider-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .dual-slider-container .dual-slider-navigation {
@@ -10085,7 +10161,8 @@ body.banner-animating {
 .sustainability-container .sustainability-image {
   width: 100%;
   height: 468px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   transition: all 0.5s ease;
 }
@@ -10121,7 +10198,8 @@ body.banner-animating {
 .sustainability-container .sustainability-card-icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .sustainability-container .sustainability-card-text {
   font-family: "Neue Regrade", sans-serif;
