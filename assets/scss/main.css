@@ -5553,7 +5553,7 @@ body.banner-animating {
 }
 .news-articles-container .news-article-image {
   width: 100%;
-  height: 300px;
+  height: 100%;
   overflow: hidden;
   position: relative;
   background-size: cover;
@@ -5566,21 +5566,22 @@ body.banner-animating {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50%;
+  height: 100%;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   pointer-events: none;
+  z-index: 2;
 }
 .news-articles-container .news-article-image .news-article-content {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 45px 40px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
-  z-index: 2;
+  z-index: 3;
 }
 .news-articles-container .news-article-image .news-article-left {
   flex: 1;
@@ -5591,17 +5592,15 @@ body.banner-animating {
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
-  letter-spacing: 2%;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   vertical-align: middle;
 }
 .news-articles-container .news-article-image .news-article-left .news-article-heading {
   font-family: "Neue Regrade", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   line-height: 120%;
-  letter-spacing: 0%;
   color: #ffffff;
   margin: 0;
 }
@@ -5617,7 +5616,6 @@ body.banner-animating {
   transition: all 0.3s ease;
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more:hover .news-article-learn-icon {
-  background: #c5b17f;
   transform: translateX(3px);
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more .news-article-learn-text {
@@ -5630,10 +5628,6 @@ body.banner-animating {
   vertical-align: middle;
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more .news-article-learn-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5641,8 +5635,8 @@ body.banner-animating {
   flex-shrink: 0;
 }
 .news-articles-container .news-article-image .news-article-right .news-article-learn-more .news-article-learn-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
   color: #ffffff;
 }
 .news-articles-container .news-articles-navigation {
