@@ -378,6 +378,13 @@ function addarah_scripts()
 		wp_enqueue_script('single-testimonial-script', get_template_directory_uri() . '/assets/js/SingleTestimonial.js', array('swiper-js'), _S_VERSION, true);
 	}
 
+	// Load scripts for Weddings & Social Services Detail page
+	$is_weddings_detail_page = is_page_template('page-weddings-social-services-detail.php');
+
+	if ($is_weddings_detail_page) {
+		wp_enqueue_script('full-video-section-script', get_template_directory_uri() . '/assets/js/FullVideoSection.js', array(), _S_VERSION, true);
+	}
+
 
 	// Load Contact Map script for Contact page
 	if ($is_contact_page) {

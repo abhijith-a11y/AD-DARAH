@@ -58,9 +58,34 @@ get_header();
 
         </div>
 
+        <?php
+        // Full Video Section
+        $full_video_thumbnail = get_template_directory_uri() . '/assets/images/wedding_detail_video_thump.png';
+        $full_video_url = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'; // Dummy video link
+        
+        include locate_template('template-parts/FullVideoSection.php');
+        ?>
+
     </div>
 </main><!-- #main -->
 
 <?php
 get_footer();
 ?>
+
+<!-- Direct script load for Full Video Section (fallback) -->
+<script>
+    // Also load FullVideoSection.js directly
+    (function () {
+        console.log("Loading FullVideoSection.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/FullVideoSection.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("FullVideoSection.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load FullVideoSection.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+</script>
