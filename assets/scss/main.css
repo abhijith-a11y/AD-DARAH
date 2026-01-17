@@ -2304,6 +2304,15 @@ a,
 .primary-button:hover {
   color: #ffffff;
 }
+.primary-button.contact-section-button {
+  background-color: #b64910 !important;
+}
+.primary-button.contact-section-button .su_button_circle {
+  background-color: #000000;
+}
+.primary-button.contact-section-button:hover, .primary-button.contact-section-button.hovered {
+  background-color: #000000 !important;
+}
 @media screen and (max-width: 768px) {
   .primary-button {
     height: 42px;

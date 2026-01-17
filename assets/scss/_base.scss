@@ -21,37 +21,26 @@ body {
 	font-size: 100%;
 }
 
-
-
-
 @media screen and (max-width: 1024px) {
 	html,
-body {
-	font-size: 100%;
-}}
-
-
-
+	body {
+		font-size: 100%;
+	}
+}
 
 @media screen and (max-width: 768px) {
 	html,
-body {
-	font-size: 75%;
-}}
-
-
-
+	body {
+		font-size: 75%;
+	}
+}
 
 @media screen and (max-width: 700px) {
 	html,
-body {
-	font-size: 50%;
-}}
-
-
-
-
-
+	body {
+		font-size: 50%;
+	}
+}
 
 p {
 	font-size: 16px;
@@ -79,7 +68,6 @@ img {
 .container {
 	max-width: calc(1400px + 40px);
 	margin: 0 auto;
-	
 
 	@media (max-width: 1024px) {
 		padding-inline: 20px;
@@ -2093,6 +2081,20 @@ a,
 		color: #ffffff;
 	}
 
+	// Contact Section Button Modifier
+	&.contact-section-button {
+		background-color: #b64910 !important;
+
+		.su_button_circle {
+			background-color: #000000;
+		}
+
+		&:hover,
+		&.hovered {
+			background-color: #000000 !important;
+		}
+	}
+
 	@include max(768) {
 		height: 42px;
 	}
@@ -2146,4 +2148,3 @@ a,
 		line-height: 42px;
 	}
 }
-

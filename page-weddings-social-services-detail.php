@@ -115,6 +115,16 @@ get_header();
         include locate_template('template-parts/RelatedServicesSection.php');
         ?>
 
+        <?php
+        // Contact Us Section
+        set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
+        set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+        set_query_var('contact_button_text', 'Contact Us');
+        set_query_var('contact_button_link', '#');
+        set_query_var('contact_bg_image', get_template_directory_uri() . '/assets/images/contact-bg.jpg');
+        get_template_part('template-parts/ContactUs');
+        ?>
+
     </div>
 </main><!-- #main -->
 

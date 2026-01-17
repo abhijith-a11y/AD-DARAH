@@ -28,13 +28,13 @@ $contact_bg_image = get_query_var('contact_bg_image', get_theme_mod('contact_bg_
 			<?php if ($contact_title): ?>
 				<h2 class="contact-us-title"><?php echo esc_html($contact_title); ?></h2>
 			<?php endif; ?>
-
+			
 			<?php if ($contact_description): ?>
 				<p class="contact-us-description"><?php echo esc_html($contact_description); ?></p>
 			<?php endif; ?>
-
+			
 			<?php if ($contact_button_text): ?>
-				<a href="<?php echo esc_url($contact_button_link); ?>" class="primary-button">
+				<a href="<?php echo esc_url($contact_button_link); ?>" class="primary-button contact-section-button">
 					<?php echo esc_html($contact_button_text); ?>
 				</a>
 			<?php endif; ?>
