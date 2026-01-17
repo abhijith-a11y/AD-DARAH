@@ -79,7 +79,11 @@ img {
 .container {
 	max-width: calc(1400px + 40px);
 	margin: 0 auto;
-	padding-inline: 20px;
+	
+
+	@media (max-width: 1024px) {
+		padding-inline: 20px;
+	}
 }
 
 .trans,
