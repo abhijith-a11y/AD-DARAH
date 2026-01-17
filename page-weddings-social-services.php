@@ -59,10 +59,10 @@ get_header();
         ?>
 
         <?php
-        // Packages Section
-        $packages_heading = 'Weddings & Social Services';
-        $packages_paragraph = 'From intimate engagements to royal weddings. AD-DARAH creates timeless celebrations that honor heritage and style.';
-        $packages_items = array(
+        // Two Image Text Section
+        $two_image_text_heading = 'Weddings & Social Services';
+        $two_image_text_description = 'From intimate engagements to royal weddings. AD-DARAH creates timeless celebrations that honor heritage and style.';
+        $two_image_text_items = array(
             array(
                 'image' => get_template_directory_uri() . '/assets/images/wedding_01.png',
                 'heading' => 'Female Packages',
@@ -79,7 +79,7 @@ get_header();
             ),
         );
 
-        include locate_template('template-parts/PackagesSection.php');
+        include locate_template('template-parts/TwoImageText.php');
         ?>
 
         <?php

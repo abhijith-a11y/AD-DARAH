@@ -8079,16 +8079,16 @@ body.fullscreen-nav-open {
   }
 }
 
-.packages-section {
+.two-image-text-section {
   background-color: rgba(197, 177, 127, 0.19);
   position: relative;
   width: 100%;
 }
-.packages-section .container {
+.two-image-text-section .container {
   position: relative;
   z-index: 1;
 }
-.packages-section .packages-section-heading {
+.two-image-text-section .two-image-text-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -8099,7 +8099,7 @@ body.fullscreen-nav-open {
   color: #c5b17f;
   margin: 0 0 20px 0;
 }
-.packages-section .packages-section-paragraph {
+.two-image-text-section .two-image-text-description {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -8111,12 +8111,12 @@ body.fullscreen-nav-open {
   margin: 0 auto 60px auto;
   max-width: 850px;
 }
-.packages-section .packages-cards-wrapper {
+.two-image-text-section .two-image-text-cards-wrapper {
   display: flex;
   gap: 30px;
   width: 100%;
 }
-.packages-section .packages-card {
+.two-image-text-section .two-image-text-card {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -8125,7 +8125,7 @@ body.fullscreen-nav-open {
   background-color: #000;
   cursor: pointer;
 }
-.packages-section .packages-card::before {
+.two-image-text-section .two-image-text-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -8135,7 +8135,7 @@ body.fullscreen-nav-open {
   background: linear-gradient(199.86deg, rgba(0, 0, 0, 0) 13.27%, rgba(0, 0, 0, 0.6) 65.89%);
   z-index: 2;
 }
-.packages-section .packages-card .packages-card-image {
+.two-image-text-section .two-image-text-card .two-image-text-card-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -8143,13 +8143,13 @@ body.fullscreen-nav-open {
   height: 100%;
   z-index: 1;
 }
-.packages-section .packages-card .packages-card-image img {
+.two-image-text-section .two-image-text-card .two-image-text-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.packages-section .packages-card .packages-card-overlay {
+.two-image-text-section .two-image-text-card .two-image-text-card-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -8162,7 +8162,7 @@ body.fullscreen-nav-open {
   transition: all 0.8s ease;
   transform: translateY(calc(100% - 100px));
 }
-.packages-section .packages-card .packages-card-overlay .packages-card-heading {
+.two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -8173,7 +8173,7 @@ body.fullscreen-nav-open {
   margin: 0 0 15px 0;
   position: relative;
 }
-.packages-section .packages-card .packages-card-overlay .packages-card-paragraph {
+.two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-paragraph {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -8186,48 +8186,48 @@ body.fullscreen-nav-open {
   position: relative;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.packages-section .packages-card .packages-card-overlay .packages-card-button {
+.two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-button {
   margin-top: 10px;
 }
-.packages-section .packages-card:hover .packages-card-overlay {
+.two-image-text-section .two-image-text-card:hover .two-image-text-card-overlay {
   transform: translateY(0);
 }
-.packages-section .packages-card:hover .packages-card-overlay .packages-card-paragraph {
+.two-image-text-section .two-image-text-card:hover .two-image-text-card-overlay .two-image-text-card-paragraph {
   opacity: 1;
 }
 @media only screen and (max-width: 1200px) {
-  .packages-section .packages-cards-wrapper {
+  .two-image-text-section .two-image-text-cards-wrapper {
     gap: 25px;
   }
-  .packages-section .packages-card .packages-card-overlay {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay {
     padding: 35px 25px;
   }
-  .packages-section .packages-card .packages-card-overlay .packages-card-heading {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-heading {
     font-size: 24px;
   }
-  .packages-section .packages-card .packages-card-overlay .packages-card-paragraph {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-paragraph {
     font-size: 16px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .packages-section .packages-section-heading {
+  .two-image-text-section .two-image-text-heading {
     font-size: 40px;
   }
-  .packages-section .packages-section-paragraph {
+  .two-image-text-section .two-image-text-description {
     font-size: 16px;
     margin-bottom: 40px;
   }
-  .packages-section .packages-cards-wrapper {
+  .two-image-text-section .two-image-text-cards-wrapper {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .packages-section .packages-card .packages-card-overlay {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay {
     padding: 30px 20px;
   }
-  .packages-section .packages-card .packages-card-overlay .packages-card-heading {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-heading {
     font-size: 22px;
   }
-  .packages-section .packages-card .packages-card-overlay .packages-card-paragraph {
+  .two-image-text-section .two-image-text-card .two-image-text-card-overlay .two-image-text-card-paragraph {
     font-size: 14px;
   }
 }

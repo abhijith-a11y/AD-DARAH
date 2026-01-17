@@ -1,6 +1,6 @@
-// Packages Section Styles
+// Two Image Text Section Styles
 
-.packages-section {
+.two-image-text-section {
 	background-color: rgba(197, 177, 127, 0.19);
 	position: relative;
 	width: 100%;
@@ -10,26 +10,26 @@
 		z-index: 1;
 	}
 
-	.packages-section-heading {
+	.two-image-text-heading {
 		@include packages-section-heading;
 		color: #c5b17f;
 		margin: 0 0 20px 0;
 	}
 
-	.packages-section-paragraph {
+	.two-image-text-description {
 		@include packages-section-paragraph;
 		color: #282828;
 		margin: 0 auto 60px auto;
 		max-width: 850px;
 	}
 
-	.packages-cards-wrapper {
+	.two-image-text-cards-wrapper {
 		display: flex;
 		gap: 30px;
 		width: 100%;
 	}
 
-	.packages-card {
+	.two-image-text-card {
 		position: relative;
 		border-radius: 20px;
 		overflow: hidden;
@@ -53,7 +53,7 @@
 			z-index: 2;
 		}
 
-		.packages-card-image {
+		.two-image-text-card-image {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -69,7 +69,7 @@
 			}
 		}
 
-		.packages-card-overlay {
+		.two-image-text-card-overlay {
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -82,14 +82,14 @@
 			transition: all 0.8s ease;
 			transform: translateY(calc(100% - 100px));
 
-			.packages-card-heading {
+			.two-image-text-card-heading {
 				@include perfect-day-card-heading;
 				color: $white;
 				margin: 0 0 15px 0;
 				position: relative;
 			}
 
-			.packages-card-paragraph {
+			.two-image-text-card-paragraph {
 				@include packages-card-paragraph;
 				color: $white;
 				margin: 0 0 15px 0;
@@ -98,16 +98,16 @@
 				transition: opacity 0.4s ease, transform 0.4s ease;
 			}
 
-			.packages-card-button {
+			.two-image-text-card-button {
 				margin-top: 10px;
 			}
 		}
 
 		&:hover {
-			.packages-card-overlay {
+			.two-image-text-card-overlay {
 				transform: translateY(0);
 				
-				.packages-card-paragraph {
+				.two-image-text-card-paragraph {
 					opacity: 1;
 				}
 			}
@@ -115,19 +115,19 @@
 	}
 
 	@media #{$media-1200} {
-		.packages-cards-wrapper {
+		.two-image-text-cards-wrapper {
 			gap: 25px;
 		}
 
-		.packages-card {
-			.packages-card-overlay {
+		.two-image-text-card {
+			.two-image-text-card-overlay {
 				padding: 35px 25px;
 
-				.packages-card-heading {
+				.two-image-text-card-heading {
 					font-size: 24px;
 				}
 
-				.packages-card-paragraph {
+				.two-image-text-card-paragraph {
 					font-size: 16px;
 				}
 			}
@@ -135,29 +135,29 @@
 	}
 
 	@media #{$media-768} {
-		.packages-section-heading {
+		.two-image-text-heading {
 			font-size: 40px;
 		}
 
-		.packages-section-paragraph {
+		.two-image-text-description {
 			font-size: 16px;
 			margin-bottom: 40px;
 		}
 
-		.packages-cards-wrapper {
+		.two-image-text-cards-wrapper {
 			grid-template-columns: 1fr;
 			gap: 20px;
 		}
 
-		.packages-card {
-			.packages-card-overlay {
+		.two-image-text-card {
+			.two-image-text-card-overlay {
 				padding: 30px 20px;
 
-				.packages-card-heading {
+				.two-image-text-card-heading {
 					font-size: 22px;
 				}
 
-				.packages-card-paragraph {
+				.two-image-text-card-paragraph {
 					font-size: 14px;
 				}
 			}

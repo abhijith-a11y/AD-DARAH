@@ -62,8 +62,42 @@ get_header();
         // Full Video Section
         $full_video_thumbnail = get_template_directory_uri() . '/assets/images/cater_thumb.png';
         $full_video_url = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'; // Dummy video link
-
+        
         include locate_template('template-parts/FullVideoSection.php');
+        ?>
+
+        <?php
+        // Two Image Text Section
+        $two_image_text_heading = 'Our Catering Services';
+        $two_image_text_description = 'Our culinary team delivers memorable dining experiences with menus tailored to your event.';
+        $two_image_text_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/ca_01.png',
+                'heading' => 'On-site Catering',
+                'paragraph' => 'World-class menus prepared and served within the venue.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/ca_02.png',
+                'heading' => 'Off-site Catering',
+                'paragraph' => 'Bring the AD-DARAH culinary experience to <br /> your chosen location.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/TwoImageText.php');
+        ?>
+
+        <?php
+        // Contact Us Section
+        set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
+        set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+        set_query_var('contact_button_text', 'Contact Us');
+        set_query_var('contact_button_link', '#');
+        set_query_var('contact_bg_image', get_template_directory_uri() . '/assets/images/contact-bg.jpg');
+        get_template_part('template-parts/ContactUs');
         ?>
 
     </div>
@@ -89,4 +123,3 @@ get_footer();
         document.head.appendChild(script);
     })();
 </script>
-
