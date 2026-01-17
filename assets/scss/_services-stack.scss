@@ -25,16 +25,31 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			z-index: 1;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(112.79deg, rgba(0, 0, 0, 0) 51.28%, rgba(0, 0, 0, 0.3) 93.28%),
+linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+				z-index: 2;
+			}
 		}
 
 		.services-stack-card-content {
-			position: relative;
+			position: absolute;
+			top: 250px;
 			z-index: 2;
-			padding: 40px 60px;
-			padding-left: max(60px, calc((100vw - 1400px) / 2 - 30px));
+			// padding: 40px 60px;
+		   left: max(60px, calc((100vw - 1400px) / 2 - 30px));
 			color: $white;
             margin-bottom: auto;
-            margin-top: 150px;
+			transform: translateY(0);
+
 		}
 
 		.services-stack-card-tag {
@@ -52,7 +67,7 @@
 			@include services-stack-title;
 			font-weight: 600;
 			font-style: normal;
-			letter-spacing: 0%;
+			line-height: 130%;
 			color: $white;
 			margin: 0 0 20px 0;
 		}
@@ -69,8 +84,8 @@
 
 		.services-stack-arrow-link {
 			position: absolute;
-			bottom: 40px;
-			right: 60px;
+			bottom: 100px;
+			right: max(60px, calc((100vw - 1400px) / 2 - 30px));
 			width: 80px;
 			height: 80px;
 			border-radius: 50%;
@@ -79,17 +94,23 @@
 			align-items: center;
 			justify-content: center;
 			z-index: 3;
-			transition: all 0.3s ease;
+			transition: all 0.5s ease;
 			background: transparent;
 
 			&:hover {
-				background: rgba(255, 255, 255, 0.2);
-				transform: scale(1.1);
+				background: rgba(197, 177, 127, 0.2);
+				border: 1px solid #C5B17F;
+				transform: rotate(-45deg);
+
+					svg {
+						color: #C5B17F;
+					}
 			}
 
 			svg {
 				width: 37px;
 				height: 22px;
+				color: $white;
 			}
 		}
 	}
@@ -184,9 +205,11 @@
 		}
 
 		.services-stack-card-content {
-			margin-top: 0;
-			margin-bottom: 0;
-			z-index: 3;
+			position: absolute !important;
+			top: 50% !important;
+			left: max(60px, calc((100vw - 1400px) / 2 - 30px)) !important;
+			transform: translateY(-50%) !important;
+			margin-bottom: 0 !important;
 		}
 	}
 }

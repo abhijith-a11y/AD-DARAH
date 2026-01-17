@@ -20,26 +20,36 @@ get_header();
 		get_template_part('template-parts/WhereEver');
 
 		// Statistics Section
-		get_template_part('template-parts/Statistics');
-
+		?>
+		<section class="pb_100">
+			<?php get_template_part('template-parts/Statistics'); ?>
+		</section>
+		<?php
 		// Partners/Logos Marquee Section
-		get_template_part('template-parts/Partners');
+		?>
+		<section class="pb_100">
+			<?php get_template_part('template-parts/Partners'); ?>
+		</section>
+		<?php
 
 		// Services Stack Section
 		$services_stack_services = array(
 			array(
+				'tag' => 'OUR SERVICES',
 				'title' => 'Corporate Events',
 				'description' => 'From global conferences to high-level government meetings, our venue offers the perfect setting for impactful events.',
 				'image' => get_template_directory_uri() . '/assets/images/stack_img_01.png',
 				'link' => home_url('/corporate-services'),
 			),
 			array(
-				'title' => 'Weddings & Social Celebrations',
+				'tag' => 'OUR SERVICES',
+				'title' => 'Weddings & <br /> Social Celebrations',
 				'description' => 'A royal backdrop for your big day, blending tradition with elegance.',
 				'image' => get_template_directory_uri() . '/assets/images/stack_img_02.png',
 				'link' => home_url('/weddings-social-services'),
 			),
 			array(
+				'tag' => 'OUR SERVICES',
 				'title' => 'Catering',
 				'description' => 'Exquisite on-site and off-site catering tailored to your event.',
 				'image' => get_template_directory_uri() . '/assets/images/stack_img_03.png',

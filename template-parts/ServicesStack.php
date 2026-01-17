@@ -39,7 +39,7 @@ $services = get_query_var('services_stack_services', array());
 							<span class="services-stack-card-tag"><?php echo esc_html($service['tag']); ?></span>
 						<?php endif; ?>
 						<?php if (!empty($service['title'])): ?>
-							<h2 class="services-stack-card-title"><?php echo esc_html($service['title']); ?></h2>
+							<h2 class="services-stack-card-title"><?php echo wp_kses_post($service['title']); ?></h2>
 						<?php endif; ?>
 						<?php if (!empty($service['description'])): ?>
 							<p class="services-stack-card-description"><?php echo esc_html($service['description']); ?></p>
@@ -52,9 +52,9 @@ $services = get_query_var('services_stack_services', array());
 					<a href="<?php echo esc_url($service['link']); ?>" class="services-stack-arrow-link"
 						aria-label="View <?php echo esc_attr(isset($service['title']) ? $service['title'] : 'Service'); ?>">
 						<svg width="37" height="22" viewBox="0 0 37 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M25.4268 21.4658L35.9915 10.901L25.4268 0.33625" stroke="white" stroke-width="0.950845"
+							<path d="M25.4268 21.4658L35.9915 10.901L25.4268 0.33625" stroke="currentColor" stroke-width="0.950845"
 								stroke-linejoin="round" />
-							<path d="M0 11.0898L36.1321 11.0898" stroke="white" stroke-width="0.950845" />
+							<path d="M0 11.0898L36.1321 11.0898" stroke="currentColor" stroke-width="0.950845" />
 						</svg>
 					</a>
 				<?php endif; ?>

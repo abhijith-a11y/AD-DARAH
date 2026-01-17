@@ -34,7 +34,7 @@ if (empty($partners_images)) {
 $partners_images = array_merge($partners_images, $partners_images);
 ?>
 
-<section class="partners-container pb_80">
+<section class="partners-container">
 	<div class="partners-marquee-wrapper">
 		<div class="partners-marquee-header">
 			<h5 class="sub-title">Our Partners</h5>

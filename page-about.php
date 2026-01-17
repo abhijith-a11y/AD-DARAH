@@ -30,6 +30,14 @@ get_header();
 
 		include locate_template('template-parts/ImageTextSection.php'); ?>
 		<?php
+		// Statistics Section
+		?>
+		<section class="pb_100">
+			<?php get_template_part('template-parts/Statistics'); ?>
+		</section>
+		<?php
+		// Partners/Logos Marquee Section
+		get_template_part('template-parts/Partners');
 		// Venue At A Glance Section
 		$venue_title = 'VENUE AT A GLANCE';
 		$venue_slides = array(

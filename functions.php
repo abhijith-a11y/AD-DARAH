@@ -364,6 +364,9 @@ function addarah_scripts()
 		
 		// Enqueue DualSlider script (depends on Swiper)
 		wp_enqueue_script('dual-slider-script', get_template_directory_uri() . '/assets/js/DualSlider.js', array('swiper-js'), _S_VERSION, true);
+		
+		// Enqueue Statistics script for number animation
+		wp_enqueue_script('statistics-script', get_template_directory_uri() . '/assets/js/Statistics.js', array(), _S_VERSION, true);
 
 	}
 
