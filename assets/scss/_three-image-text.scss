@@ -98,6 +98,8 @@
 
 	.three-image-text-heading {
 		@include weddings-detail-heading;
+		letter-spacing: -1.9px;
+		white-space: nowrap;
 		margin: 0 0 10px 0;
 	}
 

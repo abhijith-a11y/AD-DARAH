@@ -8623,6 +8623,8 @@ body.fullscreen-nav-open {
   font-weight: 500;
   font-size: 40px;
   color: #C5B17F;
+  letter-spacing: -1.9px;
+  white-space: nowrap;
   margin: 0 0 10px 0;
 }
 .three-image-text-section .three-image-text-description {
