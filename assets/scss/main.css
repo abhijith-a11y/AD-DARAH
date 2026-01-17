@@ -8536,6 +8536,153 @@ body.fullscreen-nav-open {
   }
 }
 
+.three-image-text-section {
+  background-color: #fff;
+}
+.three-image-text-section .container {
+  position: relative;
+}
+.three-image-text-section .three-image-text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  gap: 60px;
+}
+.three-image-text-section .three-image-text-wrapper.three-image-text-wrapper-image-left .three-image-text-image {
+  order: 1;
+}
+.three-image-text-section .three-image-text-wrapper.three-image-text-wrapper-image-left .three-image-text-text {
+  order: 2;
+}
+.three-image-text-section .three-image-text-wrapper.three-image-text-wrapper-image-right .three-image-text-image {
+  order: 2;
+}
+.three-image-text-section .three-image-text-wrapper.three-image-text-wrapper-image-right .three-image-text-text {
+  order: 1;
+}
+.three-image-text-section .three-image-text-wrapper.three-image-text-wrapper-text-bottom .three-image-text-text {
+  justify-content: flex-end;
+}
+.three-image-text-section .three-image-text-wrapper-image-left .three-image-text-image {
+  width: 52.5%;
+}
+.three-image-text-section .three-image-text-wrapper-image-left .three-image-text-text {
+  width: 548px;
+}
+.three-image-text-section .three-image-text-wrapper-image-right {
+  padding-top: 30px;
+}
+.three-image-text-section .three-image-text-wrapper-image-right .three-image-text-image {
+  width: 462px;
+}
+.three-image-text-section .three-image-text-wrapper-image-right .three-image-text-text {
+  padding-top: 70px;
+  width: 58.2%;
+}
+.three-image-text-section .three-image-text-image {
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.three-image-text-section .three-image-text-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.three-image-text-section .three-image-text-text {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.three-image-text-section .three-image-text-text.three-image-text-text-last {
+  margin-top: auto;
+  padding-bottom: 70px;
+}
+.three-image-text-section .three-image-text-item {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c5b17f;
+}
+.three-image-text-section .three-image-text-heading {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  color: #C5B17F;
+  margin: 0 0 10px 0;
+}
+.three-image-text-section .three-image-text-description {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #282828;
+  margin: 0;
+}
+.three-image-text-section .three-image-text-paragraph {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #282828;
+  margin: 0 0 20px 0;
+}
+.three-image-text-section .three-image-text-paragraph:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 1024px) {
+  .three-image-text-section {
+    padding: 70px 0;
+  }
+  .three-image-text-section .three-image-text-wrapper {
+    gap: 50px;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-left .three-image-text-image {
+    width: 52.5%;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-left .three-image-text-text {
+    width: 548px;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-right .three-image-text-image {
+    width: 462px;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-right .three-image-text-text {
+    width: 58.2%;
+  }
+  .three-image-text-section .three-image-text-heading {
+    font-size: 36px;
+  }
+  .three-image-text-section .three-image-text-description,
+  .three-image-text-section .three-image-text-paragraph {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .three-image-text-section {
+    padding: 60px 0;
+  }
+  .three-image-text-section .three-image-text-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-right .three-image-text-image {
+    order: 1;
+  }
+  .three-image-text-section .three-image-text-wrapper-image-right .three-image-text-text {
+    order: 2;
+  }
+  .three-image-text-section .three-image-text-image,
+  .three-image-text-section .three-image-text-text {
+    width: 100% !important;
+  }
+  .three-image-text-section .three-image-text-heading {
+    font-size: 32px;
+  }
+  .three-image-text-section .three-image-text-description,
+  .three-image-text-section .three-image-text-paragraph {
+    font-size: 16px;
+  }
+}
+
 .related-news-section {
   width: 100%;
   padding: 80px 0;
