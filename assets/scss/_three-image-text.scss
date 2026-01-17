@@ -69,6 +69,13 @@
 			height: auto;
 			display: block;
 			object-fit: cover;
+            transition: transform 0.5s ease;
+		}
+
+		&:hover {
+			img {
+				transform: scale(1.05);
+			}
 		}
 	}
 

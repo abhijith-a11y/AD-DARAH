@@ -65,6 +65,40 @@ get_header();
         
         include locate_template('template-parts/FullVideoSection.php');
         ?>
+        
+
+        <?php
+        // Facilities Section
+        $facilities_heading = 'Facilities';
+        $facilities_description = 'AD-DARAH offers world-class facilities tailored for weddings and social celebrations. Every detail—from the grand halls to the private suites—is crafted to ensure your event unfolds seamlessly with elegance and ease.';
+        $facilities_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/facility_01.png',
+                'title' => 'Pearl Package',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'button_text' => 'Download PDF',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/facility_02.png',
+                'title' => 'Diamond Package',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'button_text' => 'Download PDF',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/facility_03.png',
+                'title' => 'Royal Package',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                'button_text' => 'Download PDF',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/FacilitiesSection.php');
+        ?>
+
+       
 
     </div>
 </main><!-- #main -->
