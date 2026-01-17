@@ -358,9 +358,12 @@ function addarah_scripts()
 
 		wp_enqueue_script('venue-at-a-glance-script', get_template_directory_uri() . '/assets/js/VenueAtAGlance.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('timeline-slider-script', get_template_directory_uri() . '/assets/js/TimelineSlider.js', array('swiper-js'), _S_VERSION, true);
-
+		
 		// Enqueue ServicesStack script (depends on GSAP and ScrollTrigger)
 		wp_enqueue_script('services-stack-script', get_template_directory_uri() . '/assets/js/ServicesStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
+		
+		// Enqueue DualSlider script (depends on Swiper)
+		wp_enqueue_script('dual-slider-script', get_template_directory_uri() . '/assets/js/DualSlider.js', array('swiper-js'), _S_VERSION, true);
 
 	}
 

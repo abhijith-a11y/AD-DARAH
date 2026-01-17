@@ -130,6 +130,31 @@ get_header();
 			?>
 		</div>
 		<?php
+		// Dual Slider Section
+		$dual_slider_items = array(
+			array(
+				'heading' => 'Our Values',
+				'subheading' => 'Heritage & Identity',
+				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+				'image' => get_template_directory_uri() . '/assets/images/dual_01.png',
+			),
+			array(
+				'heading' => 'Our Values',
+				'subheading' => 'Excellence in Service',
+				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+				'image' => get_template_directory_uri() . '/assets/images/dual_02.png',
+			),
+			array(
+				'heading' => 'Our Values',
+				'subheading' => 'Innovation & Modernity',
+				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+				'image' => get_template_directory_uri() . '/assets/images/dual_03.png',
+			),
+		);
+		set_query_var('dual_slider_items', $dual_slider_items);
+		get_template_part('template-parts/DualSlider');
+		?>
+		<?php
 		// Contact Us Section
 		get_template_part('template-parts/ContactUs');
 		?>
