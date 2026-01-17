@@ -311,3 +311,39 @@
 	color: #282828;
 	line-height: 1.6;
 }
+
+// Sustainability Tag Typography
+@mixin sustainability-tag {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	color: #B64910;
+	text-transform: uppercase;
+}
+
+// Sustainability Heading Typography
+@mixin sustainability-heading {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 600;
+	font-size: 60px;
+	color: #C5B17F;
+	line-height: 1.2;
+}
+
+// Sustainability Paragraph Typography
+@mixin sustainability-paragraph {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-size: 18px;
+	color: #282828;
+	line-height: 1.6;
+}
+
+// Sustainability Card Text Typography
+@mixin sustainability-card-text {
+	font-family: "Neue Regrade", sans-serif;
+	font-weight: 500;
+	font-size: 20px;
+	color: #282828;
+	line-height: 1.4;
+}

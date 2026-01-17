@@ -10005,4 +10005,193 @@ body.fullscreen-nav-open {
     width: 24px;
     height: 14px;
   }
+}
+
+.sustainability-container {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #F4F1E7;
+}
+.sustainability-container .sustainability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+.sustainability-container .sustainability-header-left {
+  flex: 0 0 auto;
+}
+.sustainability-container .sustainability-header-right {
+  flex: 0 0 auto;
+  max-width: 640px;
+}
+.sustainability-container .sustainability-tag {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #B64910;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+.sustainability-container .sustainability-heading {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #C5B17F;
+  line-height: 1.2;
+  margin: 0;
+}
+.sustainability-container .sustainability-paragraph {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #282828;
+  line-height: 1.6;
+  margin: 0;
+}
+.sustainability-container .sustainability-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+.sustainability-container .sustainability-image-wrapper {
+  flex: 0 0 54.86%;
+  max-width: 768px;
+  width: 100%;
+}
+.sustainability-container .sustainability-image {
+  width: 100%;
+  height: 468px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  transition: all 0.5s ease;
+}
+.sustainability-container .sustainability-image:hover {
+  transform: scale(1.05);
+}
+.sustainability-container .sustainability-cards {
+  flex: 0 0 46.57%;
+  max-width: 652px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 468px;
+}
+.sustainability-container .sustainability-card {
+  width: calc(50% - 10px);
+  height: calc(50% - 10px);
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 30px;
+  text-align: left;
+}
+.sustainability-container .sustainability-card-icon {
+  width: 47px;
+  height: 47px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sustainability-container .sustainability-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sustainability-container .sustainability-card-text {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #282828;
+  line-height: 1.4;
+  margin: 0;
+}
+@media only screen and (max-width: 1024px) {
+  .sustainability-container {
+    padding: 80px 0;
+  }
+  .sustainability-container .sustainability-content {
+    flex-direction: column;
+  }
+  .sustainability-container .sustainability-image-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .sustainability-container .sustainability-image {
+    height: 400px;
+  }
+  .sustainability-container .sustainability-cards {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .sustainability-container .sustainability-card {
+    width: calc(50% - 10px);
+    height: auto;
+    min-height: 200px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .sustainability-container {
+    padding: 60px 0;
+  }
+  .sustainability-container .sustainability-heading {
+    font-size: 48px;
+  }
+  .sustainability-container .sustainability-paragraph {
+    font-size: 16px;
+  }
+  .sustainability-container .sustainability-image {
+    height: 300px;
+  }
+  .sustainability-container .sustainability-cards {
+    gap: 15px;
+  }
+  .sustainability-container .sustainability-card {
+    width: calc(50% - 7.5px);
+    padding: 20px 15px;
+  }
+  .sustainability-container .sustainability-card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .sustainability-container .sustainability-card-text {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sustainability-container {
+    padding: 40px 0;
+  }
+  .sustainability-container .sustainability-tag {
+    font-size: 18px;
+  }
+  .sustainability-container .sustainability-heading {
+    font-size: 36px;
+  }
+  .sustainability-container .sustainability-paragraph {
+    font-size: 14px;
+  }
+  .sustainability-container .sustainability-image {
+    height: 250px;
+  }
+  .sustainability-container .sustainability-cards {
+    flex-direction: column;
+    height: auto;
+  }
+  .sustainability-container .sustainability-card {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+  }
 }/*# sourceMappingURL=main.css.map */
