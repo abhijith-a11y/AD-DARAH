@@ -61,35 +61,62 @@
 		};
 
 		try {
-			// Initialize both Swipers (without navigation first)
+			// Initialize both Swipers
 			const textSwiper = new Swiper(textSwiperElement, textSwiperConfig);
 			const imageSwiper = new Swiper(imageSwiperElement, imageSwiperConfig);
 
+			// Wait for sliders to be ready
+			textSwiper.on("init", function () {
+				imageSwiper.update();
+			});
+			imageSwiper.on("init", function () {
+				textSwiper.update();
+			});
+
+			// Flag to prevent infinite sync loops
+			let isManualNavigation = false;
+
 			// Synchronize both sliders on slide change (using realIndex for loop)
 			textSwiper.on("slideChange", function () {
-				const realIndex = textSwiper.realIndex;
-				if (imageSwiper.realIndex !== realIndex) {
-					imageSwiper.slideToLoop(realIndex);
+				if (!isManualNavigation) {
+					const realIndex = textSwiper.realIndex;
+					if (imageSwiper.realIndex !== realIndex) {
+						imageSwiper.slideToLoop(realIndex, 0); // 0 speed for instant sync
+					}
 				}
 			});
 
 			imageSwiper.on("slideChange", function () {
-				const realIndex = imageSwiper.realIndex;
-				if (textSwiper.realIndex !== realIndex) {
-					textSwiper.slideToLoop(realIndex);
+				if (!isManualNavigation) {
+					const realIndex = imageSwiper.realIndex;
+					if (textSwiper.realIndex !== realIndex) {
+						textSwiper.slideToLoop(realIndex, 0); // 0 speed for instant sync
+					}
 				}
 			});
 
-			// Add manual navigation button handlers
+			// Add manual navigation button handlers - move both simultaneously
 			if (prevButton && nextButton) {
-				prevButton.addEventListener("click", function () {
+				prevButton.addEventListener("click", function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+					isManualNavigation = true;
 					textSwiper.slidePrev();
 					imageSwiper.slidePrev();
+					setTimeout(() => {
+						isManualNavigation = false;
+					}, 50);
 				});
 
-				nextButton.addEventListener("click", function () {
+				nextButton.addEventListener("click", function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+					isManualNavigation = true;
 					textSwiper.slideNext();
 					imageSwiper.slideNext();
+					setTimeout(() => {
+						isManualNavigation = false;
+					}, 50);
 				});
 			}
 

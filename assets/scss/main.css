@@ -9803,13 +9803,6 @@ body.fullscreen-nav-open {
   width: 100%;
   position: relative;
 }
-.dual-slider-container .dual-slider-text-swiper {
-  width: 100%;
-  height: auto;
-}
-.dual-slider-container .dual-slider-text-content {
-  width: 100%;
-}
 .dual-slider-container .dual-slider-heading {
   font-family: "Neue Regrade", sans-serif;
   font-weight: 600;
@@ -9817,7 +9810,21 @@ body.fullscreen-nav-open {
   font-size: 60px;
   color: #C5B17F;
   line-height: 1.2;
-  margin: 0 0 20px 0;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.dual-slider-container .dual-slider-text-swiper {
+  width: 100%;
+  height: auto;
+  padding-top: 180px;
+}
+.dual-slider-container .dual-slider-text-content {
+  width: 100%;
 }
 .dual-slider-container .dual-slider-subheading {
   font-family: "Neue Regrade", sans-serif;

@@ -5,25 +5,26 @@
  * @package addarah
  * 
  * Usage:
+ * $dual_slider_heading = 'Our Values'; // Separate heading (not in array)
  * $dual_slider_items = array(
  *     array(
- *         'heading' => 'Our Values',
  *         'subheading' => 'Heritage & Identity',
  *         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
  *         'image' => get_template_directory_uri() . '/assets/images/dual_01.png',
  *     ),
  *     array(
- *         'heading' => 'Our Values',
  *         'subheading' => 'Excellence in Service',
  *         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
  *         'image' => get_template_directory_uri() . '/assets/images/dual_02.png',
  *     ),
  * );
+ * set_query_var('dual_slider_heading', $dual_slider_heading);
  * set_query_var('dual_slider_items', $dual_slider_items);
  * get_template_part('template-parts/DualSlider');
  */
 
-// Get slider items from query var with default
+// Get slider items and heading from query var with default
+$dual_slider_heading = get_query_var('dual_slider_heading', '');
 $dual_slider_items = get_query_var('dual_slider_items', array());
 ?>
 
@@ -32,14 +33,14 @@ $dual_slider_items = get_query_var('dual_slider_items', array());
 		<div class="dual-slider-wrapper">
 			<!-- Text Slider (Left) -->
 			<div class="dual-slider-text-wrapper">
+				<?php if (!empty($dual_slider_heading)): ?>
+					<h2 class="dual-slider-heading"><?php echo esc_html($dual_slider_heading); ?></h2>
+				<?php endif; ?>
 				<div class="swiper dual-slider-text-swiper" data-dual-text-swiper>
 					<div class="swiper-wrapper">
 						<?php foreach ($dual_slider_items as $item): ?>
 							<div class="swiper-slide">
 								<div class="dual-slider-text-content">
-									<?php if (!empty($item['heading'])): ?>
-										<h2 class="dual-slider-heading"><?php echo esc_html($item['heading']); ?></h2>
-									<?php endif; ?>
 									<?php if (!empty($item['subheading'])): ?>
 										<h3 class="dual-slider-subheading"><?php echo esc_html($item['subheading']); ?></h3>
 									<?php endif; ?>
