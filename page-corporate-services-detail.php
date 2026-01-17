@@ -66,6 +66,47 @@ get_header();
         include locate_template('template-parts/FullVideoSection.php');
         ?>
 
+        <?php
+        // Container Slider Section (Related Services)
+        $container_slider_heading = 'Our Related Services';
+        $container_slider_paragraph = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut tempus libero. Donec ornare ';
+        $container_slider_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cor_rel_01.png',
+                'heading' => 'Conferences & Exhibitions',
+                'paragraph' => 'Grand halls with advanced AV and staging for large-scale events.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cor_rel_02.png',
+                'heading' => 'Meeting Rooms & Workshops',
+                'paragraph' => 'Flexible spaces ideal for team sessions and training programs.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/cor_rel_03.png',
+                'heading' => 'Government Events (B2G)',
+                'paragraph' => 'Secure, premium venues tailored for high-level delegations.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/ContainerSlider.php');
+        ?>
+
+        <?php
+        // Contact Us Section
+        set_query_var('contact_title', 'Your Event, Our Venue — Excellence Awaits');
+        set_query_var('contact_description', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+        set_query_var('contact_button_text', 'Contact Us');
+        set_query_var('contact_button_link', '#');
+        set_query_var('contact_bg_image', get_template_directory_uri() . '/assets/images/contact-bg.jpg');
+        get_template_part('template-parts/ContactUs');
+        ?>
+
     </div>
 </main><!-- #main -->
 
@@ -85,6 +126,20 @@ get_footer();
         };
         script.onerror = function () {
             console.error("Failed to load FullVideoSection.js from:", script.src);
+        };
+        document.head.appendChild(script);
+    })();
+
+    // Also load ContainerSlider.js directly
+    (function () {
+        console.log("Loading ContainerSlider.js directly from template...");
+        var script = document.createElement('script');
+        script.src = '<?php echo get_template_directory_uri(); ?>/assets/js/ContainerSlider.js?v=<?php echo _S_VERSION; ?>';
+        script.onload = function () {
+            console.log("ContainerSlider.js loaded successfully!");
+        };
+        script.onerror = function () {
+            console.error("Failed to load ContainerSlider.js from:", script.src);
         };
         document.head.appendChild(script);
     })();
