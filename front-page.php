@@ -26,6 +26,27 @@ get_header();
 		get_template_part('template-parts/Partners');
 
 		// Services Stack Section
+		$services_stack_services = array(
+			array(
+				'title' => 'Corporate Events',
+				'description' => 'From global conferences to high-level government meetings, our venue offers the perfect setting for impactful events.',
+				'image' => get_template_directory_uri() . '/assets/images/stack_img_01.png',
+				'link' => home_url('/corporate-services'),
+			),
+			array(
+				'title' => 'Weddings & Social Celebrations',
+				'description' => 'A royal backdrop for your big day, blending tradition with elegance.',
+				'image' => get_template_directory_uri() . '/assets/images/stack_img_02.png',
+				'link' => home_url('/weddings-social-services'),
+			),
+			array(
+				'title' => 'Catering',
+				'description' => 'Exquisite on-site and off-site catering tailored to your event.',
+				'image' => get_template_directory_uri() . '/assets/images/stack_img_03.png',
+				'link' => home_url('/catering-services'),
+			),
+		);
+		set_query_var('services_stack_services', $services_stack_services);
 		get_template_part('template-parts/ServicesStack');
 
 		// Testimonials Section

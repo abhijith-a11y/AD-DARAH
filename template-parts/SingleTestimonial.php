@@ -20,11 +20,25 @@
 // Get variables with defaults
 $single_testimonial_title = isset($single_testimonial_title) ? $single_testimonial_title : 'Featured Clients';
 $single_testimonial_items = isset($single_testimonial_items) && is_array($single_testimonial_items) ? $single_testimonial_items : array();
+$single_testimonial_decor_image = isset($single_testimonial_decor_image) ? $single_testimonial_decor_image : get_template_directory_uri() . '/assets/images/single_testimonial_decor.png';
+
+// Duplicate slides if less than 5
+if (count($single_testimonial_items) > 0 && count($single_testimonial_items) < 5) {
+	$duplicated_items = $single_testimonial_items;
+	
+	// Keep duplicating until we have at least 5 items
+	while (count($duplicated_items) < 5) {
+		$duplicated_items = array_merge($duplicated_items, $single_testimonial_items);
+	}
+	
+	// Use the duplicated items (will have at least 5)
+	$single_testimonial_items = $duplicated_items;
+}
 ?>
 
 <section class="single-testimonial-container pt_100 pb_100">
     <div class="single-testimonial-background-image">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/single_testimonial_decor.png"
+        <img src="<?php echo esc_url($single_testimonial_decor_image); ?>"
             alt="Testimonial Decoration">
     </div>
 

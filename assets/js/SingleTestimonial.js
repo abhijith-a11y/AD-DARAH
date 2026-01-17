@@ -85,10 +85,10 @@
 			const swiperInstance = new Swiper(swiperElement, {
 				slidesPerView: 1,
 				spaceBetween: 20,
-				loop: true,
 				speed: 600,
 				direction: "horizontal",
-				centeredSlides: false,
+				centeredSlides: true,
+				initialSlide: 2,
 				// autoplay: {
 				// 	delay: 5000,
 				// 	disableOnInteraction: false,
@@ -107,7 +107,7 @@
 						spaceBetween: 20,
 					},
 					1200: {
-						slidesPerView: 2.5,
+						slidesPerView: 3.3,
 						spaceBetween: 20,
 					},
 				},

@@ -42,28 +42,28 @@ get_header();
 			),
 			array(
 				'image' => get_template_directory_uri() . '/assets/images/venue_2.jpg',
-				'capacity_label' => 'Capacity',
+				'capacity_label' => 'Total Capacity',
 				'capacity_value' => '1,500 Guests',
 				'button_text' => 'View Details',
 				'button_url' => '#'
 			),
 			array(
 				'image' => get_template_directory_uri() . '/assets/images/venue_3.jpg',
-				'capacity_label' => 'Capacity',
+				'capacity_label' => 'Total Capacity',
 				'capacity_value' => '500 Guests',
 				'button_text' => 'Learn More',
 				'button_url' => '#'
 			),
 			array(
 				'image' => get_template_directory_uri() . '/assets/images/venue_4.jpg',
-				'capacity_label' => 'Capacity',
+				'capacity_label' => 'Total Capacity',
 				'capacity_value' => '800 Guests',
 				'button_text' => 'Explore',
 				'button_url' => '#'
 			),
 			array(
 				'image' => get_template_directory_uri() . '/assets/images/venue_5.jpg',
-				'capacity_label' => 'Capacity',
+				'capacity_label' => 'Total Capacity',
 				'capacity_value' => '2,000 Guests',
 				'button_text' => 'View Floor Plan',
 				'button_url' => '#'

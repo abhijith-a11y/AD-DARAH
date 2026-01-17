@@ -5,46 +5,34 @@
  * @package addarah
  * 
  * Usage:
+ * $services_stack_services = array(
+ *     array(
+ *         'title' => 'Corporate Events',
+ *         'description' => 'Description...',
+ *         'image' => get_template_directory_uri() . '/assets/images/stack_img_01.png',
+ *         'link' => home_url('/corporate-services'),
+ *     ),
+ * );
+ * set_query_var('services_stack_services', $services_stack_services);
  * get_template_part('template-parts/ServicesStack');
  */
 
-// Service cards data
-$services = array(
-	array(
-		'title' => 'Corporate Events',
-		'description' => 'From global conferences to high-level government meetings, our venue offers the perfect setting for impactful events.',
-		'image' => get_template_directory_uri() . '/assets/images/stack_img_01.png',
-		'link' => home_url('/corporate-services'),
-	),
-	array(
-		'title' => 'Weddings & Social Celebrations',
-		'description' => 'A royal backdrop for your big day, blending tradition with elegance.',
-		'image' => get_template_directory_uri() . '/assets/images/stack_img_02.png',
-		'link' => home_url('/weddings-social-services'),
-	),
-	array(
-		'title' => 'Catering',
-		'description' => 'Exquisite on-site and off-site catering tailored to your event.',
-		'image' => get_template_directory_uri() . '/assets/images/stack_img_03.png',
-		'link' => home_url('/catering-services'),
-	),
-);
+// Get services data from query var with default
+$services = get_query_var('services_stack_services', array());
 ?>
 
 <section class="services-stack-container" data-services-stack>
 	<div class="services-stack-cards">
 		<?php foreach ($services as $index => $service): ?>
 			<div class="services-stack-card" data-services-card="<?php echo esc_attr($index); ?>">
-				<a href="<?php echo esc_url($service['link']); ?>" class="services-stack-card-link"
-					aria-label="View <?php echo esc_attr($service['title']); ?>">
-					<div class="services-stack-card-bg"
-						style="background-image: url('<?php echo esc_url($service['image']); ?>');"></div>
-					<div class="services-stack-card-content">
-						<span class="services-stack-card-tag">OUR SERVICES</span>
-						<h2 class="services-stack-card-title"><?php echo esc_html($service['title']); ?></h2>
-						<p class="services-stack-card-description"><?php echo esc_html($service['description']); ?></p>
-					</div>
-				</a>
+				aria-label="View <?php echo esc_attr($service['title']); ?>">
+				<div class="services-stack-card-bg"
+					style="background-image: url('<?php echo esc_url($service['image']); ?>');"></div>
+				<div class="services-stack-card-content ">
+					<span class="services-stack-card-tag">OUR SERVICES</span>
+					<h2 class="services-stack-card-title"><?php echo esc_html($service['title']); ?></h2>
+					<p class="services-stack-card-description"><?php echo esc_html($service['description']); ?></p>
+				</div>
 				<a href="<?php echo esc_url($service['link']); ?>" class="services-stack-arrow-link"
 					aria-label="View <?php echo esc_attr($service['title']); ?>">
 					<svg width="37" height="22" viewBox="0 0 37 22" fill="none" xmlns="http://www.w3.org/2000/svg">

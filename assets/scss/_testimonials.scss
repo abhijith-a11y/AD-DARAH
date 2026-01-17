@@ -114,7 +114,7 @@
 
 			.testimonial-card {
 				background: #ffffff;
-				border-radius: 20px;
+				border-radius: 10px;
 				padding: 30px;
 				height: 100%;
 				display: flex;
@@ -263,7 +263,7 @@
 
 					.testimonial-card {
 						background: #ffffff;
-						border-radius: 20px;
+						border-radius: 10px;
 						padding: 30px;
 						height: 100%;
 						display: flex;
@@ -323,6 +323,35 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+// Contact Page Specific Override
+.contact-page-testimonial-wrapper {
+	.single-testimonial-container {
+		background-color: #C5B17F;
+	}
+
+	.single-testimonial-title {
+		color: #fff !important;
+	}
+
+	.single-testimonial-overlay {
+		&-left {
+			background: linear-gradient(
+				270deg,
+				rgba(197, 177, 127, 0) 0%,
+				#C5B17F 81.3%
+			);
+		}
+
+		&-right {
+			background: linear-gradient(
+				90deg,
+				rgba(197, 177, 127, 0) 0%,
+				#C5B17F 81.3%
+			);
 		}
 	}
 }

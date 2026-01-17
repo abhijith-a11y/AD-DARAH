@@ -4943,9 +4943,10 @@ body.fullscreen-nav-open {
   position: relative;
   z-index: 2;
   padding: 40px 60px;
+  padding-left: max(60px, (100vw - 1400px) / 2 - 30px);
   color: #fff;
   margin-bottom: auto;
-  margin-top: 200px;
+  margin-top: 150px;
 }
 .services-stack-container .services-stack-card .services-stack-card-tag {
   font-family: "Neue Regrade", sans-serif;
@@ -5271,7 +5272,7 @@ body.fullscreen-nav-open {
 }
 .testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 30px;
   height: 100%;
   display: flex;
@@ -5403,7 +5404,7 @@ body.fullscreen-nav-open {
 }
 .single-testimonial-container .single-testimonial-content .single-testimonial-swiper-container .single-testimonial-swiper .swiper-slide .testimonial-card {
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 30px;
   height: 100%;
   display: flex;
@@ -5459,6 +5460,19 @@ body.fullscreen-nav-open {
   width: 22px;
   height: 21px;
   flex-shrink: 0;
+}
+
+.contact-page-testimonial-wrapper .single-testimonial-container {
+  background-color: #C5B17F;
+}
+.contact-page-testimonial-wrapper .single-testimonial-title {
+  color: #fff !important;
+}
+.contact-page-testimonial-wrapper .single-testimonial-overlay-left {
+  background: linear-gradient(270deg, rgba(197, 177, 127, 0) 0%, #C5B17F 81.3%);
+}
+.contact-page-testimonial-wrapper .single-testimonial-overlay-right {
+  background: linear-gradient(90deg, rgba(197, 177, 127, 0) 0%, #C5B17F 81.3%);
 }
 
 .news-articles-container {
