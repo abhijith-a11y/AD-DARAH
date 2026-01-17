@@ -4288,7 +4288,6 @@ body.banner-animating {
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  max-height: 900px;
 }
 .main-banner-container .main-banner-overlay {
   position: absolute;
@@ -5344,15 +5343,55 @@ body.banner-animating {
   position: relative;
   width: 100%;
   padding: 0 250px;
+  overflow: hidden;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper {
-  width: 100%;
-  overflow: visible;
+.testimonials-container .testimonials-swiper-wrapper .testimonials-track {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 20px;
+  z-index: 10;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .swiper-slide {
+.testimonials-container .testimonials-swiper-wrapper .testimonials-track.testimonials-track-top {
+  animation: scrollLeft 30s linear infinite;
+}
+.testimonials-container .testimonials-swiper-wrapper .testimonials-track.testimonials-track-bottom {
+  animation: scrollRight 30s linear infinite;
+}
+.testimonials-container .testimonials-swiper-wrapper:hover .testimonials-track {
+  animation-play-state: paused;
+}
+.testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+  flex-shrink: 0;
+  width: 587px;
   height: auto;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card {
+@media only screen and (max-width: 1200px) {
+  .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .testimonials-container .testimonials-swiper-wrapper .testimonial-slide {
+    width: 300px;
+  }
+}
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card {
   background: #ffffff;
   border-radius: 10px;
   padding: 30px;
@@ -5362,7 +5401,7 @@ body.banner-animating {
   min-height: 290px;
   justify-content: space-between;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-review {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-review {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 18.06px;
@@ -5373,12 +5412,12 @@ body.banner-animating {
   margin-top: 0;
   flex-grow: 1;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-image {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author .testimonial-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -5386,13 +5425,13 @@ body.banner-animating {
      object-fit: cover;
   flex-shrink: 0;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author .testimonial-info {
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-name {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author .testimonial-info .testimonial-name {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 18.06px;
@@ -5402,14 +5441,30 @@ body.banner-animating {
   color: #1d1d1b;
   margin-bottom: 8px;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating {
   display: flex;
   gap: 4px;
 }
-.testimonials-container .testimonials-swiper-wrapper .testimonials-swiper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating .star {
+.testimonials-container .testimonials-swiper-wrapper .testimonial-card .testimonial-author .testimonial-info .testimonial-rating .star {
   width: 22px;
   height: 21px;
   flex-shrink: 0;
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .single-testimonial-container {

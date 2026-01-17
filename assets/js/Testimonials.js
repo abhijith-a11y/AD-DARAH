@@ -22,13 +22,17 @@
 			const topSwiper = new Swiper(topSwiperElement, {
 				slidesPerView: 2.5,
 				spaceBetween: 20,
-				loop: true,
-				speed: 600,
+				loop: false,
+				speed: 5000,
 				direction: "horizontal",
-				centeredSlides: true,
+				centeredSlides: false,
+				freeMode: false,
+				effect: 'slide',
+				allowTouchMove: false,
 				autoplay: {
-					delay: 5000,
+					delay: 1,
 					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
 					reverseDirection: true,
 				},
 				breakpoints: {
@@ -49,6 +53,12 @@
 						spaceBetween: 20,
 					},
 				},
+				on: {
+					reachEnd: function() {
+						// When reaching end, jump back to start without animation for seamless loop
+						this.slideTo(0, 0, false);
+					}
+				}
 			});
 			topSwiperElement._swiperInstance = topSwiper;
 		}
@@ -59,13 +69,17 @@
 			const bottomSwiper = new Swiper(bottomSwiperElement, {
 				slidesPerView: 2.5,
 				spaceBetween: 20,
-				loop: true,
-				speed: 600,
+				loop: false,
+				speed: 5000,
 				direction: "horizontal",
-				centeredSlides: true,
+				centeredSlides: false,
+				freeMode: false,
+				effect: 'slide',
+				allowTouchMove: false,
 				autoplay: {
-					delay: 5000,
+					delay: 1,
 					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
 					reverseDirection: false,
 				},
 				breakpoints: {
@@ -86,6 +100,12 @@
 						spaceBetween: 20,
 					},
 				},
+				on: {
+					reachEnd: function() {
+						// When reaching end, jump back to start without animation for seamless loop
+						this.slideTo(0, 0, false);
+					}
+				}
 			});
 			bottomSwiperElement._swiperInstance = bottomSwiper;
 		}
