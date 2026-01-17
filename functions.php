@@ -328,6 +328,16 @@ function addarah_scripts()
 
 	if ($is_about_page) {
 
+		// Enqueue GSAP library (CDN) if not already loaded
+		if (!wp_script_is('gsap', 'enqueued')) {
+			wp_enqueue_script('gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', false);
+		}
+
+		// Enqueue GSAP ScrollTrigger plugin (CDN) if not already loaded
+		if (!wp_script_is('gsap-scrolltrigger', 'enqueued')) {
+			wp_enqueue_script('gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array('gsap'), '3.12.5', false);
+		}
+
 		// Enqueue Swiper CSS if not already loaded
 
 		if (!wp_style_is('swiper-css', 'enqueued')) {
@@ -348,6 +358,9 @@ function addarah_scripts()
 
 		wp_enqueue_script('venue-at-a-glance-script', get_template_directory_uri() . '/assets/js/VenueAtAGlance.js', array('swiper-js'), _S_VERSION, true);
 		wp_enqueue_script('timeline-slider-script', get_template_directory_uri() . '/assets/js/TimelineSlider.js', array('swiper-js'), _S_VERSION, true);
+
+		// Enqueue ServicesStack script (depends on GSAP and ScrollTrigger)
+		wp_enqueue_script('services-stack-script', get_template_directory_uri() . '/assets/js/ServicesStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
 
 	}
 

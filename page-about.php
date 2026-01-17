@@ -27,7 +27,7 @@ get_header();
 			'AD-DARAH is Riyadh\'s premier destination for iconic events, built on a strong Saudi heritage while embracing modern innovation. From corporate summits to royal weddings, our venue represents elegance, excellence, and cultural pride.',
 			'AD-DARAH is a world-class events venue located in the heart of Riyadh, designed to host corporate, cultural, and social gatherings of all scales. Combining architectural excellence with modern amenities, we provide an unmatched setting for experiences that leave a lasting impression.'
 		);
-		
+
 		include locate_template('template-parts/ImageTextSection.php'); ?>
 		<?php
 		// Venue At A Glance Section
@@ -112,7 +112,20 @@ get_header();
 		include locate_template('template-parts/TimelineSlider.php'); ?>
 		<?php
 		// Vision Mission Stack Section
-		get_template_part('template-parts/VisionMissionStack');
+		$services_stack_services = array(
+			array(
+				'title' => 'Our Vision',
+				'description' => 'To be the Kingdom\'s leading venue for prestigious events, setting new benchmarks in hospitality and excellence.',
+				'image' => get_template_directory_uri() . '/assets/images/vision.jpg',
+			),
+			array(
+				'title' => 'Our Mission',
+				'description' => 'To deliver exceptional experiences that honor Saudi heritage while embracing innovation, creating unforgettable moments for every event we host.',
+				'image' => get_template_directory_uri() . '/assets/images/mision.jpg',
+			),
+		);
+		set_query_var('services_stack_services', $services_stack_services);
+		get_template_part('template-parts/ServicesStack');
 		?>
 		<?php
 		// Contact Us Section
