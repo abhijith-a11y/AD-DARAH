@@ -8904,6 +8904,149 @@ body.fullscreen-nav-open {
   }
 }
 
+.related-services-section {
+  width: 100%;
+  background-color: rgba(197, 177, 127, 0.19);
+}
+.related-services-section .container {
+  position: relative;
+}
+.related-services-section .related-services-heading {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 60px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #c5b17f;
+  margin: 0 0 20px 0;
+}
+.related-services-section .related-services-description {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #282828;
+  margin: 0 auto 60px auto;
+  max-width: 800px;
+  text-align: center;
+}
+.related-services-section .related-services-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.related-services-section .related-services-card {
+  position: relative;
+  width: 100%;
+  height: 523px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #000;
+}
+.related-services-section .related-services-card .related-services-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.related-services-section .related-services-card .related-services-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.related-services-section .related-services-card .related-services-card-image .related-services-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(215.74deg, rgba(0, 0, 0, 0) 20.92%, rgba(0, 0, 0, 0.86) 73.06%);
+  z-index: 2;
+  pointer-events: none;
+}
+.related-services-section .related-services-card .related-services-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 30px;
+  z-index: 3;
+  max-width: 845px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.related-services-section .related-services-card .related-services-card-content .related-services-card-title {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #fff;
+  margin: 0 0 15px 0;
+}
+.related-services-section .related-services-card .related-services-card-content .related-services-card-description {
+  font-family: "Neue Regrade", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0 0 20px 0;
+}
+.related-services-section .related-services-card .related-services-card-content .related-services-card-button {
+  margin-top: 10px;
+}
+@media only screen and (max-width: 1024px) {
+  .related-services-section .related-services-heading {
+    font-size: 50px;
+  }
+  .related-services-section .related-services-description {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+  .related-services-section .related-services-card {
+    height: 450px;
+  }
+  .related-services-section .related-services-card .related-services-card-content {
+    padding: 35px 25px;
+  }
+  .related-services-section .related-services-card .related-services-card-content .related-services-card-title {
+    font-size: 24px;
+  }
+  .related-services-section .related-services-card .related-services-card-content .related-services-card-description {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .related-services-section .related-services-heading {
+    font-size: 40px;
+  }
+  .related-services-section .related-services-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .related-services-section .related-services-card {
+    height: 400px;
+  }
+  .related-services-section .related-services-card .related-services-card-content {
+    padding: 30px 20px;
+  }
+  .related-services-section .related-services-card .related-services-card-content .related-services-card-title {
+    font-size: 22px;
+  }
+  .related-services-section .related-services-card .related-services-card-content .related-services-card-description {
+    font-size: 14px;
+  }
+}
+
 .related-news-section {
   width: 100%;
   padding: 80px 0;

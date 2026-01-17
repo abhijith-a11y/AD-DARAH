@@ -65,7 +65,7 @@ get_header();
         
         include locate_template('template-parts/FullVideoSection.php');
         ?>
-        
+
 
         <?php
         // Facilities Section
@@ -98,7 +98,22 @@ get_header();
         include locate_template('template-parts/FacilitiesSection.php');
         ?>
 
-       
+        <?php
+        // Related Services Section
+        $related_services_heading = 'Our Related Services';
+        $related_services_description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut tempus libero. Donec ornare mauris ac dictum sodales. Aenean eu consequat tortor.';
+        $related_services_items = array(
+            array(
+                'image' => get_template_directory_uri() . '/assets/images/related_01.png',
+                'title' => 'Male Packages',
+                'description' => 'Host your celebration in a grand setting that reflects Saudi tradition and modern sophistication. Our male halls offer spacious layouts, premium service, and refined details that ensure every moment feels exceptional.',
+                'button_text' => 'Explore More',
+                'button_link' => '#'
+            ),
+        );
+
+        include locate_template('template-parts/RelatedServicesSection.php');
+        ?>
 
     </div>
 </main><!-- #main -->
