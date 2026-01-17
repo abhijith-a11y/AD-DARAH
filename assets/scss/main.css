@@ -4244,6 +4244,16 @@ body.fullscreen-nav-open {
   }
 }
 
+html.banner-animating,
+body.banner-animating {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: none !important;
+}
+
 .main-banner-container {
   position: relative;
   width: 100%;

@@ -169,6 +169,40 @@
 		const subtitleElement = document.querySelector(".main-banner-subtitle");
 		const formElement = document.querySelector(".main-banner-form");
 
+		// Disable body scroll at start of animation using CSS class
+		const body = document.body;
+		const html = document.documentElement;
+		
+		// Store current scroll position
+		const scrollY = window.scrollY;
+		
+		// Prevent scroll events function
+		const preventScroll = function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			return false;
+		};
+		
+		// Prevent keyboard scrolling function
+		const preventKeyboardScroll = function(e) {
+			// Prevent arrow keys and spacebar from scrolling
+			if ([32, 33, 34, 35, 36, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+				e.preventDefault();
+				return false;
+			}
+		};
+		
+		// Apply classes and styles
+		html.classList.add("banner-animating");
+		body.classList.add("banner-animating");
+		body.style.top = `-${scrollY}px`;
+		
+		// Add event listeners to prevent scrolling
+		window.addEventListener("scroll", preventScroll, { passive: false });
+		window.addEventListener("wheel", preventScroll, { passive: false });
+		window.addEventListener("touchmove", preventScroll, { passive: false });
+		window.addEventListener("keydown", preventKeyboardScroll, { passive: false });
+
 		// Set initial state - mask and image at 100% (normal size) with full opacity
 		// Force 3D to enable hardware acceleration and prevent blur
 		gsap.set(bannerMaskRef, {
@@ -215,6 +249,20 @@
 		const tl = gsap.timeline({
 			delay: 0.5, // Small delay before animation starts
 			onComplete: function () {
+				// Remove event listeners first
+				window.removeEventListener("scroll", preventScroll);
+				window.removeEventListener("wheel", preventScroll);
+				window.removeEventListener("touchmove", preventScroll);
+				window.removeEventListener("keydown", preventKeyboardScroll);
+				
+				// Re-enable body scroll after animation completes
+				html.classList.remove("banner-animating");
+				body.classList.remove("banner-animating");
+				
+				// Restore scroll position
+				body.style.top = "";
+				window.scrollTo(0, scrollY);
+				
 				// Animation complete
 				console.log("MainBanner: All animations completed");
 			},
@@ -222,6 +270,7 @@
 
 		// Animate scale from 1 (100%) to 8 (800%) for both mask and image (covering the image)
 		// force3D: true ensures hardware acceleration and crisp rendering during animation
+		// Duration: 2 seconds
 		tl.to([bannerMaskRef, bannerMaskImgRef], {
 			scale: 8,
 			duration: 2,
@@ -229,19 +278,19 @@
 			force3D: true, // Force hardware acceleration to prevent blur
 		});
 
-		// Add opacity animation that starts after scale begins and ends at 50% of scale duration (1 second)
-		// Position at 0.2 seconds (10% of 2 seconds) so it starts after scale begins
-		// Duration of 0.8 seconds so it ends at 1 second (50% of 2 seconds total)
+		// Add opacity animation that starts AFTER 50% of scale duration (after 1 second)
+		// Scale duration is 2 seconds, so 50% = 1 second
+		// Start opacity fade at 1 second and fade over the remaining 1 second
 		tl.to(
 			[bannerMaskRef, bannerMaskImgRef],
 			{
 				opacity: 0,
-				duration: 0.8,
+				duration: 1, // Fade over 1 second (the remaining half of the scale animation)
 				ease: "power2.in", // Fade out easing
 				force3D: true,
 			},
-			"-=1"
-		); // Start 1.8 seconds before the scale animation ends (0.2 seconds after scale starts)
+			1 // Start at 1 second (50% of the 2 second scale duration)
+		);
 
 		// Animate title from left to right (starts immediately after mask animation completes)
 		if (titleElement) {
