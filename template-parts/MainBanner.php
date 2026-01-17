@@ -29,7 +29,7 @@ $main_banner_bg_image = get_query_var('main_banner_bg_image', get_theme_mod('mai
 	<div class="main-banner-content container">
 		<div class="main-banner-text-wrapper">
 			<div class="main-banner-title-wrapper">
-				<h1 class="main-banner-title">
+				<h1 class="main-banner-title" style="opacity: 0; visibility: hidden;">
 					<?php echo esc_html($main_banner_title); ?>
 				</h1>
 			</div>

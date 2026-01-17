@@ -221,9 +221,12 @@
 
 		// Set initial states for text elements (hidden)
 		if (titleElement) {
+			// Set immediately to prevent flash of content
+			titleElement.style.visibility = 'hidden';
 			gsap.set(titleElement, {
 				x: -100,
 				opacity: 0,
+				visibility: 'hidden',
 				force3D: true,
 			});
 		}
@@ -299,6 +302,7 @@
 				{
 					x: 0,
 					opacity: 1,
+					visibility: 'visible',
 					duration: 0.8,
 					ease: "power2.out",
 					force3D: true,

@@ -64,9 +64,12 @@ $use_post_content = empty($where_ever_title) && empty($where_ever_content);
         </svg>
       </button>
       <video class="where-ever-video" controls muted loop preload="metadata" style="display: none;">
-        <!-- External test video -->
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        <!-- External test video - professional sample -->
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
           type="video/mp4">
+        <!-- Alternative professional sample videos -->
+        <!-- <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4"> -->
+        <!-- <source src="https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4"> -->
         <!-- Original video (commented for testing) -->
         <!-- <source src="<?php echo esc_url(get_template_directory_uri() . '/assets/videos/intro_video.mp4'); ?>" type="video/mp4"> -->
         Your browser does not support the video tag.

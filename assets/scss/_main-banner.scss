@@ -130,6 +130,14 @@ body.banner-animating {
 		margin: 0;
 		font-weight: 700;
 		text-transform: uppercase;
+		opacity: 0; // Hidden initially, will be visible when animation starts
+		visibility: hidden; // Ensure it's completely hidden initially
+		
+		// Show when animation starts (when GSAP adds opacity)
+		&.gsap-animating,
+		&[style*="opacity"] {
+			visibility: visible;
+		}
 	}
 
 	.main-banner-subtitle-wrapper {
