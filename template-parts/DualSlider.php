@@ -51,6 +51,7 @@ $dual_slider_items = get_query_var('dual_slider_items', array());
 						<?php endforeach; ?>
 					</div>
 				</div>
+				<!-- Navigation Controls -->
 			</div>
 
 			<!-- Image Slider (Right) -->
@@ -61,7 +62,7 @@ $dual_slider_items = get_query_var('dual_slider_items', array());
 							<div class="swiper-slide">
 								<?php if (!empty($item['image'])): ?>
 									<div class="dual-slider-image">
-										<img src="<?php echo esc_url($item['image']); ?>" 
+										<img src="<?php echo esc_url($item['image']); ?>"
 											alt="<?php echo esc_attr($item['subheading'] ?? 'Slider image'); ?>">
 									</div>
 								<?php endif; ?>
@@ -70,23 +71,24 @@ $dual_slider_items = get_query_var('dual_slider_items', array());
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- Navigation Controls -->
-		<div class="dual-slider-navigation">
-			<button class="dual-slider-prev" aria-label="Previous slide">
-				<svg width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8.03516 15.623L0.346245 7.93414L8.03516 0.245224" stroke="#282828" stroke-width="0.692012" stroke-linejoin="round"/>
-					<path d="M26.541 8.07227L0.244546 8.07227" stroke="#282828" stroke-width="0.692012"/>
-				</svg>
-			</button>
-			<button class="dual-slider-next" aria-label="Next slide">
-				<svg width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8.03516 15.623L0.346245 7.93414L8.03516 0.245224" stroke="#282828" stroke-width="0.692012" stroke-linejoin="round"/>
-					<path d="M26.541 8.07227L0.244546 8.07227" stroke="#282828" stroke-width="0.692012"/>
-				</svg>
-			</button>
+
+			<div class="dual-slider-navigation">
+				<div class="dual-slider-prev" aria-label="Previous slide">
+					<svg width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8.03516 15.623L0.346245 7.93414L8.03516 0.245224" stroke="#282828"
+							stroke-width="0.692012" stroke-linejoin="round" />
+						<path d="M26.541 8.07227L0.244546 8.07227" stroke="#282828" stroke-width="0.692012" />
+					</svg>
+				</div>
+				<div class="dual-slider-next" aria-label="Next slide">
+					<svg width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8.03516 15.623L0.346245 7.93414L8.03516 0.245224" stroke="#282828"
+							stroke-width="0.692012" stroke-linejoin="round" />
+						<path d="M26.541 8.07227L0.244546 8.07227" stroke="#282828" stroke-width="0.692012" />
+					</svg>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
-

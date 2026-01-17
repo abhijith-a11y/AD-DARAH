@@ -9788,9 +9788,7 @@ body.fullscreen-nav-open {
   position: relative;
 }
 .dual-slider-container .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
+  position: relative;
 }
 .dual-slider-container .dual-slider-wrapper {
   display: flex;
@@ -9803,6 +9801,7 @@ body.fullscreen-nav-open {
   flex: 0 0 37.7%;
   max-width: 528px;
   width: 100%;
+  position: relative;
 }
 .dual-slider-container .dual-slider-text-swiper {
   width: 100%;
@@ -9817,8 +9816,8 @@ body.fullscreen-nav-open {
   font-style: normal;
   font-size: 60px;
   color: #C5B17F;
-  margin: 0 0 20px 0;
   line-height: 1.2;
+  margin: 0 0 20px 0;
 }
 .dual-slider-container .dual-slider-subheading {
   font-family: "Neue Regrade", sans-serif;
@@ -9826,8 +9825,8 @@ body.fullscreen-nav-open {
   font-style: normal;
   font-size: 36px;
   color: #282828;
-  margin: 0 0 20px 0;
   line-height: 1.3;
+  margin: 0 0 20px 0;
 }
 .dual-slider-container .dual-slider-description {
   font-family: "Neue Regrade", sans-serif;
@@ -9835,8 +9834,8 @@ body.fullscreen-nav-open {
   font-style: normal;
   font-size: 18px;
   color: #282828;
-  margin: 0;
   line-height: 1.6;
+  margin: 0;
 }
 .dual-slider-container .dual-slider-image-wrapper {
   flex: 0 0 54.9%;
@@ -9860,18 +9859,21 @@ body.fullscreen-nav-open {
   display: block;
 }
 .dual-slider-container .dual-slider-navigation {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  margin-top: 40px;
+  z-index: 10;
 }
 .dual-slider-container .dual-slider-prev,
 .dual-slider-container .dual-slider-next {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 1px solid #282828;
+  border: 0.6px solid #282828;
   background: transparent;
   display: flex;
   align-items: center;
@@ -9897,7 +9899,7 @@ body.fullscreen-nav-open {
   width: 27px;
   height: 16px;
 }
-.dual-slider-container .dual-slider-prev svg {
+.dual-slider-container .dual-slider-next svg {
   transform: rotate(180deg);
 }
 @media only screen and (max-width: 1024px) {

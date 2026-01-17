@@ -6,9 +6,7 @@
 	position: relative;
 
 	.container {
-		max-width: 1400px;
-		margin: 0 auto;
-		padding: 0 20px;
+		position: relative;
 	}
 
 	.dual-slider-wrapper {
@@ -24,6 +22,7 @@
 		flex: 0 0 37.7%;
 		max-width: 528px;
 		width: 100%;
+		position: relative;
 	}
 
 	.dual-slider-text-swiper {
@@ -36,33 +35,18 @@
 	}
 
 	.dual-slider-heading {
-		font-family: "Neue Regrade", sans-serif;
-		font-weight: 600;
-		font-style: normal;
-		font-size: 60px;
-		color: #C5B17F;
+		@include dual-slider-heading;
 		margin: 0 0 20px 0;
-		line-height: 1.2;
 	}
 
 	.dual-slider-subheading {
-		font-family: "Neue Regrade", sans-serif;
-		font-weight: 600;
-		font-style: normal;
-		font-size: 36px;
-		color: #282828;
+		@include dual-slider-subheading;
 		margin: 0 0 20px 0;
-		line-height: 1.3;
 	}
 
 	.dual-slider-description {
-		font-family: "Neue Regrade", sans-serif;
-		font-weight: 500;
-		font-style: normal;
-		font-size: 18px;
-		color: #282828;
+		@include dual-slider-description;
 		margin: 0;
-		line-height: 1.6;
 	}
 
 	// Image Slider (Right) - 54.9% of 1400px = 768px
@@ -91,13 +75,16 @@
 		}
 	}
 
-	// Navigation Controls
+	// Navigation Controls - Positioned at left bottom of text slider
 	.dual-slider-navigation {
+		position: absolute;
+		bottom: 30px;
+		left: 0;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 		gap: 20px;
-		margin-top: 40px;
+		z-index: 10;
 	}
 
 	.dual-slider-prev,
@@ -105,7 +92,7 @@
 		width: 58px;
 		height: 58px;
 		border-radius: 50%;
-		border: 1px solid #282828;
+		border: 0.6px solid #282828;
 		background: transparent;
 		display: flex;
 		align-items: center;
@@ -132,7 +119,7 @@
 		}
 	}
 
-	.dual-slider-prev {
+	.dual-slider-next {
 		svg {
 			transform: rotate(180deg);
 		}

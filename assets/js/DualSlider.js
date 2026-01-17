@@ -40,12 +40,14 @@
 		const prevButton = sectionElement.querySelector(".dual-slider-prev");
 		const nextButton = sectionElement.querySelector(".dual-slider-next");
 
-		// Common Swiper config
+		// Common Swiper config with loop enabled
 		const swiperConfig = {
 			spaceBetween: 0,
 			slidesPerView: 1,
 			speed: 800,
 			allowTouchMove: true,
+			loop: true,
+			loopAdditionalSlides: 1,
 		};
 
 		// Initialize Text Swiper
@@ -63,16 +65,18 @@
 			const textSwiper = new Swiper(textSwiperElement, textSwiperConfig);
 			const imageSwiper = new Swiper(imageSwiperElement, imageSwiperConfig);
 
-			// Synchronize both sliders on slide change
+			// Synchronize both sliders on slide change (using realIndex for loop)
 			textSwiper.on("slideChange", function () {
-				if (imageSwiper.activeIndex !== textSwiper.activeIndex) {
-					imageSwiper.slideTo(textSwiper.activeIndex);
+				const realIndex = textSwiper.realIndex;
+				if (imageSwiper.realIndex !== realIndex) {
+					imageSwiper.slideToLoop(realIndex);
 				}
 			});
 
 			imageSwiper.on("slideChange", function () {
-				if (textSwiper.activeIndex !== imageSwiper.activeIndex) {
-					textSwiper.slideTo(imageSwiper.activeIndex);
+				const realIndex = imageSwiper.realIndex;
+				if (textSwiper.realIndex !== realIndex) {
+					textSwiper.slideToLoop(realIndex);
 				}
 			});
 
