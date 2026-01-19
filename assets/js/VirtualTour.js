@@ -1,16 +1,15 @@
 /**
  * Virtual Tour Component
  * 
- * Handles 360-degree panorama viewer using Marzipano
+ * Handles 360-degree panorama viewer using Marzipano with tiled cube maps
  */
 
 (function() {
     'use strict';
 
     let viewer = null;
-    let scene = null;
-    let view = null;
-    let geometry = null;
+    let scenes = [];
+    let currentSceneIndex = 0;
 
     /**
      * Initialize Virtual Tour
@@ -23,69 +22,117 @@
             return;
         }
 
-        // Wait for Marzipano to be available
-        if (typeof window.marzipano === 'undefined') {
-            // Retry after a short delay
+        // Wait for Marzipano and data to be available
+        if (typeof window.marzipano === 'undefined' || typeof window.VIRTUAL_TOUR_DATA === 'undefined') {
             setTimeout(initVirtualTour, 100);
             return;
         }
 
-        // Get panorama image from data attribute or use default
-        const panoramaImage = viewerContainer.getAttribute('data-panorama-image') || 
-                              'https://raw.githubusercontent.com/google/marzipano/master/demos/equirectangular/equirectangular.jpg';
+        const Marzipano = window.marzipano;
+        const data = window.VIRTUAL_TOUR_DATA;
 
-        // Initialize Marzipano viewer
-        viewer = new marzipano.Viewer(viewerContainer, {
+        // Get template URI from data attribute
+        const templateUri = viewerContainer.getAttribute('data-template-uri') || 
+                           (window.location.origin + '/wp-content/themes/AD-DARAH');
+        
+        // Viewer options
+        const viewerOpts = {
             controls: {
-                mouseViewMode: 'drag'
+                mouseViewMode: data.settings.mouseViewMode || 'drag'
             }
+        };
+
+        // Initialize viewer
+        viewer = new Marzipano.Viewer(viewerContainer, viewerOpts);
+
+        // Create scenes from data
+        scenes = data.scenes.map(function(sceneData) {
+            const urlPrefix = templateUri + "/assets/images/tiles";
+            const source = Marzipano.ImageUrlSource.fromString(
+                urlPrefix + "/" + sceneData.id + "/{z}/{f}/{y}/{x}.jpg",
+                { cubeMapPreviewUrl: urlPrefix + "/" + sceneData.id + "/preview.jpg" }
+            );
+            const geometry = new Marzipano.CubeGeometry(sceneData.levels);
+
+            const limiter = Marzipano.RectilinearView.limit.traditional(
+                sceneData.faceSize, 
+                100 * Math.PI / 180, 
+                120 * Math.PI / 180
+            );
+            const view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
+
+            const scene = viewer.createScene({
+                source: source,
+                geometry: geometry,
+                view: view,
+                pinFirstLevel: true
+            });
+
+            return {
+                data: sceneData,
+                scene: scene,
+                view: view
+            };
         });
 
-        // Create view
-        view = viewer.view();
-        view.setYaw(0);
-        view.setPitch(0);
-        view.setFov(view.fov());
+        // Setup navigation buttons
+        setupNavigation();
 
-        // Create geometry
-        geometry = new marzipano.EquirectangularGeometry([{ width: 4000 }]);
-
-        // Create view limiter
-        const limiter = marzipano.util.compose(
-            marzipano.RectilinearView.limit.vfov(0.6981317007977318, 1.9198621771937625),
-            marzipano.RectilinearView.limit.hfov(0.6981317007977318, 1.9198621771937625),
-            marzipano.RectilinearView.limit.pitch(-0.6981317007977318, 0.6981317007977318)
-        );
-
-        view.setLimiter(limiter);
-
-        // Load panorama
-        loadPanorama(panoramaImage);
+        // Display the initial scene
+        if (scenes.length > 0) {
+            switchScene(scenes[0]);
+        }
     };
 
     /**
-     * Load a panorama
+     * Switch to a scene
      */
-    const loadPanorama = function(imageUrl) {
-        if (!viewer) {
-            return;
-        }
-        
-        // Create source
-        const source = marzipano.ImageUrlSource.fromString(imageUrl);
-
-        // Create scene
-        scene = viewer.createScene({
-            source: source,
-            geometry: geometry,
-            view: view,
-            pinFirstLevel: true
-        });
-
-        // Switch to scene
-        scene.switchTo({
+    const switchScene = function(scene) {
+        scene.view.setParameters(scene.data.initialViewParameters);
+        scene.scene.switchTo({
             transitionDuration: 1000
         });
+        currentSceneIndex = scenes.indexOf(scene);
+    };
+
+    /**
+     * Switch to next panorama
+     */
+    const nextPanorama = function() {
+        if (scenes.length === 0) return;
+        currentSceneIndex = (currentSceneIndex + 1) % scenes.length;
+        switchScene(scenes[currentSceneIndex]);
+    };
+
+    /**
+     * Switch to previous panorama
+     */
+    const prevPanorama = function() {
+        if (scenes.length === 0) return;
+        currentSceneIndex = (currentSceneIndex - 1 + scenes.length) % scenes.length;
+        switchScene(scenes[currentSceneIndex]);
+    };
+
+    /**
+     * Setup navigation buttons
+     */
+    const setupNavigation = function() {
+        const prevBtn = document.getElementById('virtualTourPrev');
+        const nextBtn = document.getElementById('virtualTourNext');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                prevPanorama();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                nextPanorama();
+            });
+        }
     };
 
     /**

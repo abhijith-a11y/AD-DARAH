@@ -21,13 +21,13 @@ get_header();
 
 		// Statistics Section
 		?>
-		<section class="pb_100">
+		<section class="pb_100 bg_white">
 			<?php get_template_part('template-parts/Statistics'); ?>
 		</section>
 		<?php
-		// Partners/Logos Marquee Section
+		// Partners/Logos Marquee Section 
 		?>
-		<section class="pb_100">
+		<section class="pb_100 bg_white">
 			<?php get_template_part('template-parts/Partners'); ?>
 		</section>
 		<?php

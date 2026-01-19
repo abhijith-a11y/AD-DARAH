@@ -225,10 +225,52 @@ function addarah_scripts()
 		// Enqueue Choices.js library (CDN)
 		wp_enqueue_script('choices-js', 'https://cdn.jsdelivr.net/npm/choices.js@10.2.0/public/assets/scripts/choices.min.js', array(), '10.2.0', true);
 
-		// Enqueue Marzipano JS (CDN) - for 360-degree virtual tour
-		wp_enqueue_script('marzipano-js', 'https://cdn.jsdelivr.net/npm/marzipano@0.9.0/dist/marzipano.js', array(), '0.9.0', true);
-
-
+		// Enqueue Virtual Tour (Marzipano) - CSS
+		wp_enqueue_style('virtual-tour-reset', get_template_directory_uri() . '/virtual-tour/vendor/reset.min.css', array(), _S_VERSION);
+		wp_enqueue_style('virtual-tour-style', get_template_directory_uri() . '/virtual-tour/style.css', array('virtual-tour-reset'), _S_VERSION);
+		
+		// Enqueue Virtual Tour Vendor Scripts (screenfull → bowser → marzipano)
+		wp_enqueue_script('screenfull', get_template_directory_uri() . '/virtual-tour/vendor/screenfull.min.js', array(), _S_VERSION, true);
+		wp_enqueue_script('bowser', get_template_directory_uri() . '/virtual-tour/vendor/bowser.min.js', array(), _S_VERSION, true);
+		wp_enqueue_script('marzipano', get_template_directory_uri() . '/virtual-tour/vendor/marzipano.js', array('screenfull', 'bowser'), _S_VERSION, true);
+		
+		// Enqueue Virtual Tour Data (must load before index.js)
+		wp_enqueue_script('virtual-tour-data', get_template_directory_uri() . '/virtual-tour/data.js', array('marzipano'), _S_VERSION, true);
+		
+		// Enqueue Virtual Tour Main Script (depends on marzipano and data.js)
+		wp_enqueue_script('virtual-tour-index', get_template_directory_uri() . '/virtual-tour/index.js', array('virtual-tour-data'), _S_VERSION, true);
+		
+		// Pass base URL to index.js for correct paths
+		$virtual_tour_base = get_template_directory_uri() . '/virtual-tour';
+		wp_add_inline_script('virtual-tour-data', 'window.VIRTUAL_TOUR_BASE = "' . esc_js($virtual_tour_base) . '";', 'after');
+		
+		// Populate scene list from data
+		wp_add_inline_script('virtual-tour-data', '
+			(function() {
+				if (typeof APP_DATA !== "undefined" && APP_DATA.scenes) {
+					var sceneList = document.querySelector("#sceneList .scenes");
+					if (sceneList) {
+						sceneList.innerHTML = "";
+						APP_DATA.scenes.forEach(function(scene) {
+							var link = document.createElement("a");
+							link.href = "javascript:void(0)";
+							link.className = "scene";
+							link.setAttribute("data-id", scene.id);
+							var li = document.createElement("li");
+							li.className = "text";
+							li.textContent = scene.name;
+							link.appendChild(li);
+							sceneList.appendChild(link);
+						});
+						if (APP_DATA.scenes.length === 1) {
+							document.body.classList.add("single-scene");
+						} else {
+							document.body.classList.add("multiple-scenes");
+						}
+					}
+				}
+			})();
+		', 'after');
 
 
 
@@ -247,7 +289,6 @@ function addarah_scripts()
 		wp_enqueue_script('services-stack-script', get_template_directory_uri() . '/assets/js/ServicesStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
 		wp_enqueue_script('vision-mission-stack-script', get_template_directory_uri() . '/assets/js/VisionMissionStack.js', array('gsap', 'gsap-scrolltrigger'), _S_VERSION, true);
 		wp_enqueue_script('testimonials-script', get_template_directory_uri() . '/assets/js/Testimonials.js', array('swiper-js'), _S_VERSION, true);
-		wp_enqueue_script('virtual-tour-script', get_template_directory_uri() . '/assets/js/VirtualTour.js', array('marzipano-js'), _S_VERSION, true);
 	}
 
 
