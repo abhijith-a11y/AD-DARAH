@@ -15,9 +15,9 @@ $panorama_image = 'https://raw.githubusercontent.com/google/marzipano/master/dem
 
 <section class="virtual-tour-container">
     <!-- 360 Image -->
-    <div class="virtual-tour-image-wrapper">
+    <!-- <div class="virtual-tour-image-wrapper">
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/360_image.png'); ?>" alt="360 Virtual Tour" class="virtual-tour-image">
-    </div>
+    </div> -->
 
     <!-- Overlay Content -->
     <div class="virtual-tour-overlay">
